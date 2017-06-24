@@ -1,0 +1,18 @@
+citHeader("To cite the 'LAM' package in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "LAM: Some Latent Variable Models",
+         author = personList(as.person("Alexander Robitzsch")),
+         year = year,
+         note = vers,
+	 url = "https://CRAN.R-project.org/package=LAM" ,
+         textVersion =
+         paste0("Robitzsch, A. (",  year,"). 
+               LAM: Some latent variable models. ",
+               vers, 
+               ". https://CRAN.R-project.org/package=LAM")
+               )
+

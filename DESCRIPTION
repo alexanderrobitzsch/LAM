@@ -1,0 +1,24 @@
+Package: LAM
+Type: Package
+Title: Some Latent Variable Models
+Version: 0.1-3
+Date: 2017-06-24 17:10:28
+Author: Alexander Robitzsch [aut,cre]
+Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
+Description: 
+    Contains some procedures for latent variable modelling with a 
+    particular focus on multilevel data.
+    The LAM package contains mean and covariance structure modelling
+    for multivariate normally distributed data ('mlnormal'),
+    a general Metropolis-Hastings algorithm ('amh') and penalized
+    maximum likelihood estimation ('pmle').
+Depends:
+    R (>= 3.1)
+Imports:
+    CDM, coda, graphics, Rcpp, sirt (>= 2.0), stats, utils
+Suggests:
+    lavaan, lme4, MASS
+LinkingTo: 
+    Rcpp, RcppArmadillo
+URL: https://github.com/alexanderrobitzsch/LAM
+License: GPL (>= 2)

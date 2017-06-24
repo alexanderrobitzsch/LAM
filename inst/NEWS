@@ -1,0 +1,53 @@
+********************************************************
+****       CHANGES IN LAM PACKAGE VERSIONS          ****
+********************************************************
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Some Latent Variable Models (LAM)
+A. Robitzsch
+
+ __         ______     __    __    
+/\ \       /\  __ \   /\ "-./  \   
+\ \ \____  \ \  __ \  \ \ \-./\ \  
+ \ \_____\  \ \_\ \_\  \ \_\ \ \_\ 
+  \/_____/   \/_/\/_/   \/_/  \/_/ 
+                    
+
+mailto:
+-------
+Alexander Robitzsch
+robitzsch@ipn.uni-kiel.de
+
+For reporting a bug, please always provide a reproducible R script 
+and (if necessary) a corresponding dataset.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.1  |  2017-06-24  |  Last: LAM 0.1-3
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.0  |  2017-05-11  |  Last: LAM 0.0-17
+------------------------------------------------------------------------
+
+ADDED * moved 'amh', 'loglike_mvnorm', 'mlnormal' and 'pmle' functions 
+        from sirt package to LAM package
+NOTE  * included value 'acceptance_rates_history' in 'amh' containing
+        acceptance rates of parameters during burn-in phase
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+

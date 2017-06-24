@@ -1,0 +1,96 @@
+
+
+useDynLib(LAM)
+
+
+
+####################################################
+################## IMPORTS #########################
+####################################################
+
+#***************************************************
+#*************** R Basics / Linking To *************
+#***************************************************
+
+importFrom(graphics, abline)
+importFrom(graphics, par)
+importFrom(graphics, plot)
+importFrom(graphics, points)
+importFrom(graphics, lines)
+importFrom(graphics, text)
+importFrom(Rcpp, evalCpp)
+importFrom(stats, acf)
+importFrom(stats, density)
+importFrom(stats, optim)
+importFrom(stats, pnorm)
+importFrom(stats, qnorm)
+importFrom(stats, quantile)
+importFrom(stats, rnorm)
+importFrom(stats, runif)
+importFrom(stats, sd)
+importFrom(stats, var)
+importFrom(utils, flush.console)
+importFrom(utils, packageDescription)
+
+
+
+#***************************************************
+#********** Imports (own packages) *****************
+#***************************************************
+
+importFrom(CDM, csink)
+importFrom(CDM, osink)
+importFrom(sirt, bounds_parameters)
+importFrom(sirt, ginverse_sym)
+importFrom(sirt, mcmc_derivedPars)
+importFrom(sirt, mcmc_summary)
+importFrom(sirt, parmsummary_extend)
+importFrom(sirt, prior_model_parse)
+importFrom(sirt, soft_thresholding)
+
+
+#***************************************************
+#************** Imports ****************************
+#***************************************************
+
+importFrom(coda, as.mcmc.list)
+importFrom(coda, effectiveSize)
+importFrom(coda, mcmc)
+
+
+
+
+####################################################
+################## EXPORTS #########################
+####################################################
+
+export(amh)
+export(loglike_mvnorm)
+export(mlnormal)
+export(pmle)
+
+
+
+
+
+################################################
+################ S3 methods ####################
+################################################
+
+
+S3method(coef, amh)
+S3method(coef, mlnormal)
+S3method(coef, pmle)
+S3method(confint, amh)
+S3method(confint, mlnormal)
+S3method(confint, pmle)
+S3method(logLik, amh)
+S3method(logLik, mlnormal)
+S3method(logLik, pmle)
+S3method(plot, amh)
+S3method(summary, amh)
+S3method(summary, mlnormal)
+S3method(summary, pmle)
+S3method(vcov, amh)
+S3method(vcov, mlnormal)
+S3method(vcov, pmle)
