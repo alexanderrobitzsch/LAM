@@ -1,3 +1,6 @@
+## File Name: amh.R
+## File Version: 0.45
+## File Last Change: 2017-07-31 14:06:23
 
 #######################################################
 # adaptive Metropolis-Hastings sampler
@@ -15,7 +18,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 	#*** convert prior if needed
 	res <- pmle_process_prior( prior , pars )	
 	prior <- res$prior
-	dens <- res$dens				
+	dens <- res$dens	
 		
 	#****							
 	NP <- length(pars)
@@ -26,7 +29,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 		pars_upper <- rep(Inf, NP)
 	}		
 	acceptance_target <- mean( acceptance_bounds )
-		
+
 	#*** object pseudo likelihood estimation
 	pmle_pars <- list( pars = pars , posteriorval = -Inf )
 		
@@ -34,7 +37,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 	acceptance_parameters <- matrix( 0 , nrow=NP , ncol=2 )
 	rownames(acceptance_parameters) <- names(pars)
 	colnames(acceptance_parameters) <- c("accepted" , "sampled" )
-
+	
 	#*** at which iteration refreshing should be made?
 	iter_refresh <- seq( 0 , n.burnin, proposal_refresh )
 	LI <- length(iter_refresh)
@@ -60,6 +63,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 	iter_save <- iter_thinned
 	it <- 1
 	ss <- 1
+
 	while( it <= n.iter){
 		res <- amh_sampling( pars=pars , data=data , model=model , prior=prior ,
                        proposal_sd=proposal_sd , acceptance_parameters=acceptance_parameters , 
@@ -68,7 +72,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 		acceptance_parameters <- res$acceptance_parameters
 		dev <- res$deviance
 		pmle_pars <- res$pmle_pars
-
+		
 		#*** save parameters in chain
 		if (it %in% iter_save){
 			pars_chain[ss,-1] <- pars

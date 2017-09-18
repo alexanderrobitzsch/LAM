@@ -1,3 +1,6 @@
+## File Name: summary.amh.R
+## File Version: 0.16
+## File Last Change: 2017-03-03 18:36:37
 
 #############################################################
 summary.amh <- function( object , digits=3 , file=NULL ,... ){

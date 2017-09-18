@@ -1,3 +1,7 @@
+%% File Name: amh.Rd
+%% File Version: 0.53
+%% File Last Change: 2017-05-10 19:04:49
+
 \name{amh}
 \alias{amh}
 \alias{summary.amh}

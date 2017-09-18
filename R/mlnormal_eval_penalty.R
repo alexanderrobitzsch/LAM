@@ -1,3 +1,6 @@
+## File Name: mlnormal_eval_penalty.R
+## File Version: 0.03
+## File Last Change: 2017-01-18 11:02:49
 
 
 mlnormal_eval_penalty <- function( beta , theta , penalty_pars )

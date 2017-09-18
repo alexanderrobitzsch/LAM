@@ -1,3 +1,6 @@
+## File Name: mlnormal_summary_round_helper.R
+## File Version: 0.11
+## File Last Change: 2017-03-03 18:35:32
 
 mlnormal_summary_round_helper <- function( obji , digits , exclude = NULL, print=TRUE){
 	NC <- ncol(obji)

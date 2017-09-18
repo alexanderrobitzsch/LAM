@@ -1,3 +1,6 @@
+## File Name: amh_eval_prior.R
+## File Version: 0.02
+## File Last Change: 2017-01-18 11:02:46
 
 
 amh_eval_priors <- function( pars , prior ){

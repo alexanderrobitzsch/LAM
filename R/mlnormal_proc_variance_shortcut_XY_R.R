@@ -1,3 +1,6 @@
+## File Name: mlnormal_proc_variance_shortcut_XY_R.R
+## File Version: 0.04
+## File Last Change: 2017-01-18 11:02:50
 
 
 mlnormal_proc_variance_shortcut_XY_R <- function(y , X , G , freq_id){

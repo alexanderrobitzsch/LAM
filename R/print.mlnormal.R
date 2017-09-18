@@ -1,3 +1,6 @@
+## File Name: print.mlnormal.R
+## File Version: 0.05
+## File Last Change: 2017-01-18 11:02:51
 #*******************************************************
 # print for mlnormal object
 print.mlnormal <- function( x , digits = 4 , ...){

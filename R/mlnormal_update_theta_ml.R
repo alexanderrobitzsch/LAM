@@ -1,3 +1,6 @@
+## File Name: mlnormal_update_theta_ml.R
+## File Version: 1.04
+## File Last Change: 2017-03-03 18:43:53
 
 ###################################################
 # update theta

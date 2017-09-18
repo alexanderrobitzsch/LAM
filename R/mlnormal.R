@@ -1,3 +1,6 @@
+## File Name: mlnormal.R
+## File Version: 0.965
+## File Last Change: 2017-01-18 11:02:49
 
 ############################################################################
 # general estimation function for normally distributed data

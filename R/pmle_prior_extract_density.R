@@ -1,3 +1,6 @@
+## File Name: pmle_prior_extract_density.R
+## File Version: 0.11
+## File Last Change: 2017-03-03 18:34:36
 
 
 ###########################################################

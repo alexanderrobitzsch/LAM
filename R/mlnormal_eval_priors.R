@@ -1,3 +1,6 @@
+## File Name: mlnormal_eval_priors.R
+## File Version: 0.13
+## File Last Change: 2017-01-18 11:02:49
 
 mlnormal_eval_priors <- function( pars , prior, sum_all = FALSE ){
 	NP <- length(pars)

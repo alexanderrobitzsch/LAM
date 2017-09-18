@@ -1,3 +1,6 @@
+## File Name: mlnormalMatrix2List.R
+## File Version: 0.02
+## File Last Change: 2017-01-18 11:02:50
 
 
 mlnormalMatrix2List <- function( G , mat , freq_id ){
