@@ -1,18 +1,32 @@
-citHeader("To cite the 'LAM' package in publications use:")
 
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
+pkg <- meta$Package
+
+#*** package and its name
+pkg_title <- "Some latent variable models"
+
+#*** list of authors
+person_list1 <- c(
+                   person(given = "Alexander",  family = "Robitzsch")
+                      )
+person_list2 <- "Robitzsch, A."
+
+
+#*******************************************
+# automatic generation of citation key
+
+citHeader( paste0( "To cite the '", pkg , "' package in publications use:") )
 
 citEntry(entry="Manual",
-         title = "LAM: Some Latent Variable Models",
-         author = personList(as.person("Alexander Robitzsch")),
+         title = paste0( pkg , ": " , pkg_title ) ,
+         author = personList( person_list1 ),
          year = year,
          note = vers,
-	 url = "https://CRAN.R-project.org/package=LAM" ,
+         url =  paste0( "https://CRAN.R-project.org/package=", pkg) ,
          textVersion =
-         paste0("Robitzsch, A. (",  year,"). 
-               LAM: Some latent variable models. ",
-               vers, 
-               ". https://CRAN.R-project.org/package=LAM")
-               )
+         paste0( person_list2 , " (",   year, "). " , 
+               pkg , ": " , pkg_title , ". ",
+               vers, paste0( ". https://CRAN.R-project.org/package=", pkg) )
+    )
 
