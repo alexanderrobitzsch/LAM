@@ -1,13 +1,13 @@
 ## File Name: print.mlnormal.R
-## File Version: 0.05
-## File Last Change: 2017-01-18 11:02:51
+## File Version: 0.06
+## File Last Change: 2017-09-19 14:13:44
 #*******************************************************
 # print for mlnormal object
 print.mlnormal <- function( x , digits = 4 , ...){
 
 	object <- x	
 #	cat("-----------------------------------------------------------------\n")
-    d1 <- utils::packageDescription("sirt")
+    d1 <- utils::packageDescription("LAM")
 	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
 #	cat( "Date of Analysis:" , paste( object$s2 ) , "\n" )
 #	cat("Computation Time:" , print(object$s2 - object$s1), "\n\n")
@@ -37,7 +37,7 @@ print.mlnormal <- function( x , digits = 4 , ...){
 	    cat( "AIC  = " , round( object$ic$AIC , 1 ) , " | penalty =" , round( object$ic$AIC - object$ic$deviance ,2 ) , 
 				"   | AIC = -2*LL + 2*p  \n" )    
 		cat("\n")
-						}
+	}
 
 	cat("Beta Parameters\n")
 	obji <- object$beta
@@ -47,5 +47,5 @@ print.mlnormal <- function( x , digits = 4 , ...){
 	obji <- object$theta
 	print( round( obji , digits ) )
 	
-			}
+}
 #*******************************************************

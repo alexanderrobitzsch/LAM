@@ -1,6 +1,6 @@
 ## File Name: summary.amh.R
-## File Version: 0.16
-## File Last Change: 2017-03-03 18:36:37
+## File Version: 0.17
+## File Last Change: 2017-09-19 14:10:43
 
 #############################################################
 summary.amh <- function( object , digits=3 , file=NULL ,... ){
@@ -54,9 +54,8 @@ summary.amh <- function( object , digits=3 , file=NULL ,... ){
 	
 	cat("-----------------------------------------------------------------\n")
 	cat("Prior Summary \n")	
-
-	obji <- object$prior_summary	
-	print(obji)
+	
+	print(object$prior_summary)
 	
 	cat("-----------------------------------------------------------------\n")
 	cat("Parameter Summary (Marginal MAP estimation) \n")	
@@ -97,5 +96,5 @@ summary.amh <- function( object , digits=3 , file=NULL ,... ){
 	# close sink
     CDM::csink( file = file )		
 	
-	}
+}
 #############################################################	
