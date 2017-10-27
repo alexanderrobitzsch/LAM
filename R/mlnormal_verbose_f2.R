@@ -1,6 +1,5 @@
 ## File Name: mlnormal_verbose_f2.R
 ## File Version: 0.02
-## File Last Change: 2017-01-18 11:02:50
 
 mlnormal_verbose_f2 <- function(verbose, disp , iter, descriptions ,
 		objfun , objfun0 , beta_change , theta_change )

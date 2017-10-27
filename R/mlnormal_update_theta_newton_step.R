@@ -1,6 +1,5 @@
 ## File Name: mlnormal_update_theta_newton_step.R
 ## File Version: 0.03
-## File Last Change: 2017-09-19 14:18:47
 
 mlnormal_update_theta_newton_step <- function( theta , der , theta_infomat ,
 	control_theta )

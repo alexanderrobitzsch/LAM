@@ -1,6 +1,5 @@
 ## File Name: summary.amh.R
-## File Version: 0.17
-## File Last Change: 2017-09-19 14:10:43
+## File Version: 0.18
 
 #############################################################
 summary.amh <- function( object , digits=3 , file=NULL ,... ){
@@ -90,8 +89,6 @@ summary.amh <- function( object , digits=3 , file=NULL ,... ){
 	obji[,-1] <- round( obji[,-1]  , digits )
 	rownames(obji) <- NULL
 	print(obji)	
-	
-	invisible(obji)
 
 	# close sink
     CDM::csink( file = file )		

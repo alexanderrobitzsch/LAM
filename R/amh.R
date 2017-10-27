@@ -1,6 +1,5 @@
 ## File Name: amh.R
 ## File Version: 0.45
-## File Last Change: 2017-07-31 14:06:23
 
 #######################################################
 # adaptive Metropolis-Hastings sampler

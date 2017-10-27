@@ -1,6 +1,5 @@
 ## File Name: summary.mlnormal.R
 ## File Version: 0.18
-## File Last Change: 2017-09-19 14:03:08
 #*******************************************************
 # Summary for mlnormal object
 summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)

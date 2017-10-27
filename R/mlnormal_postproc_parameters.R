@@ -1,6 +1,5 @@
 ## File Name: mlnormal_postproc_parameters.R
 ## File Version: 0.14
-## File Last Change: 2017-03-03 18:24:55
 
 
 #############################################################

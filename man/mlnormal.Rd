@@ -1,6 +1,5 @@
 %% File Name: mlnormal.Rd
 %% File Version: 0.40
-%% File Last Change: 2017-03-03 17:50:42
 
 \name{mlnormal}
 \alias{mlnormal}

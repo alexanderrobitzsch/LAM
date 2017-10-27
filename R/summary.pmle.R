@@ -1,6 +1,5 @@
 ## File Name: summary.pmle.R
 ## File Version: 0.18
-## File Last Change: 2017-05-12 11:44:54
 
 #############################################################
 summary.pmle <- function( object , digits=3 , file=NULL ,... ){

@@ -1,6 +1,5 @@
 %% File Name: LAM-package.Rd
 %% File Version: 0.07
-%% File Last Change: 2017-05-10 18:54:56
 
 \name{LAM-package}
 \alias{LAM-package}

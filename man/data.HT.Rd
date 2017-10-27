@@ -1,6 +1,5 @@
 %% File Name: data.HT.Rd
 %% File Version: 0.04
-%% File Last Change: 2017-05-11 18:50:01
 
 \name{data.HT}
 \alias{data.HT}

@@ -1,6 +1,5 @@
 ## File Name: mlnormal_update_ml_derivative_V.R
 ## File Version: 0.16
-## File Last Change: 2017-03-03 18:42:47
 
 ##############################################
 # derivatives of V

@@ -1,6 +1,5 @@
 //// File Name: mlnormal_helper_functions.cpp
 //// File Version: 2.04
-//// File Last Change: 2017-03-03 17:46:50
 
 // [[Rcpp::depends(RcppArmadillo)]]
 

@@ -1,6 +1,5 @@
 ## File Name: mlnormal_summary_round_helper.R
 ## File Version: 0.13
-## File Last Change: 2017-09-19 14:07:10
 
 mlnormal_summary_round_helper <- function( obji , digits , exclude = NULL, print=TRUE,
 		rownames_null=TRUE)
