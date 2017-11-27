@@ -1,5 +1,5 @@
 ## File Name: plot.amh.R
-## File Version: 0.11
+## File Version: 0.12
 
 
 ######################################################
@@ -7,12 +7,13 @@
 plot.amh <- function( x , conflevel=.95 , 
 	digits=3 , lag.max= .1 , col.smooth="red" , lwd.smooth=2 , 
 	col.split = "blue" , lwd.split = 2 , lty.split=1 , 
-	col.ci="orange" , cex.summ=1 , ask=FALSE , ... ){
+	col.ci="orange" , cex.summ=1 , ask=FALSE , ... )
+{
 	
 	# x <- mcmcobj
 	object <- x	# rename x into object
 	mcmcobj <- (object$mcmcobj)
-	lag.max <- round( nrow(mcmcobj) * lag.max )
+	lag.max <- round(nrow(mcmcobj) * lag.max )
 	round.summ <- digits	
 		
 		# mcmcobj <- (object$mcmcobj)[[1]]

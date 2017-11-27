@@ -1,5 +1,5 @@
 %% File Name: LAM-package.Rd
-%% File Version: 0.07
+%% File Version: 0.08
 
 \name{LAM-package}
 \alias{LAM-package}
@@ -11,10 +11,10 @@ Some Latent Variable Models
 \description{
     Contains some procedures for latent variable modelling with a 
     particular focus on multilevel data.
-    The LAM package contains mean and covariance structure modelling
-    for multivariate normally distributed data ('mlnormal'),
-    a general Metropolis-Hastings algorithm ('amh') and penalized
-    maximum likelihood estimation ('pmle').
+    The 'LAM' package contains mean and covariance structure modelling
+    for multivariate normally distributed data (mlnormal()),
+    a general Metropolis-Hastings algorithm (amh()) and penalized
+    maximum likelihood estimation (pmle()).
 }
 \details{
 

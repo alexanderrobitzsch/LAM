@@ -27,8 +27,10 @@ and (if necessary) a corresponding dataset.
 
 
 
+
+
 ------------------------------------------------------------------------
-VERSIONS LAM 0.1  |  2017-10-27  |  Last: LAM 0.1-19
+VERSIONS LAM 0.2  |  2017-11-27  |  Last: LAM 0.2-1
 ------------------------------------------------------------------------
 
 xxx   * ...
@@ -38,14 +40,23 @@ EXAMP * included/modified examples: ---
 
 
 
+------------------------------------------------------------------------
+VERSIONS LAM 0.1  |  2017-11-24  |  Last: LAM 0.1-22
+------------------------------------------------------------------------
+
+NOTE  * added example 3 in amh() which was transferred from the 'STARTS'
+        package to the 'LAM' package
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: amh (3)
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.0  |  2017-05-11  |  Last: LAM 0.0-17
 ------------------------------------------------------------------------
 
-ADDED * moved 'amh', 'loglike_mvnorm', 'mlnormal' and 'pmle' functions 
-        from sirt package to LAM package
-NOTE  * included value 'acceptance_rates_history' in 'amh' containing
+ADDED * moved 'amh', loglike_mvnorm(), mlnormal() and pmle() functions 
+        from 'sirt' package to 'LAM' package
+NOTE  * included value acceptance_rates_history() in amh() containing
         acceptance rates of parameters during burn-in phase
 
 DATA  * included/modified datasets: ---
