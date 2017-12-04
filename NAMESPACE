@@ -20,6 +20,7 @@ importFrom(graphics, lines)
 importFrom(graphics, text)
 importFrom(Rcpp, evalCpp)
 importFrom(stats, acf)
+importFrom(stats, cov.wt)
 importFrom(stats, density)
 importFrom(stats, optim)
 importFrom(stats, pnorm)
@@ -41,12 +42,14 @@ importFrom(utils, packageDescription)
 importFrom(CDM, csink)
 importFrom(CDM, osink)
 importFrom(sirt, bounds_parameters)
+importFrom(sirt, dimproper)
 importFrom(sirt, ginverse_sym)
 importFrom(sirt, mcmc_derivedPars)
 importFrom(sirt, mcmc_summary)
 importFrom(sirt, parmsummary_extend)
 importFrom(sirt, prior_model_parse)
 importFrom(sirt, soft_thresholding)
+importFrom(TAM, tam_NA_pattern)
 
 
 #***************************************************
@@ -66,8 +69,10 @@ importFrom(coda, mcmc)
 
 export(amh)
 export(loglike_mvnorm)
+export(loglike_mvnorm_NA_pattern)
 export(mlnormal)
 export(pmle)
+export(suff_stat_NA_pattern)
 
 
 

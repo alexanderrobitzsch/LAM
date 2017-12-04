@@ -30,13 +30,18 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.2  |  2017-11-27  |  Last: LAM 0.2-1
+VERSIONS LAM 0.2  |  2017-12-04  |  Last: LAM 0.2-5
 ------------------------------------------------------------------------
 
-xxx   * ...
+ADDED * included function suff_stat_NA_pattern() which computes sufficient
+        statistics for a given dataset with missing response patterns
+ADDED * included function loglike_mvnorm_NA_pattern() which computed
+        the multivariate normal log-likelihood for data with missing
+        response patterns
 
 DATA  * included/modified datasets: ---
-EXAMP * included/modified examples: ---
+EXAMP * included/modified examples: suff_stat_NA_pattern (1),
+        loglike_mvnorm (2)
 
 
 

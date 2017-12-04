@@ -1,12 +1,12 @@
 ## File Name: pmle.R
-## File Version: 0.21
+## File Version: 0.24
 
 #######################################################
 # penalized maximum likelihood estimation
 pmle <- function( data , nobs , pars , model ,  prior , 
         pars_lower = NULL , pars_upper = NULL , method = "L-BFGS-B" ,
-		control=list() , verbose = TRUE , hessian = TRUE , ...
-					){
+		control=list() , verbose = TRUE , hessian = TRUE , ...)
+{
 
 	time <- list( "start" = Sys.time() )	
 	CALL <- match.call()
@@ -20,7 +20,8 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 	res <- pmle_data_proc( pars = pars , pars_lower=pars_lower , pars_upper=pars_upper )
 	pars_lower <- res$pars_lower
 	pars_upper <- res$pars_upper
-	
+
+
 	#*** define objective function
 	pmle_obj <- function(x){ 
 		pars <- x
@@ -35,7 +36,7 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 	   cat("Starting Optimization\n\n")
 	   utils::flush.console()
 	}
-	
+
 	#--- optimization
 	res0 <- stats::optim( par = pars , fn = pmle_obj ,  method = method,  
 	           lower = pars_lower , upper = pars_upper ,

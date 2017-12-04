@@ -1,10 +1,11 @@
 ## File Name: pmle_eval_posterior.R
-## File Version: 0.11
+## File Version: 0.15
 
 ##################################################
 # evaluate posterior
 pmle_eval_posterior <- function( data , model , prior ,
-				pars ,  eps = 1E-100 ){
+				pars ,  eps = 1E-100 )
+{
 	NP <- length(pars)
 	#--- evaluate log-likelihood function
 	ll <- do.call( model , list( pars = pars , data = data )  )	
