@@ -1,11 +1,12 @@
 ## File Name: loglike_mvnorm.R
-## File Version: 0.05
+## File Version: 0.06
 
 ##############################################################
 # returns the log-likelihood value of a multivariate
 # normal distribution fitted with sufficient statistics
 loglike_mvnorm <- function( M , S , mu , Sigma , n , log=TRUE , lambda = 0 )
 {	
+	eps <- 1E-30
 	if ( lambda > 0){
 		Sigma0 <- 0*Sigma
 		diag(Sigma0) <- diag(Sigma)
@@ -14,8 +15,7 @@ loglike_mvnorm <- function( M , S , mu , Sigma , n , log=TRUE , lambda = 0 )
 	}
     Sigma1 <- solve(Sigma)
     p <- ncol(Sigma)
-    det_Sigma <- det(Sigma)
-    eps <- 1E-30
+    det_Sigma <- det(Sigma)    
     if ( det_Sigma < eps ){   
 		det_Sigma <- eps  
 	}

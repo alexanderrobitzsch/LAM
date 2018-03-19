@@ -1,5 +1,5 @@
 ## File Name: amh.R
-## File Version: 0.45
+## File Version: 0.52
 
 #######################################################
 # adaptive Metropolis-Hastings sampler
@@ -28,7 +28,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 		pars_upper <- rep(Inf, NP)
 	}		
 	acceptance_target <- mean( acceptance_bounds )
-
+	
 	#*** object pseudo likelihood estimation
 	pmle_pars <- list( pars = pars , posteriorval = -Inf )
 		
@@ -45,7 +45,7 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 	colnames(proposal_sd_history) <- names(pars)
 	rownames(proposal_sd_history) <- iter_refresh
 	attr(proposal_sd_history,"include") <- 2
-	acceptance_rates_history <- proposal_sd_history[-1,]
+	acceptance_rates_history <- proposal_sd_history[-1,,drop=FALSE]
 	attr(acceptance_rates_history,"include") <- 1
 		
 	#*** create object for saving chains
@@ -81,9 +81,8 @@ amh <- function( data , nobs , pars , model ,  prior , proposal_sd ,
 					
 		#*** refresh proposal SD
 		if (it %in% iter_refresh ){
-			res0 <- amh_proposal_refresh( acceptance_parameters , 
-			            proposal_sd ,  acceptance_bounds,
-                           acceptance_rates_history )	
+			res0 <- amh_proposal_refresh( acceptance_parameters, proposal_sd, 
+						acceptance_bounds, acceptance_rates_history )	
 			acceptance_parameters <- res0$acceptance_parameters
 			proposal_sd <- res0$proposal_sd
 			hh <- attr(proposal_sd_history,"include")

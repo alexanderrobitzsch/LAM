@@ -1,11 +1,12 @@
 ## File Name: amh_proposal_refresh.R
-## File Version: 0.07
+## File Version: 0.09
 
 
 #################################################################
 # refreshing the proposal SD
 amh_proposal_refresh <- function( acceptance_parameters , proposal_sd ,
-		acceptance_bounds , acceptance_rates_history ){
+		acceptance_bounds , acceptance_rates_history )
+{
 	target <- mean(acceptance_bounds)
 	acc <- acceptance_parameters[,1] / acceptance_parameters[,2]
 	SD.pp <- proposal_sd
