@@ -28,9 +28,19 @@ and (if necessary) a corresponding dataset.
 
 
 
+------------------------------------------------------------------------
+VERSIONS LAM 0.3  |  2018-03-21  |  Last: LAM 0.3-1
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.2  |  2018-03-19  |  Last: LAM 0.2-7
+VERSIONS LAM 0.2  |  2018-03-20  |  Last: LAM 0.2-9
 ------------------------------------------------------------------------
 
 ADDED * included function suff_stat_NA_pattern() which computes sufficient
@@ -43,8 +53,6 @@ NOTE  * fixed a problem with only one phase for tuning proposal distribution
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: suff_stat_NA_pattern (1),
         loglike_mvnorm (2)
-
-
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.1  |  2017-11-24  |  Last: LAM 0.1-22
