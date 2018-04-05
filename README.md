@@ -13,7 +13,7 @@ The CRAN version can be installed from within R using:
 utils::install.packages("LAM")
 ```
 
-#### GitHub version `LAM` 0.3-1 (2018-03-21)
+#### GitHub version `LAM` 0.3-27 (2018-04-05)
 
 The version hosted [here](https://github.com/alexanderrobitzsch/LAM) is the development version of `LAM`. 
 The GitHub version can be installed using `devtools` as:

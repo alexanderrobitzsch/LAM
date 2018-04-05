@@ -1,10 +1,10 @@
 //// File Name: mlnormal_helper_functions.cpp
-//// File Version: 2.09
+//// File Version: 2.11
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
 #include <RcppArmadillo.h>
-#include <Rcpp.h>
+// #include <Rcpp.h>
 
 using namespace Rcpp;
 

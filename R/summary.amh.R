@@ -1,20 +1,21 @@
 ## File Name: summary.amh.R
-## File Version: 0.18
+## File Version: 0.21
 
 #############################################################
-summary.amh <- function( object , digits=3 , file=NULL ,... ){
+summary.amh <- function( object , digits=3 , file=NULL ,... )
+{
 
     # open sink
     CDM::osink( file = file , suffix = "__SUMMARY.Rout" )
 
 	cat("-----------------------------------------------------------------\n")
-	d1 <- utils::packageDescription("LAM")
-	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
+	#- package and R session
+    sirt::sirt_summary_print_package_rsession(pack="LAM")
 	
 	cat( object$description , "\n\n")
 	
-	cat("Call:\n", paste(deparse(object$CALL), sep = "\n", collapse = "\n"), 
-				"\n\n", sep = "")			
+	#- print call
+	sirt::sirt_summary_print_call(CALL=object$CALL)			
 	
 	cat( "Date of Analysis:" , "\n" )
 	cat( "   Start:" , paste( object$time$start ) , "\n" )	

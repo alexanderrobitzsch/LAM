@@ -29,10 +29,14 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.3  |  2018-03-21  |  Last: LAM 0.3-1
+VERSIONS LAM 0.3  |  2018-04-05  |  Last: LAM 0.3-27
 ------------------------------------------------------------------------
 
-xxx   * ...
+ADDED * included Rcpp implementations for loglike_mvnorm() and
+        loglike_mvnorm_NA_pattern() functions
+NOTE  * optimiztation function stats::nlminb() can be used in
+        the pmle() function as an alternative to stats::optim()
+NOTE  * added 'numDeriv' package to the list of imported packages
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
@@ -58,7 +62,7 @@ EXAMP * included/modified examples: suff_stat_NA_pattern (1),
 VERSIONS LAM 0.1  |  2017-11-24  |  Last: LAM 0.1-22
 ------------------------------------------------------------------------
 
-NOTE  * added example 3 in amh() which was transferred from the 'STARTS'
+NOTE  * added Example 3 in amh() which was transferred from the 'STARTS'
         package to the 'LAM' package
 
 DATA  * included/modified datasets: ---
@@ -68,7 +72,7 @@ EXAMP * included/modified examples: amh (3)
 VERSIONS LAM 0.0  |  2017-05-11  |  Last: LAM 0.0-17
 ------------------------------------------------------------------------
 
-ADDED * moved 'amh', loglike_mvnorm(), mlnormal() and pmle() functions 
+ADDED * moved amh(), loglike_mvnorm(), mlnormal() and pmle() functions 
         from 'sirt' package to 'LAM' package
 NOTE  * included value acceptance_rates_history() in amh() containing
         acceptance rates of parameters during burn-in phase

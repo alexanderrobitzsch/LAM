@@ -1,5 +1,5 @@
 %% File Name: amh.Rd
-%% File Version: 0.55
+%% File Version: 0.58
 
 \name{amh}
 \alias{amh}
@@ -27,16 +27,17 @@ Bayesian Model Estimation with Adaptive Metropolis Hastings Sampling
 \description{
 The function \code{amh} conducts a Bayesian statistical analysis using 
 the adaptive Metropolis-Hastings
-as the estimation procedure (Hoff, 2009). Only univariate prior 
+as the estimation procedure (Hoff, 2009; Roberts & Rosenthal, 2001). Only univariate prior 
 distributions are allowed.
 Note that this function is intended just for experimental purpose, not to
 replace general purpose packages like \pkg{WinBUGS}, \pkg{JAGS},
 \pkg{Stan} or \pkg{MHadaptive}. \cr 
 
-The function \code{pmle} optimizes the penalized likelihood which means that
+The function \code{pmle} optimizes the penalized likelihood (Cole, Chu & Greenland, 2014)
+which means that
 the posterior is maximized and the maximum a posterior estimate is
-obtained. The optimization function \link[stats:optim]{stats::optim}
-is used.
+obtained. The optimization functions \link[stats:optim]{stats::optim} or
+\link[stats:nlminb]{stats::nlminb} can be used.
 }
 
 
@@ -47,7 +48,8 @@ amh(data , nobs , pars , model ,  prior , proposal_sd ,  pars_lower = NULL ,
       print_iter = 50 ) 
       
 pmle( data , nobs , pars , model ,  prior, pars_lower = NULL , pars_upper = NULL ,
-       method = "L-BFGS-B" ,control=list() , verbose = TRUE , hessian = TRUE , ... )      
+       method = "L-BFGS-B" ,control=list() , verbose = TRUE , hessian = TRUE , 
+       optim_fct = "optim", ... )      
       
 \method{summary}{amh}(object, digits = 3, file = NULL, ...)
 
@@ -118,11 +120,14 @@ standard deviation
   \item{print_iter}{
 Display progress every \code{print_iter}th iteration
 }
-\item{method}{Optimization in \code{\link[stats:optim]{stats::optim}}}
+\item{method}{Optimization method in \code{\link[stats:optim]{stats::optim}}}
 \item{control}{Control parameters \code{\link[stats:optim]{stats::optim}}}
 \item{verbose}{Logical indicating whether progress should be displayed.}
 \item{hessian}{Logical indicating whether the Hessian matrix
 should be computed}
+\item{optim_fct}{Type of optimization: \code{"optim"} (\link[stats:optim]{stats::optim})
+or \code{"nlminb"} (\link[stats:nlminb]{stats::nlminb})
+}
 \item{object}{Object of class \code{amh}}
 \item{digits}{Number of digits used for rounding}
 \item{file}{File name}
@@ -172,8 +177,14 @@ during burn-in phase}
 
 
 \references{
+Cole, S. R., Chu, H., & Greenland, S. (2013). Maximum likelihood, profile likelihood, 
+and penalized likelihood: a primer. \emph{American Journal of Epidemiology, 179}(2), 252-260.
+
 Hoff, P. D. (2009). \emph{A first course in Bayesian statistical methods}. 
 New York: Springer.
+
+Roberts, G. O., & Rosenthal, J. S. (2001). Optimal scaling for various Metropolis-Hastings 
+algorithms. \emph{Statistical Science, 16}(4), 351-367.
 }
 
 \author{

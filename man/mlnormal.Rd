@@ -1,5 +1,5 @@
 %% File Name: mlnormal.Rd
-%% File Version: 0.40
+%% File Version: 0.43
 
 \name{mlnormal}
 \alias{mlnormal}
@@ -172,7 +172,7 @@ structure \eqn{ \bold{V}_i} depends on a parameter vector \eqn{\bold{\theta}}.
 More specifically, the covariance matrix \eqn{ \bold{V}_i}  is modelled as 
 a sum of functions of the parameter \eqn{\bold{\theta}} and known design matrices
 \eqn{\bold{Z}_{im}} for unit \eqn{i} (\eqn{m=1,\ldots,M}). The model is
-\deqn{\bold{V}_i = \sum_{m=1}^M \gamma_{im} \bold{Z}_{im} \qquad \mathrm{with}
+\deqn{\bold{V}_i = \sum_{m=1}^M \bold{Z}_{im} \gamma_{im}  \qquad \mathrm{with}
 \qquad \gamma_{im} = \prod_{h=1}^H \theta_h^{q_{imh}} }
 where \eqn{q_{imh}} are non-negative known integers specified in
 \code{Z_index} and \eqn{\bold{Z}_{im}} are design matrices specified
@@ -203,26 +203,25 @@ List with entries
 \references{
 Gill, P. S., & Swartz, T. B. (2001). Statistical analyses for round 
 robin interaction data. 
-\emph{Canadian Journal of Statistics}, \bold{29}, 321-331.	
+\emph{Canadian Journal of Statistics, 29}, 321-331.	
 	
 Jiang, J. (2007). \emph{Linear and generalized linear mixed models and their 
 applications}. New York: Springer.
 
 Krishnapuram, B., Carin, L., Figueiredo, M. A., & Hartemink, A. J. (2005). 
 Sparse multinomial logistic regression: Fast algorithms and generalization 
-bounds. \emph{IEEE transactions on pattern analysis and machine intelligence}, 
-\bold{27}, 957-968.
+bounds. \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence, 27}, 957-968.
 
 Lee, S. Y. (1990). Multilevel analysis of structural equation models. 
-\emph{Biometrika}, \bold{77}, 763-772.
+\emph{Biometrika, 77}, 763-772.
 
 Lin, B., Pang, Z., & Jiang, J. (2013). Fixed and random effects selection
 by REML and pathwise coordinate optimization.
-\emph{Journal of Computational and Graphical Statistics}, \bold{22}, 341-355.
+\emph{Journal of Computational and Graphical Statistics, 22}, 341-355.
 
 Longford, N. T. (1987). A fast scoring algorithm for maximum likelihood 
 estimation in unbalanced mixed models with nested random effects. 
-\emph{Biometrika}, \bold{74}, 817-827.
+\emph{Biometrika, 74}, 817-827.
 }
 
 \author{

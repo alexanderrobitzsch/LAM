@@ -1,30 +1,30 @@
 ## File Name: summary.pmle.R
-## File Version: 0.18
+## File Version: 0.26
 
 #############################################################
-summary.pmle <- function( object , digits=3 , file=NULL ,... ){
-
+summary.pmle <- function( object , digits=3 , file=NULL ,... )
+{
     # open sink
     CDM::osink( file = file , suffix = paste0( "__SUMMARY.Rout") )
 
 	cat("-----------------------------------------------------------------\n")
-	d1 <- utils::packageDescription("LAM")
-	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
+	
+	#- package and R session
+    sirt::sirt_summary_print_package_rsession(pack="LAM")		
 	
 	cat( object$description , "\n\n")
-	
-	cat("Call:\n", paste(deparse(object$CALL), sep = "\n", collapse = "\n"), 
-				"\n\n", sep = "")			
+		
+	#- print call
+	sirt::sirt_summary_print_call(CALL=object$CALL)				
 	
 	cat( "Date of Analysis:" , "\n" )
 	cat( "   Start:" , paste( object$time$start ) , "\n" )	
 	cat( "   End  :" , paste( object$time$end ) , "\n" )		
 	cat("Computation time:" , print(object$time$end - object$time$start), "\n\n")    
 
-	cat( "Convergence Code (optim) =" , object$results_optim$convergence , "\n" )
+	cat( "Optimization function =" , object$optim_fct , "\n" )
+	cat( "Convergence Code =" , object$results_optim$convergence , "\n" )
 	cat( "CONVERGED =" , object$converged , "\n" )	
-#	cat( "Number of burnin iterations =" , object$n.burnin , "\n" )			
-#	cat( "Number of saved iterations =" , object$n.saved , "\n\n" )			
 
     cat("-----------------------------------------------------------------\n")
     cat( "Deviance = " , round( object$deviance , 2 ) , "\n" )
@@ -47,25 +47,15 @@ summary.pmle <- function( object , digits=3 , file=NULL ,... ){
 	
 	cat("-----------------------------------------------------------------\n")
 	cat("Prior Summary \n")	
-
 	obji <- object$prior_summary	
 	print(obji)
 	
 	cat("-----------------------------------------------------------------\n")
 	cat("Parameter Summary \n")	
-
 	obji <- object$pmle_summary
-	
-	NO <- ncol(obji)
-	for (vv in c( 2:(NO) ) ){
-		obji[,vv] <- round( obji[,vv] , digits )
-	}
-	rownames(obji) <- NULL
-	print(obji)
-	invisible(obji)
+	mlnormal_summary_round_helper(obji, digits=digits, print=TRUE, start_index=2)	
 	
 	# close sink
-    CDM::csink( file = file )		
-	
-	}
+    CDM::csink( file = file )	
+}
 #############################################################	

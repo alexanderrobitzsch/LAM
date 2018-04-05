@@ -1,5 +1,5 @@
 %% File Name: LAM-package.Rd
-%% File Version: 0.08
+%% File Version: 0.12
 
 \name{LAM-package}
 \alias{LAM-package}
@@ -12,9 +12,11 @@ Some Latent Variable Models
     Contains some procedures for latent variable modelling with a 
     particular focus on multilevel data.
     The 'LAM' package contains mean and covariance structure modelling
-    for multivariate normally distributed data (mlnormal()),
-    a general Metropolis-Hastings algorithm (amh()) and penalized
-    maximum likelihood estimation (pmle()).
+    for multivariate normally distributed data (mlnormal(); Longford, 1987;
+    <doi:10.1093/biomet/74.4.817>), a general Metropolis-Hastings algorithm 
+    (amh(); Roberts & Rosenthal, 2001, <doi:10.1214/ss/1015346320>) and 
+    penalized maximum likelihood estimation (pmle(); Cole, Chu & Greenland, 
+    2014; <doi:10.1093/aje/kwt245>).
 }
 \details{
 
@@ -51,6 +53,17 @@ Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de> \cr \cr
 }
 
 
+
+\references{
+Cole, S. R., Chu, H., & Greenland, S. (2013). Maximum likelihood, profile likelihood, 
+and penalized likelihood: a primer. \emph{American Journal of Epidemiology, 179}(2), 252-260.
+
+Longford, N. T. (1987). A fast scoring algorithm for maximum likelihood estimation in 
+unbalanced mixed models with nested random effects. \emph{Biometrika, 74}(4), 817-827.
+
+Roberts, G. O., & Rosenthal, J. S. (2001). Optimal scaling for various Metropolis-Hastings 
+algorithms. \emph{Statistical Science, 16}(4), 351-367.
+}
 
 %\seealso{
 %XXXXXXX

@@ -1,11 +1,12 @@
 ## File Name: pmle.R
-## File Version: 0.24
+## File Version: 0.37
 
 #######################################################
 # penalized maximum likelihood estimation
 pmle <- function( data , nobs , pars , model ,  prior , 
         pars_lower = NULL , pars_upper = NULL , method = "L-BFGS-B" ,
-		control=list() , verbose = TRUE , hessian = TRUE , ...)
+		control=list() , verbose = TRUE , hessian = TRUE , 
+		optim_fct = "optim", ...)
 {
 
 	time <- list( "start" = Sys.time() )	
@@ -21,7 +22,6 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 	pars_lower <- res$pars_lower
 	pars_upper <- res$pars_upper
 
-
 	#*** define objective function
 	pmle_obj <- function(x){ 
 		pars <- x
@@ -30,51 +30,68 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 		return(res)
 	}
 
-	#**** start optim function					
+	#**** start optimization function
 	if (verbose){
-	   cat("***************************\n")
-	   cat("Starting Optimization\n\n")
-	   utils::flush.console()
+		cat("***************************\n")
+		cat("Starting Optimization\n\n")
+		#- adapt trace 
+		con_trace <- control$trace
+		if ( is.null(con_trace) ){
+			if (optim_fct == "optim"){
+				control$trace <- 3
+			} else {
+				control$trace <- 1
+			}
+		}
+		utils::flush.console()
 	}
 
 	#--- optimization
-	res0 <- stats::optim( par = pars , fn = pmle_obj ,  method = method,  
-	           lower = pars_lower , upper = pars_upper ,
-			   control = control , hessian = hessian, ... )
+	if ( optim_fct == "optim"){
+		res0 <- stats::optim( par = pars , fn = pmle_obj,  method = method,  
+					lower = pars_lower, upper = pars_upper,
+					control = control, hessian = hessian, ... )
+	} else {
+		res0 <- stats::nlminb( start = pars , objective = pmle_obj, 
+					lower = pars_lower, upper = pars_upper,
+					control = control, ... )		
+		#-- compute Hessian matrix
+		res0$hessian <- numDeriv::hessian(func=pmle_obj, x=res0$par)
 	
-	coef1 <- res0$par
+	}			
+
+	coef1 <- res0$par		
 	if ( hessian ){	
 		hess1 <- res0$hessian
-		vcov1 <- solve(hess1)			
+		vcov1 <- MASS::ginv(hess1)
 	} else { 
 		vcov1 <- hess1 <- NULL 
 	}
 	if (verbose){
-	   cat("\n***************************\n")
-	   utils::flush.console()
+		cat("\n***************************\n")
+		utils::flush.console()
 	}
-				
+
 	# summary
-	pmle_summary <- data.frame( 
-						"parameter" = names(pars) , "est" = coef1 )
+	pmle_summary <- data.frame( "parameter" = names(pars) , "est" = coef1 )
 	rownames(pmle_summary) <- NULL
 	if ( hessian ){
 		pmle_summary$se <- sqrt( diag(vcov1))		
 		pmle_summary$t <- pmle_summary$est / pmle_summary$se
 		pmle_summary$p <- 2* stats::pnorm( - abs( pmle_summary$t ) )
-	}	
+	}
 	pmle_summary$active <- 1 - ( ( coef1 == pars_lower ) | ( coef1 == pars_upper ) )
-		
+
 	#*** evaluate log-likelihood
 	res2 <- pmle_eval_posterior( data=data , model=model , 
-	           prior=prior ,  pars=coef1 )				   
+				prior=prior ,  pars=coef1 )
 	ll <- res2$ll
 		
 	#*** compute information criteria
 	ic <- pmle_ic( dev=-2*ll , N=nobs , pars=coef1 , 
-				model=model , data=data , post_values=res2 )		
+				model=model , data=data , post_values=res2 )
 	time$end <- Sys.time()
-		
+
 	#**** output list
 	res <- list( 
 		pmle_summary = pmle_summary , 
@@ -83,12 +100,11 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 		model = model , prior = prior ,  prior_summary = dens , 
 		data = data , nobs = nobs , 
 		results_optim = res0 , converged = res0$convergence == 0 , 
-		time=time , CALL = CALL
+		time=time , CALL = CALL, optim_fct = optim_fct
 				)
 	v1 <- paste0( "Penalized Maximum Likelihood Estimation \n "	,
 	      "   (Maximum Posterior Estimation, MAP)" )
 	res$description <- v1
-		
 	class(res) <- "pmle"
 	return(res)
 }

@@ -1,22 +1,22 @@
 ## File Name: summary.mlnormal.R
-## File Version: 0.18
+## File Version: 0.23
+
 #*******************************************************
 # Summary for mlnormal object
 summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)
 {
-
     # open sink
     CDM::osink( file = file , suffix = paste0( "__SUMMARY.Rout") )
 
 	cat("-----------------------------------------------------------------\n")
-    d1 <- utils::packageDescription("LAM")
-	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
+	#- package and R session
+    sirt::sirt_summary_print_package_rsession(pack="LAM")	
 	
 	cat( "Date of Analysis:" , paste( object$s2 ) , "\n" )
 	cat("Computation Time:" , print(object$s2 - object$s1), "\n\n")
 	
-	cat("Call:\n", paste( deparse(object$CALL), sep = "\n", collapse = "\n"), 
-				"\n\n", sep = "")	
+	#- print call
+	sirt::sirt_summary_print_call(CALL=object$CALL)		
 	
 	cat( object$descriptions["des_method"] , "\n\n")
 	
@@ -69,19 +69,18 @@ summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)
 #    cat( "CAIC = " , round( object$ic$CAIC , 0 ) ," | penalty =" , round( object$ic$CAIC - object$ic$deviance ,2 ) )
 #		cat("   | CAIC = -2*LL + [log(n)+1]*p  (consistent AIC)\n\n" )   
 
-    cat("-----------------------------------------------------------------\n")
+	cat("-----------------------------------------------------------------\n")
 	cat("Beta Parameters\n")
-	excl <- c("parm","prior")
-	
+	excl <- c("parm","prior")	
 	obji <- object$beta_summary
 	mlnormal_summary_round_helper(obji, digits=digits, exclude = excl, print=TRUE)
 
-    cat("-----------------------------------------------------------------\n")
+	cat("-----------------------------------------------------------------\n")
 	cat("Theta Parameters\n")
 	obji <- object$theta_summary
 	mlnormal_summary_round_helper(obji, digits=digits, exclude = excl , print=TRUE)
 	
 	# close sink
-    CDM::csink( file = file )		
+	CDM::csink( file = file )
 }
 #*******************************************************
