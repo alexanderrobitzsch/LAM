@@ -1,8 +1,8 @@
 Package: LAM
 Type: Package
 Title: Some Latent Variable Models
-Version: 0.3-27
-Date: 2018-04-05 16:09:31
+Version: 0.3-40
+Date: 2018-04-17 11:46:24
 Author: Alexander Robitzsch [aut,cre]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 

@@ -1,5 +1,5 @@
 %% File Name: amh.Rd
-%% File Version: 0.58
+%% File Version: 0.71
 
 \name{amh}
 \alias{amh}
@@ -45,11 +45,11 @@ obtained. The optimization functions \link[stats:optim]{stats::optim} or
 amh(data , nobs , pars , model ,  prior , proposal_sd ,  pars_lower = NULL , 
       pars_upper = NULL , derivedPars = NULL , n.iter = 5000 , n.burnin = 1000 , 
       n.sims=3000, acceptance_bounds = c(.45,.55), proposal_refresh = 50, 
-      print_iter = 50 ) 
+      proposal_equal = 4, print_iter = 50 ) 
       
-pmle( data , nobs , pars , model ,  prior, pars_lower = NULL , pars_upper = NULL ,
-       method = "L-BFGS-B" ,control=list() , verbose = TRUE , hessian = TRUE , 
-       optim_fct = "optim", ... )      
+pmle( data, nobs, pars, model,  prior = NULL, model_grad=NULL, pars_lower = NULL, 
+       pars_upper = NULL, method = "L-BFGS-B", control=list(), verbose=TRUE, hessian=TRUE , 
+       optim_fct = "optim", h=1e-4, ... )      
       
 \method{summary}{amh}(object, digits = 3, file = NULL, ...)
 
@@ -73,7 +73,7 @@ pmle( data , nobs , pars , model ,  prior, pars_lower = NULL , pars_upper = NULL
 
 \method{vcov}{pmle}(object, ...)
 
-\method{confint}{pmle}(object , parm , level = .95, ... )
+\method{confint}{pmle}(object, parm, level = .95, ... )
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -91,7 +91,9 @@ Function defining the log-likelihood of the model
   \item{prior}{
 List with prior distributions for the parameters to be sampled (see Examples).
 See \code{\link[sirt:prior_model_parse]{sirt::prior_model_parse}}
-for more convenient specifications of the prior distributions.
+for more convenient specifications of the prior distributions. Setting the prior
+argument to \code{NULL} corresponds to improper (constant) prior distributions
+for all parameters. 
 }
   \item{proposal_sd}{
 Vector with initial standard deviations for proposal distribution
@@ -117,9 +119,13 @@ Bounds for acceptance probabilities of sampled parameters
 Number of iterations for computation of adaptation of porposal
 standard deviation
 } 
+\item{proposal_equal}{Number of intervals in which the proposal SD should be constant
+for fixing the SD}
   \item{print_iter}{
 Display progress every \code{print_iter}th iteration
 }
+\item{model_grad}{Optional function which evaluates the gradient of
+the log-likelihood function (must be a function of \code{pars}.}
 \item{method}{Optimization method in \code{\link[stats:optim]{stats::optim}}}
 \item{control}{Control parameters \code{\link[stats:optim]{stats::optim}}}
 \item{verbose}{Logical indicating whether progress should be displayed.}
@@ -128,6 +134,8 @@ should be computed}
 \item{optim_fct}{Type of optimization: \code{"optim"} (\link[stats:optim]{stats::optim})
 or \code{"nlminb"} (\link[stats:nlminb]{stats::nlminb})
 }
+\item{h}{Numerical differentiation parameter for prior distributions if
+\code{model_grad} is provided.}
 \item{object}{Object of class \code{amh}}
 \item{digits}{Number of digits used for rounding}
 \item{file}{File name}
@@ -338,12 +346,26 @@ logLik(mod2)
 
 #*** compare results with penalized maximum likelihood estimation
 mod3 <- LAM::pmle( data=data , nobs= data$n , pars=pars , model = model ,  prior=prior , 
-            pars_lower = pars_lower , pars_upper = pars_upper , method = "L-BFGS-B" ,
-            control=list( trace=TRUE )  )
+            pars_lower = pars_lower , pars_upper = pars_upper, verbose=TRUE  )
 # model summaries
-summary(res2)
-confint(res2)
-vcov(res2)
+summary(mod3)
+confint(mod3)
+vcov(mod3)
+
+#*** penalized likelihood estimation with provided gradient of log-likelihood 
+
+library(CDM)
+fct <- function(x){
+    model(pars=x, data=data )
+}
+# use numerical gradient (just for illustration)
+grad <- function(pars){
+    CDM::numerical_Hessian(par=pars, FUN=fct, gradient = TRUE, hessian = FALSE)
+}
+#- estimate model
+mod3b <- LAM::pmle( data=data, nobs= data$n, pars=pars, model=model,  prior=prior, model_grad=grad,
+            pars_lower = pars_lower , pars_upper = pars_upper, verbose = TRUE  )
+summary(mod3b)
 
 #--- lavaan with covariance and mean vector input
 mod2a <- lavaan::sem( sample.cov = data$S , sample.mean = data$M , sample.nobs = data$n , 
@@ -655,8 +677,6 @@ lavaan::fitMeasures(mod)
 coef(mod)[ ! duplicated( names(coef(mod))) ]
   ##           vt          vs           b          va          v1 
   ##  0.001000023 0.349754630 0.916789054 0.651723144 0.103948711
-
-
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

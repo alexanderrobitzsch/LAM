@@ -29,17 +29,21 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.3  |  2018-04-05  |  Last: LAM 0.3-27
+VERSIONS LAM 0.3  |  2018-04-17  |  Last: LAM 0.3-40
 ------------------------------------------------------------------------
 
 ADDED * included Rcpp implementations for loglike_mvnorm() and
         loglike_mvnorm_NA_pattern() functions
-NOTE  * optimiztation function stats::nlminb() can be used in
+NOTE  * optimization function stats::nlminb() can be used in
         the pmle() function as an alternative to stats::optim()
 NOTE  * added 'numDeriv' package to the list of imported packages
+NOTE  * included argument 'proposal_equal' in amh()
+NOTE  * set the argument 'prior=NULL' as the default in pmle()
+ADDED * included argument 'model_grad' in pmle() which allows the 
+        specification of the gradient of the log-likelihood function
 
 DATA  * included/modified datasets: ---
-EXAMP * included/modified examples: ---
+EXAMP * included/modified examples: amh (1)
 
 
 

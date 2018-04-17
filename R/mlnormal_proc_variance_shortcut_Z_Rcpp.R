@@ -1,8 +1,9 @@
 ## File Name: mlnormal_proc_variance_shortcut_Z_Rcpp.R
-## File Version: 0.15
+## File Version: 0.17
 
 
-mlnormal_proc_variance_shortcut_Z_Rcpp <- function( Z_list , Z_index , G , freq_id){
+mlnormal_proc_variance_shortcut_Z_Rcpp <- function( Z_list , Z_index , G , freq_id)
+{
 	#-- create list with arguments for Rcpp functions
 	rcpp_args <- list( 
 					"Z_index" = as.vector(Z_index) ,
@@ -19,7 +20,7 @@ mlnormal_proc_variance_shortcut_Z_Rcpp <- function( Z_list , Z_index , G , freq_
 							)
 
 	#--- load Rcpp function
-	res <- mlnormal_proc_variance_shortcut_Z_restructure(
+	res <- lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure(
 				Z_list , rcpp_args$update_dim , rcpp_args$start_orig , 
 				rcpp_args$end_orig , rcpp_args$dim_Z_index , rcpp_args$Z_index , 
 				rcpp_args$orig_id, rcpp_args$dim_id )

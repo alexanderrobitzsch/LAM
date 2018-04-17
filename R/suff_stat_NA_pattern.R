@@ -1,5 +1,5 @@
 ## File Name: suff_stat_NA_pattern.R
-## File Version: 0.03
+## File Version: 0.04
 
 
 suff_stat_NA_pattern <- function(dat)
@@ -7,7 +7,7 @@ suff_stat_NA_pattern <- function(dat)
 	m1 <- rowSums( 1 - is.na(dat) )
 	dat <- dat[ m1 > 0 , ]	
 	N <- nrow(dat)
-	res <- TAM::tam_NA_pattern(dat)
+	res <- TAM::tam_NA_pattern(x=dat)
 	mp_index <- res$mp.index
 	NP <- max(mp_index)
 	#--- create objects

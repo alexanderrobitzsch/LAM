@@ -1,8 +1,9 @@
-## File Name: amh_eval_prior.R
-## File Version: 0.02
+## File Name: amh_eval_priors.R
+## File Version: 0.03
 
 
-amh_eval_priors <- function( pars , prior ){
+amh_eval_priors <- function( pars , prior )
+{
 	NP <- length(pars)
 	priorval0 <- 0
 	eps <- 1E-100

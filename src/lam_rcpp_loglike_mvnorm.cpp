@@ -1,8 +1,11 @@
-//// File Name: lam_loglike_mvnorm_rcpp.cpp
-//// File Version: 0.82
+//// File Name: lam_rcpp_loglike_mvnorm.cpp
+//// File Version: 0.884
 
 
-// [[Rcpp::interfaces(r, cpp)]]
+// [[Rcpp__interfaces(r, cpp)]]  substitute "__" by "::"
+// for exporting Rcpp functions for use in another package
+
+
 // [[Rcpp::depends(RcppArmadillo)]]
 
 #include <RcppArmadillo.h>
@@ -14,7 +17,7 @@ using namespace arma;
 
 ///********************************************************************
 //** quadratic form
-double lam_quadratic_form_rcpp( arma::colvec w, arma::mat A)
+double lam_rcpp_quadratic_form( arma::colvec w, arma::mat A)
 {
 	int H = A.n_rows;
 	double quadval=0;
@@ -30,9 +33,9 @@ double lam_quadratic_form_rcpp( arma::colvec w, arma::mat A)
 
 ///********************************************************************
 //** log-likelihood multivariate normal distribution
-///** lam_loglike_mvnorm_rcpp
+///** lam_rcpp_loglike_mvnorm
 // [[Rcpp::export]]    
-double lam_loglike_mvnorm_rcpp( arma::colvec M, arma::mat S, arma::colvec mu,
+double lam_rcpp_loglike_mvnorm( arma::colvec M, arma::mat S, arma::colvec mu,
 	 arma::mat Sigma, double n, bool use_log, double lambda, bool ginv, double eps )
 {
 	int p = Sigma.n_rows;
@@ -66,11 +69,10 @@ double lam_loglike_mvnorm_rcpp( arma::colvec M, arma::mat S, arma::colvec mu,
 	// determinant of Sigma
 	double det_Sigma = arma::det(sigma0);
 	if ( det_Sigma < eps){ det_Sigma = eps ; }	
-	
-	
+		
 	// quadratic form
 	arma::colvec mudiff = M - mu;
-	double quadval = lam_quadratic_form_rcpp( mudiff, Sigma1);
+	double quadval = lam_rcpp_quadratic_form( mudiff, Sigma1);
 
 	// trace( Sigma1 * S)
 	// sum( diag( Sigma1 %*% S ) )	
@@ -97,7 +99,7 @@ double lam_loglike_mvnorm_rcpp( arma::colvec M, arma::mat S, arma::colvec mu,
 
 ///********************************************************************
 //** extract submatrix
-arma::mat lam_loglike_mvnorm_na_pattern_extract_submatrix( 
+arma::mat lam_rcpp_loglike_mvnorm_na_pattern_extract_submatrix( 
 		Rcpp::IntegerVector varindex, arma::mat A )
 {
 	int NS = varindex.size();
@@ -116,7 +118,7 @@ arma::mat lam_loglike_mvnorm_na_pattern_extract_submatrix(
 
 ///********************************************************************
 //** extract subvector  
-arma::colvec lam_loglike_mvnorm_na_pattern_extract_subvector( 
+arma::colvec lam_rcpp_loglike_mvnorm_na_pattern_extract_subvector( 
 		Rcpp::IntegerVector varindex, arma::colvec w )
 {
 	int NS = varindex.size();
@@ -131,9 +133,9 @@ arma::colvec lam_loglike_mvnorm_na_pattern_extract_subvector(
 
 ///********************************************************************
 //** log-likelihood multivariate normal distribution
-///** lam_loglike_mvnorm_na_pattern_rcpp
+///** lam_rcpp_loglike_mvnorm_na_pattern_rcpp
 // [[Rcpp::export]]    
-double lam_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colvec mu,
+double lam_rcpp_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colvec mu,
 	 arma::mat Sigma, bool use_log, double lambda, bool ginv, double eps )
 {
 	int NP = suff_stat["NP"];
@@ -152,9 +154,9 @@ double lam_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colvec mu
 		arma::mat S_pp = S[pp];
 		arma::colvec M_pp = M[pp];
 		nobs_pp = nobs[pp];			
-		Sigma_pp = lam_loglike_mvnorm_na_pattern_extract_submatrix( varindex_pp, Sigma );
-		mu_pp = lam_loglike_mvnorm_na_pattern_extract_subvector( varindex_pp, mu );		
-		ll += lam_loglike_mvnorm_rcpp( M_pp, S_pp, mu_pp, Sigma_pp, nobs_pp, 
+		Sigma_pp = lam_rcpp_loglike_mvnorm_na_pattern_extract_submatrix( varindex_pp, Sigma );
+		mu_pp = lam_rcpp_loglike_mvnorm_na_pattern_extract_subvector( varindex_pp, mu );		
+		ll += lam_rcpp_loglike_mvnorm( M_pp, S_pp, mu_pp, Sigma_pp, nobs_pp, 
 				use_log, lambda, ginv, eps );
 	}
 	

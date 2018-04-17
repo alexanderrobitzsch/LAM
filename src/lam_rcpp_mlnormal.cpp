@@ -1,5 +1,5 @@
-//// File Name: mlnormal_helper_functions.cpp
-//// File Version: 2.11
+//// File Name: lam_rcpp_mlnormal.cpp
+//// File Version: 2.16
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -7,19 +7,15 @@
 // #include <Rcpp.h>
 
 using namespace Rcpp;
+using namespace arma;
 
 
 // user includes
 
-
-//**************************************************************************
-// mlnormal_proc_variance_shortcut_Z_restructure
-//**************************************************************************
-
 ///********************************************************************
-///** mlnormal_proc_variance_shortcut_Z_restructure
+///** lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure
 // [[Rcpp::export]]
-Rcpp::List mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_list, 
+Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_list, 
 	Rcpp::IntegerVector update_dim, 
 	Rcpp::NumericVector start_orig, Rcpp::NumericVector end_orig, 
 	Rcpp::NumericVector dim_Z_index, Rcpp::NumericVector Z_index, 
@@ -101,16 +97,12 @@ Rcpp::List mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_list,
 				Rcpp::Named("update_dim") = update_dim2
 		) ;  
 }
-
-
-//**************************************************************************
-// mlnormal_proc_variance_shortcut_XY_restructure
-//**************************************************************************
+///********************************************************************
 
 ///********************************************************************
-///** mlnormal_proc_variance_shortcut_XY_restructure
+///** lam_rcpp_mlnormal_proc_variance_shortcut_XY_restructure
 // [[Rcpp::export]]
-Rcpp::List mlnormal_proc_variance_shortcut_XY_restructure( 
+Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_XY_restructure( 
 	Rcpp::NumericMatrix freq_id, Rcpp::NumericVector y, 
 	Rcpp::NumericMatrix X, int G )
 {
@@ -142,17 +134,12 @@ Rcpp::List mlnormal_proc_variance_shortcut_XY_restructure(
 			Rcpp::Named("y") = y1      
 		) ;  
 }
-
-
-//**************************************************************************
-// mlnormal_update_V_rcpp_helper
-//**************************************************************************
-
+///********************************************************************
 
 ///********************************************************************
-///** mlnormal_update_V_rcpp_helper
+///** lam_rcpp_mlnormal_update_V
 // [[Rcpp::export]]
-Rcpp::List mlnormal_update_V_rcpp_helper( Rcpp::List Z_list, 
+Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list, 
 	Rcpp::NumericVector Z_index, Rcpp::NumericVector dim_id, 
 	Rcpp::NumericVector dim_Z_index, Rcpp::NumericVector startIndex, 
 	Rcpp::NumericVector endIndex, int N, 
@@ -232,18 +219,13 @@ Rcpp::List mlnormal_update_V_rcpp_helper( Rcpp::List Z_list,
 			Rcpp::Named("V1_list") = V1_list  
 		) ; 
 }
-
-
-
-//**************************************************************************
-// mlnormal_update_beta_rcpp_helper
-//**************************************************************************
+///********************************************************************
 
 
 ///********************************************************************
-///** mlnormal_update_beta_rcpp_helper
+///** lam_rcpp_mlnormal_update_beta
 // [[Rcpp::export]]
-Rcpp::List mlnormal_update_beta_rcpp_helper( Rcpp::NumericVector dim_id, 
+Rcpp::List lam_rcpp_mlnormal_update_beta( Rcpp::NumericVector dim_id, 
 	Rcpp::NumericVector startIndex, Rcpp::NumericVector endIndex, 
 	int G, Rcpp::NumericMatrix X, Rcpp::NumericVector y, 
 	Rcpp::NumericMatrix V1 )

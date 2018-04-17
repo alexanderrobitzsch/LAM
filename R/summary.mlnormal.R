@@ -1,16 +1,16 @@
 ## File Name: summary.mlnormal.R
-## File Version: 0.23
+## File Version: 0.24
 
 #*******************************************************
 # Summary for mlnormal object
 summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)
 {
-    # open sink
-    CDM::osink( file = file , suffix = paste0( "__SUMMARY.Rout") )
+	# open sink
+	CDM::osink( file = file , suffix = paste0( "__SUMMARY.Rout") )
 
 	cat("-----------------------------------------------------------------\n")
 	#- package and R session
-    sirt::sirt_summary_print_package_rsession(pack="LAM")	
+	sirt::sirt_summary_print_package_rsession(pack="LAM")	
 	
 	cat( "Date of Analysis:" , paste( object$s2 ) , "\n" )
 	cat("Computation Time:" , print(object$s2 - object$s1), "\n\n")
@@ -19,28 +19,22 @@ summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)
 	sirt::sirt_summary_print_call(CALL=object$CALL)		
 	
 	cat( object$descriptions["des_method"] , "\n\n")
-	
-#	modeltype <- object$irtmodel
-#		cat( "   " , object$ic$n , "Cases, " , object$ic$I , "Items, " , 
-#		        object$G , "Group(s)", # "," ,
-#				"\n")  
-	
+
 	if ( object$REML & ! ( object$vcov_REML ) ){
 		cat(" * Standard errors for random effects are not properly calculated! \n")
 		cat(" * Use vcov = TRUE as an argument in 'mlnormal' if valid standard errors\n")
 		cat("   for random effects parameters are requested.\n\n")
 	}
 	
-    cat("-----------------------------------------------------------------\n")
-	
+	cat("-----------------------------------------------------------------\n")
 	cat( "Number of observations =" , object$ic$N , "\n" )	
 	cat( "Number of clusters =" , object$ic$G , "\n\n" )	
-	
+
 	cat( "Number of iterations =" , object$iter , "\n\n" )
-    cat( "Deviance = " , round( object$deviance , 2 ) , "\n" )
-    cat( paste0( object$descriptions["log_like_verbose"] 
+	cat( "Deviance = " , round( object$deviance , 2 ) , "\n" )
+	cat( paste0( object$descriptions["log_like_verbose"] 
 					, " =" ) , round( object$ic$loglike , 2 ) , "\n" )	
-	
+
 	#---- print posterior
 	if ( object$posterior_obj$display_posterior ){
 		cat( "Log prior =" , 
@@ -50,12 +44,12 @@ summary.mlnormal <- function( object , digits = 4 , file=NULL , ...)
 	}
 	
 	cat("\n")	
-    cat( "Number of estimated parameters = " , object$ic$np , "\n" )    
-    cat( "  Number of estimated beta parameters = " , object$ic$np.beta , 
+	cat( "Number of estimated parameters = " , object$ic$np , "\n" )    
+	cat( "  Number of estimated beta parameters = " , object$ic$np.beta , 
 				"\n" )    	
-    cat( "  Number of estimated theta parameters = " , object$ic$np.theta , 
+	cat( "  Number of estimated theta parameters = " , object$ic$np.theta , 
 				"\n\n" )    
-	
+
 	if ( ! object$REML ){	
 		cat( "AIC  = " , round( object$ic$AIC , 1 ) , " | penalty =" , 
 				round( object$ic$AIC - object$ic$deviance ,2 ) , 

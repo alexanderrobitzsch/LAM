@@ -1,12 +1,12 @@
 ## File Name: pmle.R
-## File Version: 0.37
+## File Version: 0.51
 
 #######################################################
 # penalized maximum likelihood estimation
-pmle <- function( data , nobs , pars , model ,  prior , 
+pmle <- function( data , nobs , pars , model, prior=NULL, model_grad=NULL,
         pars_lower = NULL , pars_upper = NULL , method = "L-BFGS-B" ,
 		control=list() , verbose = TRUE , hessian = TRUE , 
-		optim_fct = "optim", ...)
+		optim_fct = "optim", h=1e-4, ...)
 {
 
 	time <- list( "start" = Sys.time() )	
@@ -24,22 +24,34 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 
 	#*** define objective function
 	pmle_obj <- function(x){ 
-		pars <- x
-		res <- - pmle_eval_posterior( data=data , model=model , 
-		               prior=prior ,  pars=pars )$post
+		res <- - pmle_eval_posterior( data=data, model=model, 
+		               prior=prior, pars=x )$post
 		return(res)
 	}
-
+	
+	#*** define derivative if provided
+	pmle_grad <- NULL
+	use_grad <- FALSE
+	if ( ! is.null(model_grad)){
+		use_grad <- TRUE
+		pmle_grad <- function(x){ 
+			val1 <- - model_grad(pars=x)
+			val2 <- - pmle_eval_prior_deriv(prior=prior, pars=x, h=h)
+			res <- val1 + val2 
+			return(res)
+		}	
+	}
+	
 	#**** start optimization function
 	if (verbose){
 		cat("***************************\n")
 		cat("Starting Optimization\n\n")
 		#- adapt trace 
-		con_trace <- control$trace
-		if ( is.null(con_trace) ){
+		if ( is.null(control$trace) ){
 			if (optim_fct == "optim"){
 				control$trace <- 3
-			} else {
+			}
+			if (optim_fct == "nlminb"){
 				control$trace <- 1
 			}
 		}
@@ -48,18 +60,18 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 
 	#--- optimization
 	if ( optim_fct == "optim"){
-		res0 <- stats::optim( par = pars , fn = pmle_obj,  method = method,  
+		res0 <- stats::optim( par = pars , fn = pmle_obj, gr=pmle_grad, method = method,  
 					lower = pars_lower, upper = pars_upper,
 					control = control, hessian = hessian, ... )
-	} else {
-		res0 <- stats::nlminb( start = pars , objective = pmle_obj, 
+	}
+	if ( optim_fct == "nlminb"){
+		res0 <- stats::nlminb( start = pars , objective = pmle_obj, gradient=pmle_grad,
 					lower = pars_lower, upper = pars_upper,
 					control = control, ... )		
 		#-- compute Hessian matrix
-		res0$hessian <- numDeriv::hessian(func=pmle_obj, x=res0$par)
-	
+		res0$hessian <- numDeriv::hessian(func=pmle_obj, x=res0$par)	
 	}			
-
+	converged <- res0$convergence == 0 
 	coef1 <- res0$par		
 	if ( hessian ){	
 		hess1 <- res0$hessian
@@ -99,8 +111,8 @@ pmle <- function( data , nobs , pars , model ,  prior ,
 		loglik = ll , ic = ic , deviance = -2*ll ,
 		model = model , prior = prior ,  prior_summary = dens , 
 		data = data , nobs = nobs , 
-		results_optim = res0 , converged = res0$convergence == 0 , 
-		time=time , CALL = CALL, optim_fct = optim_fct
+		results_optim = res0 , converged = converged, 
+		time=time , CALL = CALL, optim_fct = optim_fct, use_grad = use_grad
 				)
 	v1 <- paste0( "Penalized Maximum Likelihood Estimation \n "	,
 	      "   (Maximum Posterior Estimation, MAP)" )
