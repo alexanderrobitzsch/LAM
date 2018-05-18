@@ -3,5 +3,5 @@
 
 
 vcov.amh <- function( object , ...){
-	return( object$vcov)
+    return( object$vcov)
 }

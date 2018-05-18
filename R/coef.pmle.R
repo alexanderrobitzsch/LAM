@@ -3,5 +3,5 @@
 
 coef.pmle <- function( object , ...)
 {
-	return(object$coef)
+    return(object$coef)
 }

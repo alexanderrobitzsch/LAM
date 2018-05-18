@@ -1,12 +1,12 @@
 Package: LAM
 Type: Package
 Title: Some Latent Variable Models
-Version: 0.3-41
-Date: 2018-04-23 14:33:37
+Version: 0.3-45
+Date: 2018-05-18 15:54:32
 Author: Alexander Robitzsch [aut,cre]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
-    Contains some procedures for latent variable modelling with a 
+    Contains some procedures for latent variable modeling with a 
     particular focus on multilevel data.
     The 'LAM' package contains mean and covariance structure modelling
     for multivariate normally distributed data (mlnormal(); Longford, 1987;

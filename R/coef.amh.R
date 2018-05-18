@@ -2,5 +2,5 @@
 ## File Version: 0.02
 
 coef.amh <- function( object , ...){
-	return( object$coef)
+    return( object$coef)
 }

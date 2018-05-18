@@ -1,5 +1,5 @@
 %% File Name: suff_stat_NA_pattern.Rd
-%% File Version: 0.04
+%% File Version: 0.06
 
 \name{suff_stat_NA_pattern}
 \alias{suff_stat_NA_pattern}
@@ -10,7 +10,7 @@ Sufficient Statistics for Dataset with Missing Response Pattern
 }
 
 \description{
-Computes sufficient statistics for a dataset with an arbitrary missing 
+Computes sufficient statistics for a dataset with an arbitrary missing
 response pattern.
 }
 
@@ -33,7 +33,7 @@ Numeric data frame
 \value{
 A list with following entries
 
-\item{nobs}{List with number of obervations for each missing response pattern}
+\item{nobs}{List with number of observations for each missing response pattern}
 \item{M}{List with mean vectors}
 \item{S}{List with covariance matrices}
 \item{varindex}{List with indices of observed variables}
@@ -60,8 +60,8 @@ A list with following entries
 
 \examples{
 #############################################################################
-# EXAMPLE 1: Toy example for computation of sufficient statistics 
-#############################################################################   
+# EXAMPLE 1: Toy example for computation of sufficient statistics
+#############################################################################
 
 library(STARTS)
 
@@ -69,7 +69,7 @@ data(data.starts01b, package="STARTS")
 dat <- data.starts01b
 dat1 <- dat[ , paste0("E",1:3)]
 
-#-- compute sufficient statistics  
+#-- compute sufficient statistics
 res <- LAM::suff_stat_NA_pattern(dat1)
 str(res)
 }

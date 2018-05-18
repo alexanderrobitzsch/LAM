@@ -1,13 +1,12 @@
 ## File Name: mlnormal_verbose_f0.R
-## File Version: 0.02
+## File Version: 0.04
 
 mlnormal_verbose_f0 <- function(verbose, disp)
 {
-	if (verbose){		
-		cat(disp)
-	    cat("Preprocess data   " , 
-		          paste( Sys.time() ) , "\n" )
-		utils::flush.console()						
-	}	
-}		
-			
+    if (verbose){
+        cat(disp)
+        cat("Preprocess data   " , paste( Sys.time() ) , "\n" )
+        utils::flush.console()
+    }
+}
+

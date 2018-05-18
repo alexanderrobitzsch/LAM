@@ -2,5 +2,5 @@
 ## File Version: 0.02
 
 coef.mlnormal <- function( object , ...){
-	return( object$coef)
+    return( object$coef)
 }

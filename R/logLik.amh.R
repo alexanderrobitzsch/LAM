@@ -1,13 +1,8 @@
 ## File Name: logLik.amh.R
-## File Version: 0.02
+## File Version: 0.04
 
-logLik.amh <- function (object, ...) {
-    # extract log-likelihood
-    out <- - object$ic$deviance / 2 
-    # number of parameters
-    attr(out, "df") <- object$ic$np
-        # extract number of observations
-    attr(out, "nobs") <- object$ic$n
-    class(out) <- "logLik"
+logLik.amh <- function (object, ...)
+{
+    out <- logLik_lam(object, ...)
     return(out)
 }

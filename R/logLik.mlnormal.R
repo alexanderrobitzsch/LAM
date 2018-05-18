@@ -1,13 +1,8 @@
 ## File Name: logLik.mlnormal.R
-## File Version: 0.02
+## File Version: 0.04
 
-logLik.mlnormal <- function (object, ...) {
-    # extract log-likelihood
-    out <- - object$ic$deviance / 2 
-    # number of parameters
-    attr(out, "df") <- object$ic$np
-        # extract number of observations
-    attr(out, "nobs") <- object$ic$n
-    class(out) <- "logLik"
+logLik.mlnormal <- function (object, ...)
+{
+    out <- logLik_lam(object, ...)
     return(out)
 }

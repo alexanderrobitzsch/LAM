@@ -1,5 +1,5 @@
 %% File Name: loglike_mvnorm.Rd
-%% File Version: 0.23
+%% File Version: 0.24
 
 \name{loglike_mvnorm}
 \alias{loglike_mvnorm}
@@ -16,10 +16,10 @@ given the empirical mean vector and the empirical covariance matrix
 as sufficient statistics.
 }
 \usage{
-loglike_mvnorm(M, S, mu, Sigma, n, log = TRUE, lambda = 0, ginv = FALSE, eps = 1e-30, 
+loglike_mvnorm(M, S, mu, Sigma, n, log = TRUE, lambda = 0, ginv = FALSE, eps = 1e-30,
        use_rcpp=FALSE )
 
-loglike_mvnorm_NA_pattern( suff_stat, mu, Sigma, log=TRUE, lambda = 0, ginv = FALSE, 
+loglike_mvnorm_NA_pattern( suff_stat, mu, Sigma, log=TRUE, lambda = 0, ginv = FALSE,
        eps = 1e-30, use_rcpp=FALSE )
 }
 %- maybe also 'usage' for other objects documented here.
@@ -57,9 +57,9 @@ Regularization parameter of the covariance matrix (see Details).
 \details{
 The population covariance matrix \eqn{\bold{\Sigma}} is regularized if
 \eqn{\lambda} (\code{lambda}) is chosen larger than zero.
-Let \eqn{\bold{\Delta _\Sigma}} denote a diagonal matrix containing 
+Let \eqn{\bold{\Delta _\Sigma}} denote a diagonal matrix containing
 the diagonal entries of \eqn{\bold{\Sigma}}. Then, a regularized matrix
-\eqn{\bold{\Sigma}^\ast} is defined as 
+\eqn{\bold{\Sigma}^\ast} is defined as
 \eqn{\bold{\Sigma}^\ast = w \bold{\Sigma} + (1-w)\bold{\Delta _\Sigma }}
 with \eqn{w=n/(n+\lambda)}.
 }
@@ -87,7 +87,7 @@ Alexander Robitzsch
 \examples{
 #############################################################################
 # EXAMPLE 1: Multivariate normal distribution
-#############################################################################   
+#############################################################################
 
 library(MASS)
 
@@ -107,11 +107,11 @@ res1 <- LAM::loglike_mvnorm( M=M , S=S , mu=mu , Sigma=Sigma , n = N , lambda = 
 # compare log likelihood with somewhat regularized covariance matrix
 res2 <- LAM::loglike_mvnorm( M=M , S=S , mu=mu , Sigma=Sigma , n = N , lambda = 1 )
 print(res1)
-print(res2)	
+print(res2)
 
 #############################################################################
 # EXAMPLE 2: Multivariate normal distribution with missing data patterns
-#############################################################################  
+#############################################################################
 
 library(STARTS)
 

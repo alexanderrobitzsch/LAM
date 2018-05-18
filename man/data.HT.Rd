@@ -1,5 +1,5 @@
 %% File Name: data.HT.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{data.HT}
 \alias{data.HT}
@@ -21,7 +21,7 @@ data(data.HT12)
 
 \format{
 
-\itemize{	
+\itemize{
 \item The format of the dataset \code{data.HT12} from Chapter 1 is:
 
 \code{'data.frame':   120 obs. of  11 variables:} \cr

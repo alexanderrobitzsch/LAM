@@ -3,5 +3,5 @@
 
 
 vcov.mlnormal <- function( object , ...){
-	return( object$vcov)
+    return( object$vcov)
 }
