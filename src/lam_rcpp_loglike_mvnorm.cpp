@@ -1,5 +1,5 @@
 //// File Name: lam_rcpp_loglike_mvnorm.cpp
-//// File Version: 0.887
+//// File Version: 0.889
 
 
 // [[Rcpp__interfaces(r, cpp)]]  substitute "__" by "::"

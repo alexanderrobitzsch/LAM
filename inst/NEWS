@@ -29,7 +29,7 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.3  |  2018-05-18  |  Last: LAM 0.3-45
+VERSIONS LAM 0.3  |  2018-05-18  |  Last: LAM 0.3-46
 ------------------------------------------------------------------------
 
 ADDED * included Rcpp implementations for loglike_mvnorm() and
