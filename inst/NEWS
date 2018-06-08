@@ -28,8 +28,22 @@ and (if necessary) a corresponding dataset.
 
 
 
+
 ------------------------------------------------------------------------
-VERSIONS LAM 0.3  |  2018-05-18  |  Last: LAM 0.3-46
+VERSIONS LAM 0.4  |  2018-06-08  |  Last: LAM 0.4-1
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.3  |  2018-06-06  |  Last: LAM 0.3-48
 ------------------------------------------------------------------------
 
 ADDED * included Rcpp implementations for loglike_mvnorm() and
@@ -44,8 +58,6 @@ ADDED * included argument 'model_grad' in pmle() which allows the
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: amh (1)
-
-
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.2  |  2018-03-20  |  Last: LAM 0.2-9

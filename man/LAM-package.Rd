@@ -1,5 +1,5 @@
 %% File Name: LAM-package.Rd
-%% File Version: 0.15
+%% File Version: 0.16
 
 \name{LAM-package}
 \alias{LAM-package}
@@ -9,13 +9,13 @@
 Some Latent Variable Models
 }
 \description{
-    Contains some procedures for latent variable modeling with a
+    Includes some procedures for latent variable modeling with a 
     particular focus on multilevel data.
     The 'LAM' package contains mean and covariance structure modelling
     for multivariate normally distributed data (mlnormal(); Longford, 1987;
-    <doi:10.1093/biomet/74.4.817>), a general Metropolis-Hastings algorithm
-    (amh(); Roberts & Rosenthal, 2001, <doi:10.1214/ss/1015346320>) and
-    penalized maximum likelihood estimation (pmle(); Cole, Chu & Greenland,
+    <doi:10.1093/biomet/74.4.817>), a general Metropolis-Hastings algorithm 
+    (amh(); Roberts & Rosenthal, 2001, <doi:10.1214/ss/1015346320>) and 
+    penalized maximum likelihood estimation (pmle(); Cole, Chu & Greenland, 
     2014; <doi:10.1093/aje/kwt245>).
 }
 \details{
@@ -30,7 +30,8 @@ The \pkg{LAM} package contains the following main functions:
 multivariate normally distributed data is the \code{\link{mlnormal}}
 function. Prior distributions or regularization methods (lasso penalties)
 are also accommodated. Missing values on dependent variables can be
-treated by full information maximum likelihood methods.
+treated by applying the full information maximum likelihood method
+implemented in this function.
 
 
 %% amh, pmle
