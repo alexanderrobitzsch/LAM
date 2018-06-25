@@ -1,5 +1,5 @@
 ## File Name: loglike_mvnorm_NA_pattern.R
-## File Version: 0.19
+## File Version: 0.22
 
 
 loglike_mvnorm_NA_pattern <- function( suff_stat, mu, Sigma, log=TRUE, lambda = 0,
