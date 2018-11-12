@@ -1,5 +1,5 @@
 ## File Name: mlnormal.R
-## File Version: 0.967
+## File Version: 0.968
 
 ############################################################################
 # general estimation function for normally distributed data
@@ -120,12 +120,12 @@ zz0 <- Sys.time()
 # cat("* derivative V ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # update beta
-        res <- mlnormal_update_beta( NB=NB , Z_index = Z_index , G=G , beta=beta ,
-                    Z_list=Z_list , X_list=X_list , y_list=y_list , V1_list=V1_list ,
-                    theta = theta , REML = REML , id_list = id_list , N = N ,
+        res <- mlnormal_update_beta( NB=NB, Z_index = Z_index , G=G , beta=beta ,
+                    Z_list=Z_list, X_list=X_list, y_list=y_list , V1_list=V1_list ,
+                    theta = theta, REML = REML , id_list = id_list , N = N ,
                     V1zero = V1zero , REML_shortcut = REML_shortcut ,
-                    rcpp_args = rcpp_args , X = X , y = y , use_Rcpp = use_Rcpp ,
-                    prior_args = prior_args , control_beta = control_beta )
+                    rcpp_args = rcpp_args, X = X , y = y , use_Rcpp = use_Rcpp ,
+                    prior_args = prior_args, control_beta = control_beta )
         beta <- res$beta
         beta_change <- res$beta_change
         XVX <- res$XVX
@@ -134,14 +134,14 @@ zz0 <- Sys.time()
 #        cat("* update beta ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # update theta
-        res <- mlnormal_update_theta_ml( y=y , X=X , beta=beta ,
-                    Z_index=Z_index , NT=NT , G=G , id_list=id_list , V1_list=V1_list ,
-                    D1_V_list=D1_V_list, theta = theta , P = P , REML = REML ,
-                    V1zero = V1zero , REML_shortcut = REML_shortcut ,
-                    V1_D1V_V1_list = V1_D1V_V1_list  , XVX = XVX ,
-                    variance_shortcut = variance_shortcut , freq_id = freq_id ,
-                    do_compute = do_compute , prior_args = prior_args ,
-                    control_theta = control_theta , iter = iter
+        res <- mlnormal_update_theta_ml( y=y, X=X, beta=beta ,
+                    Z_index=Z_index, NT=NT, G=G, id_list=id_list, V1_list=V1_list,
+                    D1_V_list=D1_V_list, theta = theta, P = P, REML = REML,
+                    V1zero = V1zero, REML_shortcut = REML_shortcut,
+                    V1_D1V_V1_list = V1_D1V_V1_list, XVX = XVX,
+                    variance_shortcut = variance_shortcut, freq_id = freq_id,
+                    do_compute = do_compute, prior_args = prior_args,
+                    control_theta = control_theta, iter = iter
                     )
         theta <- res$theta
         theta_change <- res$theta_change

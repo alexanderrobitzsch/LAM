@@ -1,8 +1,8 @@
 Package: LAM
 Type: Package
 Title: Some Latent Variable Models
-Version: 0.4-3
-Date: 2018-06-25 10:37:27
+Version: 0.4-4
+Date: 2018-11-12 10:52:44
 Author: Alexander Robitzsch [aut,cre]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
@@ -23,5 +23,7 @@ Suggests:
     lavaan, lme4, STARTS (>= 0.2)
 LinkingTo: 
     Rcpp, RcppArmadillo
-URL: https://github.com/alexanderrobitzsch/LAM
+URL: 
+    https://github.com/alexanderrobitzsch/LAM,
+    https://sites.google.com/site/alexanderrobitzsch2/software
 License: GPL (>= 2)
