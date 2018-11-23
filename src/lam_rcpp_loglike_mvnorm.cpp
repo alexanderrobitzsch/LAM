@@ -1,5 +1,5 @@
 //// File Name: lam_rcpp_loglike_mvnorm.cpp
-//// File Version: 0.889
+//// File Version: 0.890
 
 
 // [[Rcpp__interfaces(r, cpp)]]  substitute "__" by "::"
@@ -49,7 +49,7 @@ double lam_rcpp_loglike_mvnorm( arma::colvec M, arma::mat S, arma::colvec mu,
 
     // regularization of input covariance matrix
     if ( lambda > 0){
-        double w = n /( n + lambda ) ;
+        double w = n /( n + lambda );
         for (int ii=0; ii<p; ii++){
             for (int jj=ii+1; jj<p;jj++){
                 sigma0(ii,jj) = w*sigma0(ii,jj);
@@ -68,7 +68,7 @@ double lam_rcpp_loglike_mvnorm( arma::colvec M, arma::mat S, arma::colvec mu,
 
     // determinant of Sigma
     double det_Sigma = arma::det(sigma0);
-    if ( det_Sigma < eps){ det_Sigma = eps ; }
+    if ( det_Sigma < eps){ det_Sigma = eps; }
 
     // quadratic form
     arma::colvec mudiff = M - mu;
@@ -161,7 +161,7 @@ double lam_rcpp_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colv
     }
 
     //-- output
-    return ll ;
+    return ll;
 }
 ///********************************************************************
 

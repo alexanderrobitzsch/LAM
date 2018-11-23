@@ -1,11 +1,11 @@
 ## File Name: mlnormal_update_V_R.R
-## File Version: 0.23
+## File Version: 0.27
 
 ##############################################
 # update matrix V and its inverse
-mlnormal_update_V_R <- function( Z_index , G , theta ,
-        Z_list , use_ginverse , variance_shortcut , freq_id  ,
-        do_compute , rcpp_args){
+mlnormal_update_V_R <- function( Z_index, G, theta,
+        Z_list, use_ginverse, variance_shortcut, freq_id ,
+        do_compute, rcpp_args){
     dimZ <- dim( Z_index )
     Z2 <- dimZ[2]
     V_list <- as.list(1:G)
@@ -39,8 +39,8 @@ mlnormal_update_V_R <- function( Z_index , G , theta ,
         V1_list[[gg]] <- V_gg1
     }
     #--- output
-    res <- list("V_list" = V_list , "V1_list" = V1_list,
-                    "rcpp_args" = rcpp_args )
+    res <- list("V_list"=V_list, "V1_list"=V1_list,
+                    "rcpp_args"=rcpp_args )
     return(res)
 }
 ######################################################################

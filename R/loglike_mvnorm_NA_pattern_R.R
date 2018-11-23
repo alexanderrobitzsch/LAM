@@ -1,9 +1,9 @@
 ## File Name: loglike_mvnorm_NA_pattern_R.R
-## File Version: 0.22
+## File Version: 0.24
 
 
-loglike_mvnorm_NA_pattern_R <- function( suff_stat, mu, Sigma, log=TRUE, lambda = 0,
-    ginv = FALSE, eps = 1e-30 )
+loglike_mvnorm_NA_pattern_R <- function( suff_stat, mu, Sigma, log=TRUE, lambda=0,
+    ginv=FALSE, eps=1e-30 )
 {
     ll <- 0
     NP <- suff_stat$NP

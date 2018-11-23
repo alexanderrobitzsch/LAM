@@ -1,7 +1,7 @@
 ## File Name: vcov.pmle.R
-## File Version: 0.03
+## File Version: 0.04
 
 
-vcov.pmle <- function( object , ...){
+vcov.pmle <- function( object, ...){
     return( object$vcov)
 }

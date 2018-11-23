@@ -1,5 +1,5 @@
 %% File Name: loglike_mvnorm.Rd
-%% File Version: 0.24
+%% File Version: 0.28
 
 \name{loglike_mvnorm}
 \alias{loglike_mvnorm}
@@ -16,11 +16,11 @@ given the empirical mean vector and the empirical covariance matrix
 as sufficient statistics.
 }
 \usage{
-loglike_mvnorm(M, S, mu, Sigma, n, log = TRUE, lambda = 0, ginv = FALSE, eps = 1e-30,
+loglike_mvnorm(M, S, mu, Sigma, n, log=TRUE, lambda=0, ginv=FALSE, eps=1e-30,
        use_rcpp=FALSE )
 
-loglike_mvnorm_NA_pattern( suff_stat, mu, Sigma, log=TRUE, lambda = 0, ginv = FALSE,
-       eps = 1e-30, use_rcpp=FALSE )
+loglike_mvnorm_NA_pattern( suff_stat, mu, Sigma, log=TRUE, lambda=0, ginv=FALSE,
+       eps=1e-30, use_rcpp=FALSE )
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -60,7 +60,7 @@ The population covariance matrix \eqn{\bold{\Sigma}} is regularized if
 Let \eqn{\bold{\Delta _\Sigma}} denote a diagonal matrix containing
 the diagonal entries of \eqn{\bold{\Sigma}}. Then, a regularized matrix
 \eqn{\bold{\Sigma}^\ast} is defined as
-\eqn{\bold{\Sigma}^\ast = w \bold{\Sigma} + (1-w)\bold{\Delta _\Sigma }}
+\eqn{\bold{\Sigma}^\ast=w \bold{\Sigma} + (1-w)\bold{\Delta _\Sigma }}
 with \eqn{w=n/(n+\lambda)}.
 }
 
@@ -92,20 +92,20 @@ Alexander Robitzsch
 library(MASS)
 
 #--- simulate data
-Sigma <- c( 1 , .55 , .5 , .55 , 1 , .5 ,.5 , .5 , 1 )
-Sigma <- matrix( Sigma , nrow=3 , ncol=3 )
+Sigma <- c( 1, .55, .5, .55, 1, .5,.5, .5, 1 )
+Sigma <- matrix( Sigma, nrow=3, ncol=3 )
 mu <- c(0,1,1.2)
 N <- 400
 set.seed(9875)
-dat <- MASS::mvrnorm( N , mu , Sigma )
+dat <- MASS::mvrnorm( N, mu, Sigma )
 colnames(dat) <- paste0("Y",1:3)
 S <- stats::cov(dat)
 M <- colMeans(dat)
 
 #--- evaulate likelihood
-res1 <- LAM::loglike_mvnorm( M=M , S=S , mu=mu , Sigma=Sigma , n = N , lambda = 0 )
+res1 <- LAM::loglike_mvnorm( M=M, S=S, mu=mu, Sigma=Sigma, n=N, lambda=0 )
 # compare log likelihood with somewhat regularized covariance matrix
-res2 <- LAM::loglike_mvnorm( M=M , S=S , mu=mu , Sigma=Sigma , n = N , lambda = 1 )
+res2 <- LAM::loglike_mvnorm( M=M, S=S, mu=mu, Sigma=Sigma, n=N, lambda=1 )
 print(res1)
 print(res2)
 
@@ -117,7 +117,7 @@ library(STARTS)
 
 data(data.starts01b, package="STARTS")
 dat <- data.starts01b
-dat1 <- dat[ , paste0("E",1:3)]
+dat1 <- dat[, paste0("E",1:3)]
 
 #-- compute sufficient statistics
 suff_stat <- LAM::suff_stat_NA_pattern(dat1)

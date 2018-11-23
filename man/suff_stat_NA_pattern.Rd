@@ -1,5 +1,5 @@
 %% File Name: suff_stat_NA_pattern.Rd
-%% File Version: 0.06
+%% File Version: 0.07
 
 \name{suff_stat_NA_pattern}
 \alias{suff_stat_NA_pattern}
@@ -67,7 +67,7 @@ library(STARTS)
 
 data(data.starts01b, package="STARTS")
 dat <- data.starts01b
-dat1 <- dat[ , paste0("E",1:3)]
+dat1 <- dat[, paste0("E",1:3)]
 
 #-- compute sufficient statistics
 res <- LAM::suff_stat_NA_pattern(dat1)

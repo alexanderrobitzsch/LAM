@@ -1,7 +1,7 @@
 ## File Name: vcov.amh.R
-## File Version: 0.02
+## File Version: 0.03
 
 
-vcov.amh <- function( object , ...){
+vcov.amh <- function( object, ...){
     return( object$vcov)
 }

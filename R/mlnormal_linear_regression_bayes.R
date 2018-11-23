@@ -1,11 +1,11 @@
 ## File Name: mlnormal_linear_regression_bayes.R
-## File Version: 0.03
+## File Version: 0.04
 
 
-mlnormal_linear_regression_bayes <- function( W , beta , W2 , mu2 )
+mlnormal_linear_regression_bayes <- function( W, beta, W2, mu2 )
 {
     # given OLS estimate beta with precison W and
-    # prior distribution N(mu2 , W2^-1)
+    # prior distribution N(mu2, W2^-1)
     Wtot1 <- solve( W + W2 )
     beta <- Wtot1 %*% ( W %*% beta + W2 %*% mu2 )
     return(beta)

@@ -1,6 +1,6 @@
 ## File Name: coef.amh.R
-## File Version: 0.02
+## File Version: 0.03
 
-coef.amh <- function( object , ...){
+coef.amh <- function( object, ...){
     return( object$coef)
 }

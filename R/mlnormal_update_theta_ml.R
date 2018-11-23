@@ -1,13 +1,13 @@
 ## File Name: mlnormal_update_theta_ml.R
-## File Version: 1.07
+## File Version: 1.11
 
 ###################################################
 # update theta
-mlnormal_update_theta_ml <- function( y , X , beta ,
-    Z_index , NT , G , id_list , V1_list , D1_V_list , theta ,
-    P , REML , V1zero , REML_shortcut , V1_D1V_V1_list, XVX ,
-    variance_shortcut , freq_id , do_compute , prior_args ,
-    control_theta , iter )
+mlnormal_update_theta_ml <- function( y, X, beta,
+    Z_index, NT, G, id_list, V1_list, D1_V_list, theta,
+    P, REML, V1zero, REML_shortcut, V1_D1V_V1_list, XVX,
+    variance_shortcut, freq_id, do_compute, prior_args,
+    control_theta, iter )
 {
 zz0 <- Sys.time()
     # calculate residuals
@@ -36,7 +36,7 @@ zz0 <- Sys.time()
                 deri <- deri - tM1
                 ind <- id_list[[gg]]
                 yr <- yresid[ind]
-                deri_t2 <- deri_t2 + 1/2* crossprod( yr , M1 ) %*% PV_gg %*% yr
+                deri_t2 <- deri_t2 + 1/2* crossprod( yr, M1 ) %*% PV_gg %*% yr
             }  ## end gg
         V1_D1V_list[[pp]] <- H11
         der[pp] <- deri + deri_t2
@@ -49,10 +49,10 @@ zz0 <- Sys.time()
             dim_X <- dim(X)
             NX <- dim_X[2]
             N <- dim_X[1]
-            G00 <- matrix( 0 , nrow=NX , ncol=N)
+            G00 <- matrix( 0, nrow=NX, ncol=N)
             for (gg in 1:G){
                 ind_gg <- id_list[[gg]]
-                G00[ , ind_gg] <- crossprod( X[ ind_gg , ] , V1_D1V_V1_pp_list[[gg]] )
+                G00[, ind_gg] <- crossprod( X[ ind_gg, ], V1_D1V_V1_pp_list[[gg]] )
             }
             G00 <- G00 %*% X
             der_add <- 0.5 * sum( diag( solve(XVX) %*% G00 ) )
@@ -65,13 +65,13 @@ zz0 <- Sys.time()
             D1_V_pp_list <- D1_V_list[[pp]]
 #  cat("* compute H_pp (V1)") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
             N <- dim(P)[1]
-            H_pp <- matrix( 0 , nrow=N , ncol=N)
+            H_pp <- matrix( 0, nrow=N, ncol=N)
             for (gg in 1:G){
                 for (hh in 1:G){
                     # hh <- 1
                     ind_gg <- id_list[[gg]]
                     ind_hh <- id_list[[hh]]
-                    H_pp[ ind_hh , ind_gg ] <- P[ ind_hh, ind_gg ] %*% D1_V_pp_list[[gg]]
+                    H_pp[ ind_hh, ind_gg ] <- P[ ind_hh, ind_gg ] %*% D1_V_pp_list[[gg]]
                 }
             }
 #cat("### ! REML shortcut computation ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
@@ -85,8 +85,8 @@ zz0 <- Sys.time()
             deri_t2 <- 0
             for (gg in 1:G){
                 ind_gg <- id_list[[gg]]
-                Py_gg <- Py[ ind_gg , 1]
-                deri_t2 <- deri_t2 + .5* crossprod( Py_gg , D1_V_pp_list[[gg]] ) %*% Py_gg
+                Py_gg <- Py[ ind_gg, 1]
+                deri_t2 <- deri_t2 + .5* crossprod( Py_gg, D1_V_pp_list[[gg]] ) %*% Py_gg
             }
             der[pp] <- deri + deri_t2
         }   # if REML
@@ -97,7 +97,7 @@ zz0 <- Sys.time()
 # cat("-- start theta_infomat") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
     #***** compute expected information matrix
-    theta_infomat <- matrix( 0 , nrow=NT , ncol=NT)
+    theta_infomat <- matrix( 0, nrow=NT, ncol=NT)
     for (pp in 1:NT){
         for (qq in 1:pp){
             # pp <- 1
@@ -131,40 +131,40 @@ zz0 <- Sys.time()
 
     #---- evaluate prior if provided
     if ( prior_args$use_prior ){
-        res <- mlnormal_eval_priors_derivative2( pars = theta ,
-                    prior = prior_args$prior , h = prior_args$numdiff.parm )
+        res <- mlnormal_eval_priors_derivative2( pars=theta,
+                    prior=prior_args$prior, h=prior_args$numdiff.parm )
         # der <- der + res$der
         der <- der - res$der
         theta_infomat1 <- theta_infomat1 - res$infomat
     }
     #--- derivative in case of penalties
     if ( prior_args$use_penalty ){
-        res_newton <- mlnormal_eval_penalty_update_theta( theta=theta ,
-                    prior_args=prior_args , iter = iter , der = der ,
-                    theta_infomat1 = theta_infomat1 ,
-                    control_theta = control_theta)
+        res_newton <- mlnormal_eval_penalty_update_theta( theta=theta,
+                    prior_args=prior_args, iter=iter, der=der,
+                    theta_infomat1=theta_infomat1,
+                    control_theta=control_theta)
         theta <- res_newton$theta
     }
 
     #--- Newton step
     if ( prior_args$use_prior | prior_args$use_GLS ){
-        res_newton <- mlnormal_update_theta_newton_step( theta = theta, der = der,
-                        theta_infomat = theta_infomat1, control_theta = control_theta )
+        res_newton <- mlnormal_update_theta_newton_step( theta=theta, der=der,
+                        theta_infomat=theta_infomat1, control_theta=control_theta )
         theta <- res_newton$theta
     }
 
     # bounds
-    theta <- sirt::bounds_parameters( pars = theta, lower = control_theta$theta_lower,
-                    upper = control_theta$theta_upper )
+    theta <- sirt::bounds_parameters( pars=theta, lower=control_theta$theta_lower,
+                    upper=control_theta$theta_upper )
     theta_change <- mlnormal_parameter_change( pars=theta, pars0=theta0 )
 
     # convert to vector
-    theta <- mlnormal_as_vector_names(pars = theta, parnames = names(theta0) )
+    theta <- mlnormal_as_vector_names(pars=theta, parnames=names(theta0) )
 
     #--- output
-    res <- list( "der" = der , "yresid" = yresid, "V1_D1V_list" = V1_D1V_list,
-            "theta_infomat" = res_newton$theta_infomat, "Hinv" = res_newton$Hinv ,
-            "theta" = theta , "theta_change" = theta_change ,
-            theta_increment = theta - theta0 )
+    res <- list( "der"=der, "yresid"=yresid, "V1_D1V_list"=V1_D1V_list,
+            "theta_infomat"=res_newton$theta_infomat, "Hinv"=res_newton$Hinv,
+            "theta"=theta, "theta_change"=theta_change,
+            theta_increment=theta - theta0 )
     return(res)
 }

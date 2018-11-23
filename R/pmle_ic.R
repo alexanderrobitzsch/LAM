@@ -1,12 +1,12 @@
 ## File Name: pmle_ic.R
-## File Version: 0.14
+## File Version: 0.17
 
 
 ###################################################################
-pmle_ic <- function( dev , N , pars , model , data , post_values )
+pmle_ic <- function( dev, N, pars, model, data, post_values )
 {
     # Information criteria
-    ic <- list( "deviance" = dev , "n" = N )
+    ic <- list( "deviance"=dev, "n"=N )
 
     ic$loglike <- post_values$ll
     ic$prior <- post_values$prior

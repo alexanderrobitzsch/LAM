@@ -1,10 +1,10 @@
 ## File Name: amh_loglike.R
-## File Version: 0.04
+## File Version: 0.07
 
 
 #########################################################
 # evaulate log-likelihood for amh fit
-amh_loglike <- function( model , data , pars){
-    ll <- do.call( model , list( pars = pars , data = data ) )
+amh_loglike <- function( model, data, pars){
+    ll <- do.call( model, list( pars=pars, data=data ) )
     return(ll)
 }

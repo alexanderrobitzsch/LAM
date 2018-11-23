@@ -1,11 +1,11 @@
 ## File Name: pmle_process_prior.R
-## File Version: 0.20
+## File Version: 0.23
 
 ###########################################################
-pmle_process_prior <- function( prior , pars ){
+pmle_process_prior <- function( prior, pars ){
     #*** convert string to prior list
     if ( is.character(prior) ){
-        prior <- sirt::prior_model_parse( prior_model = prior )
+        prior <- sirt::prior_model_parse( prior_model=prior )
     }
     #*** correct list specification
     parnames <- names(pars)
@@ -14,8 +14,8 @@ pmle_process_prior <- function( prior , pars ){
     names(prior1) <- parnames
 
     #**** correct prior specification
-    prior0 <- list( "dimproper" , list(NA) )
-    parnames0 <- setdiff( parnames , names(prior) )
+    prior0 <- list( "dimproper", list(NA) )
+    parnames0 <- setdiff( parnames, names(prior) )
     NP0 <- length(parnames0)
     if (NP0 > 0 ){
         for (pp in 1:NP0){
@@ -27,9 +27,9 @@ pmle_process_prior <- function( prior , pars ){
         prior1[[pp]] <- prior[[ parnames[pp] ]]
     }
     dens1 <- pmle_prior_extract_density( prior=prior1 )
-    dens1 <- data.frame("parameter" = names(pars) , "prior" = dens1 )
+    dens1 <- data.frame("parameter"=names(pars), "prior"=dens1 )
     rownames(dens1) <- NULL
-    res <- list("prior"=prior1 , "dens" = dens1 )
+    res <- list("prior"=prior1, "dens"=dens1 )
     return(res)
 }
 ###########################################################

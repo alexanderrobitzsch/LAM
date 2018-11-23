@@ -1,13 +1,13 @@
 ## File Name: mlnormal_process_prior.R
-## File Version: 0.14
+## File Version: 0.18
 
 #############################################################
 # processing prior distributions
-mlnormal_process_prior <- function( prior , beta , theta ,
-    numdiff.parm , descriptions , lambda_beta , weights_beta ,
-    lambda_theta , weights_theta)
+mlnormal_process_prior <- function( prior, beta, theta,
+    numdiff.parm, descriptions, lambda_beta, weights_beta,
+    lambda_theta, weights_theta)
 {
-    pars <- c( beta , theta )
+    pars <- c( beta, theta )
     use_penalty <- FALSE
     #--- check for penalties
     use_penalty <- ( ! is.null(lambda_theta) ) | ( ! is.null(lambda_beta) )
@@ -20,18 +20,18 @@ mlnormal_process_prior <- function( prior , beta , theta ,
 
     #*** no priors, no penalties
     if ( no_prior_no_penalty ){
-        res <- list( use_prior = FALSE , prior = NULL , dens = NULL ,
-                    use_GLS = TRUE )
+        res <- list( use_prior=FALSE, prior=NULL, dens=NULL,
+                    use_GLS=TRUE )
     }
     descriptions["log_like_verbose2"] <- descriptions["log_like_verbose"]
 
     #*** prior distributions
     if (use_prior){
-        res <- pmle_process_prior( prior = prior , pars = pars )
+        res <- pmle_process_prior( prior=prior, pars=pars )
         res$use_prior <- TRUE
         prior <- res$prior
         res$use_GLS <- FALSE
-        descriptions["des_method"] <- paste0( descriptions["des_method"] ,
+        descriptions["des_method"] <- paste0( descriptions["des_method"],
                                         " with Prior Distributions")
         descriptions["log_like_verbose2"] <- "Log posterior"
     }
@@ -52,7 +52,7 @@ mlnormal_process_prior <- function( prior , beta , theta ,
             weights_theta <- 1 + 0*theta
         }
         res$use_GLS <- FALSE
-        descriptions["des_method"] <- paste0( descriptions["des_method"] ,
+        descriptions["des_method"] <- paste0( descriptions["des_method"],
                                         " with Penalty Function")
         descriptions["log_like_verbose2"] <- "Log posterior"
     }

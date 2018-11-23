@@ -1,5 +1,5 @@
 //// File Name: lam_rcpp_mlnormal.cpp
-//// File Version: 2.18
+//// File Version: 2.21
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -27,7 +27,7 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
 
     // copy of update_dim
     Rcpp::NumericMatrix update_dim2(G,1);
-    update_dim2(_,0) = update_dim ;
+    update_dim2(_,0) = update_dim;
 
     int orig_gg = 0;
     int orig_gg1 = 0;
@@ -40,11 +40,11 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
         if ( update_dim2(gg,0) == 0){
             orig_gg1 = orig_id[gg-1];
         }
-        for( int mm = 0; mm < NM ; mm++){
+        for( int mm = 0; mm < NM; mm++){
             if ( update_dim2(gg,0) == 0){
-                for( int pp = 0; pp < NP ; pp++){
-                    Z1 = Z_index[ orig_gg + mm*G + pp*G*NM - 1] ;
-                    Z2 = Z_index[ orig_gg1 + mm*G + pp*G*NM - 1] ;
+                for( int pp = 0; pp < NP; pp++){
+                    Z1 = Z_index[ orig_gg + mm*G + pp*G*NM - 1];
+                    Z2 = Z_index[ orig_gg1 + mm*G + pp*G*NM - 1];
                     if ( Z1 != Z2 ){
                         update_dim2(gg,0) = 1;
                     }
@@ -56,30 +56,30 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
     int dim_gg = 0;
     double eps = 1E-15;
     double val = 0.0;
-    Rcpp::NumericMatrix Z_gg_mm ;
-    Rcpp::NumericMatrix Z_gg1_mm ;
+    Rcpp::NumericMatrix Z_gg_mm;
+    Rcpp::NumericMatrix Z_gg1_mm;
     //----- compare Z_list
-    for (int gg=0; gg < G ; gg++){
+    for (int gg=0; gg < G; gg++){
         orig_gg = orig_id[gg];
         if ( update_dim2(gg,0) == 0){
             orig_gg1 = orig_id[gg-1];
         }
         if ( update_dim2(gg,0) == 0 ){
-            Rcpp::List Z_gg1 = Rcpp::as<Rcpp::List>( Z_list[ orig_gg1 - 1] ) ;
-            Rcpp::List Z_gg = Rcpp::as<Rcpp::List>( Z_list[ orig_gg - 1] ) ;
-            dim_gg = dim_id[gg] ;
+            Rcpp::List Z_gg1 = Rcpp::as<Rcpp::List>( Z_list[ orig_gg1 - 1] );
+            Rcpp::List Z_gg = Rcpp::as<Rcpp::List>( Z_list[ orig_gg - 1] );
+            dim_gg = dim_id[gg];
             if ( update_dim2(gg,0) == 0 ){
                 for (int mm=0; mm < NM; mm++){
-                    Rcpp::NumericMatrix Z_gg1_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg1[mm] ) ;
-                    Rcpp::NumericMatrix Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] ) ;
+                    Rcpp::NumericMatrix Z_gg1_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg1[mm] );
+                    Rcpp::NumericMatrix Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] );
                     for (int rr=0; rr < dim_gg; rr++){
                         for (int cc=rr; cc < dim_gg; cc++){
-                            val = Z_gg1_mm(rr,cc) - Z_gg_mm(rr,cc) ;
+                            val = Z_gg1_mm(rr,cc) - Z_gg_mm(rr,cc);
                             if ( val < 0){
-                                val = - val ;
+                                val = - val;
                             }
                             if ( val > eps ){
-                                update_dim2(gg,0) = 1 ;
+                                update_dim2(gg,0) = 1;
                             }
                         }  // end cc
                     }  // end rr
@@ -95,7 +95,7 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
                 Rcpp::Named("NP") = NP,
                 Rcpp::Named("Z_gg") = Z_gg_mm,
                 Rcpp::Named("update_dim") = update_dim2
-        ) ;
+        );
 }
 ///********************************************************************
 
@@ -106,33 +106,33 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_XY_restructure(
     Rcpp::NumericMatrix freq_id, Rcpp::NumericVector y,
     Rcpp::NumericMatrix X, int G )
 {
-    int N = X.nrow() ;
-    int V = X.ncol() ;
+    int N = X.nrow();
+    int V = X.ncol();
     Rcpp::NumericMatrix X1(N,V);
     Rcpp::NumericVector y1(N);
     int hh=0;
     int min_gg=0;
     int max_gg=0;
-    for (int gg = 0 ; gg < G ; gg++){
+    for (int gg = 0; gg < G; gg++){
         min_gg = freq_id(gg,2) - 1;
-        max_gg = freq_id(gg,3) ;
-        for (int mm = min_gg ; mm < max_gg ; mm++){
-            y1[hh] = y[mm] ;
+        max_gg = freq_id(gg,3);
+        for (int mm = min_gg; mm < max_gg; mm++){
+            y1[hh] = y[mm];
             for (int vv=0; vv < V; vv++){
                 X1(hh,vv) = X(mm,vv);
             }
-            hh ++ ;
+            hh ++;
         }
     }
 
     //*************************************************
     // OUTPUT
     return Rcpp::List::create(
-            Rcpp::Named("N") = N ,
-            Rcpp::Named("V") = V ,
-            Rcpp::Named("X") = X1 ,
+            Rcpp::Named("N") = N,
+            Rcpp::Named("V") = V,
+            Rcpp::Named("X") = X1,
             Rcpp::Named("y") = y1
-        ) ;
+        );
 }
 ///********************************************************************
 
@@ -150,8 +150,8 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
     int NM = dim_Z_index[1];
     int NP = dim_Z_index[2];
 
-    Rcpp::NumericMatrix V( N , max_dim );
-    Rcpp::NumericMatrix V1( N , max_dim );
+    Rcpp::NumericMatrix V( N, max_dim );
+    Rcpp::NumericMatrix V1( N, max_dim );
     Rcpp::List V_list(G);
     Rcpp::List V1_list(G);
     arma::mat V_gg;
@@ -163,27 +163,27 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
     double eps = 1E-15;
     double zval = 0;
 
-    for (int gg = 0 ; gg < G; gg++){
+    for (int gg = 0; gg < G; gg++){
         if ( do_compute[gg] == 1 ){
             dim_gg = dim_id[gg];
-            Z_gg = Rcpp::as<Rcpp::List>( Z_list[gg] ) ;
+            Z_gg = Rcpp::as<Rcpp::List>( Z_list[gg] );
             V_gg = arma::zeros<arma::mat>(dim_gg,dim_gg);
-            double pow_gg_mm_pp = 0 ;
+            double pow_gg_mm_pp = 0;
             for (int mm = 0; mm <NM; mm++){
-                Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] ) ;
+                Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] );
                 val = 1;
-                for (int pp = 0 ; pp < NP ; pp ++){
-                    pow_gg_mm_pp = Z_index[ gg + mm*G + pp*G*NM  ] ;
+                for (int pp = 0; pp < NP; pp ++){
+                    pow_gg_mm_pp = Z_index[ gg + mm*G + pp*G*NM  ];
                     if ( pow_gg_mm_pp > 0 ){
-                        val =  std::pow( theta[pp] , pow_gg_mm_pp ) * val ;
+                        val =  std::pow( theta[pp], pow_gg_mm_pp ) * val;
                     }
                 }
                 for (int rr=0;rr<dim_gg;rr++){
                     for (int cc=0;cc<dim_gg;cc++){
-                        zval = Z_gg_mm(rr,cc) ;
+                        zval = Z_gg_mm(rr,cc);
                         if (rr <= cc ){
                             if ( ( zval > eps ) | ( zval < - eps ) ){
-                                V_gg(rr,cc) = V_gg(rr,cc) + val* zval ;
+                                V_gg(rr,cc) = V_gg(rr,cc) + val* zval;
                             }
                         } else {
                             V_gg(rr,cc) = V_gg(cc,rr);
@@ -199,25 +199,25 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
             }
         }
         // fill matrices V and V1
-        for( int rr=0; rr < dim_gg ; rr++){
-            for( int cc=0; cc < dim_gg ; cc++){
-                V( startIndex[gg] - 1 + rr , cc ) = V_gg( rr , cc ) ;
-                V1( startIndex[gg] - 1 + rr , cc ) = V1_gg( rr , cc ) ;
+        for( int rr=0; rr < dim_gg; rr++){
+            for( int cc=0; cc < dim_gg; cc++){
+                V( startIndex[gg] - 1 + rr, cc ) = V_gg( rr, cc );
+                V1( startIndex[gg] - 1 + rr, cc ) = V1_gg( rr, cc );
             }
         }
         // fill list
-        V_list[gg] = V_gg ;
-        V1_list[gg] = V1_gg ;
+        V_list[gg] = V_gg;
+        V1_list[gg] = V1_gg;
     }
 
     //*************************************************
     // OUTPUT
     return Rcpp::List::create(
-            Rcpp::Named("V") = V ,
-            Rcpp::Named("V1") = V1 ,
-            Rcpp::Named("V_list") = V_list ,
+            Rcpp::Named("V") = V,
+            Rcpp::Named("V1") = V1,
+            Rcpp::Named("V_list") = V_list,
             Rcpp::Named("V1_list") = V1_list
-        ) ;
+        );
 }
 ///********************************************************************
 
@@ -238,16 +238,16 @@ Rcpp::List lam_rcpp_mlnormal_update_beta( Rcpp::NumericVector dim_id,
     int cc1 = 0;
     for (int pp=0; pp < NB; pp++){
         for (int qq=pp; qq < NB; qq++){
-            XVX(pp,qq) = 0 ;
+            XVX(pp,qq) = 0;
             if (pp==qq){
-                XVY(qq,0) = 0 ;
+                XVY(qq,0) = 0;
             }
             for (int gg=0; gg <G; gg++){
                 dim_gg = dim_id[gg];
                 for (int rr=0; rr < dim_gg; rr++){
                     for (int cc=0; cc < dim_gg; cc++){
-                        rr1 = startIndex[gg] + rr - 1 ;
-                        cc1 = startIndex[gg] + cc - 1 ;
+                        rr1 = startIndex[gg] + rr - 1;
+                        cc1 = startIndex[gg] + cc - 1;
                         XVX(pp,qq) += X(rr1,pp) * V1(rr1,cc) * X(cc1,qq);
                         if (pp==qq){
                             XVY(pp,0) += X(rr1,pp) * V1(rr1,cc) * y[cc1];
@@ -264,8 +264,8 @@ Rcpp::List lam_rcpp_mlnormal_update_beta( Rcpp::NumericVector dim_id,
     //*************************************************
     // OUTPUT
     return Rcpp::List::create(
-            Rcpp::Named("XVX") = XVX ,
+            Rcpp::Named("XVX") = XVX,
             Rcpp::Named("XVY") = XVY
-        ) ;
+        );
 }
 

@@ -1,5 +1,5 @@
 %% File Name: amh.Rd
-%% File Version: 0.75
+%% File Version: 0.82
 
 \name{amh}
 \alias{amh}
@@ -42,20 +42,20 @@ obtained. The optimization functions \link[stats:optim]{stats::optim} or
 
 
 \usage{
-amh(data , nobs , pars , model ,  prior , proposal_sd ,  pars_lower = NULL ,
-      pars_upper = NULL , derivedPars = NULL , n.iter = 5000 , n.burnin = 1000 ,
-      n.sims=3000, acceptance_bounds = c(.45,.55), proposal_refresh = 50,
-      proposal_equal = 4, print_iter = 50 )
+amh(data, nobs, pars, model,  prior, proposal_sd,  pars_lower=NULL,
+      pars_upper=NULL, derivedPars=NULL, n.iter=5000, n.burnin=1000,
+      n.sims=3000, acceptance_bounds=c(.45,.55), proposal_refresh=50,
+      proposal_equal=4, print_iter=50 )
 
-pmle( data, nobs, pars, model,  prior = NULL, model_grad=NULL, pars_lower = NULL,
-      pars_upper = NULL, method = "L-BFGS-B", control=list(), verbose=TRUE, hessian=TRUE ,
-      optim_fct = "optim", h=1e-4, ... )
+pmle( data, nobs, pars, model,  prior=NULL, model_grad=NULL, pars_lower=NULL,
+      pars_upper=NULL, method="L-BFGS-B", control=list(), verbose=TRUE, hessian=TRUE,
+      optim_fct="nlminb", h=1e-4, ... )
 
-\method{summary}{amh}(object, digits = 3, file = NULL, ...)
+\method{summary}{amh}(object, digits=3, file=NULL, ...)
 
-\method{plot}{amh}(x , conflevel=.95, digits=3 , lag.max= .1 ,
-    col.smooth="red" , lwd.smooth=2 , col.split = "blue" , lwd.split = 2,
-    lty.split=1, col.ci="orange", cex.summ=1, ask=FALSE , ... )
+\method{plot}{amh}(x, conflevel=.95, digits=3, lag.max=.1,
+    col.smooth="red", lwd.smooth=2, col.split="blue", lwd.split=2,
+    lty.split=1, col.ci="orange", cex.summ=1, ask=FALSE, ... )
 
 \method{coef}{amh}(object, ...)
 
@@ -63,9 +63,9 @@ pmle( data, nobs, pars, model,  prior = NULL, model_grad=NULL, pars_lower = NULL
 
 \method{vcov}{amh}(object, ...)
 
-\method{confint}{amh}(object , parm , level = .95, ... )
+\method{confint}{amh}(object, parm, level=.95, ... )
 
-\method{summary}{pmle}(object, digits = 3, file = NULL, ...)
+\method{summary}{pmle}(object, digits=3, file=NULL, ...)
 
 \method{coef}{pmle}(object, ...)
 
@@ -73,7 +73,7 @@ pmle( data, nobs, pars, model,  prior = NULL, model_grad=NULL, pars_lower = NULL
 
 \method{vcov}{pmle}(object, ...)
 
-\method{confint}{pmle}(object, parm, level = .95, ... )
+\method{confint}{pmle}(object, parm, level=.95, ... )
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -132,7 +132,7 @@ the log-likelihood function (must be a function of \code{pars}.}
 \item{hessian}{Logical indicating whether the Hessian matrix
 should be computed}
 \item{optim_fct}{Type of optimization: \code{"optim"} (\link[stats:optim]{stats::optim})
-or \code{"nlminb"} (\link[stats:nlminb]{stats::nlminb})
+or the default \code{"nlminb"} (\link[stats:nlminb]{stats::nlminb})
 }
 \item{h}{Numerical differentiation parameter for prior distributions if
 \code{model_grad} is provided.}
@@ -223,19 +223,19 @@ alternative \R packages.
 
 #--- simulate data
 Sigma <- matrix( c(
-    1 , .55 , .5 ,
-    .55 , 1 , .45 ,
-    .5 , .45 , 1 ) , nrow=3 , ncol=3 , byrow=TRUE )
+    1, .55, .5,
+    .55, 1, .45,
+    .5, .45, 1 ), nrow=3, ncol=3, byrow=TRUE )
 mu <- c(0,1,1.2)
 N <- 400
 set.seed(9875)
-dat <- MASS::mvrnorm( N , mu , Sigma )
+dat <- MASS::mvrnorm( N, mu, Sigma )
 colnames(dat) <- paste0("Y",1:3)
 S <- stats::cov(dat)
 M <- colMeans(dat)
 
 #-- define maximum likelihood function for normal distribution
-fit_ml <- function( S , Sigma , M , mu , n , log=TRUE){
+fit_ml <- function( S, Sigma, M, mu, n, log=TRUE){
     Sigma1 <- solve(Sigma)
     p <- ncol(Sigma)
     det_Sigma <- det( Sigma )
@@ -255,14 +255,14 @@ fit_ml <- function( S , Sigma , M , mu , n , log=TRUE){
 # This likelihood function can be directly accessed by the loglike_mvnorm function.
 
 #--- define data input
-data <- list( "S" = S , "M" = M , "n" = N )
+data <- list( "S"=S, "M"=M, "n"=N )
 
 #--- define list of prior distributions
 prior <- list()
-prior[["mu1"]] <- list( "dnorm" , list( x=NA , mean=0 , sd=1 ) )
-prior[["mu2"]] <- list( "dnorm" , list( x=NA , mean=0 , sd=5 ) )
-prior[["sig1"]] <- list( "dunif" , list( x=NA , 0 , 10 ) )
-prior[["rho"]] <- list( "dunif" , list( x=NA ,-1 , 1  ) )
+prior[["mu1"]] <- list( "dnorm", list( x=NA, mean=0, sd=1 ) )
+prior[["mu2"]] <- list( "dnorm", list( x=NA, mean=0, sd=5 ) )
+prior[["sig1"]] <- list( "dunif", list( x=NA, 0, 10 ) )
+prior[["rho"]] <- list( "dunif", list( x=NA,-1, 1  ) )
 
 #** alternatively, one can specify the prior as a string and uses
 #   the 'prior_model_parse' function
@@ -277,36 +277,36 @@ prior2 <- sirt::prior_model_parse( prior_model2 )
 prior2  # should be equal to prior
 
 #--- define log likelihood function for model to be fitted
-model <- function( pars , data ){
+model <- function( pars, data ){
     # mean vector
     mu <- pars[ c("mu1", rep("mu2",2) ) ]
     # covariance matrix
-    m1 <- matrix( pars["rho"] * pars["sig1"]^2 , 3 , 3 )
-    diag(m1) <- rep( pars["sig1"]^2 , 3 )
+    m1 <- matrix( pars["rho"] * pars["sig1"]^2, 3, 3 )
+    diag(m1) <- rep( pars["sig1"]^2, 3 )
     Sigma <- m1
     # evaluate log-likelihood
-    ll <- fit_ml( S = data$S , Sigma = Sigma , M = data$M , mu = mu , n = data$n)
+    ll <- fit_ml( S=data$S, Sigma=Sigma, M=data$M, mu=mu, n=data$n)
     return(ll)
 }
 
 #--- initial parameter values
 pars <- c(1,2,2,0)
-names(pars) <- c("mu1" , "mu2" , "sig1" , "rho")
+names(pars) <- c("mu1", "mu2", "sig1", "rho")
 #--- initial proposal distributions
-proposal_sd <- c( .4 , .1 , .05 , .1 )
+proposal_sd <- c( .4, .1, .05, .1 )
 names(proposal_sd) <- names(pars)
 #--- lower and upper bound for parameters
-pars_lower <- c( -10 , -10 , .001 , -.999 )
-pars_upper <- c( 10 , 10 , 1E100 , .999 )
+pars_lower <- c( -10, -10, .001, -.999 )
+pars_upper <- c( 10, 10, 1E100, .999 )
 
 #--- define list with derived parameters
-derivedPars <- list( "var1" = ~ I( sig1^2 ) , "d1" = ~ I( ( mu2 - mu1 ) / sig1 ) )
+derivedPars <- list( "var1"=~ I( sig1^2 ), "d1"=~ I( ( mu2 - mu1 ) / sig1 ) )
 
 #*** start Metropolis-Hastings sampling
-mod <- LAM::amh( data , nobs = data$n , pars=pars , model=model ,
-          prior=prior , proposal_sd = proposal_sd ,
-          n.iter = 1000 , n.burnin = 300 , derivedPars = derivedPars ,
-          pars_lower = pars_lower , pars_upper = pars_upper )
+mod <- LAM::amh( data, nobs=data$n, pars=pars, model=model,
+          prior=prior, proposal_sd=proposal_sd,
+          n.iter=1000, n.burnin=300, derivedPars=derivedPars,
+          pars_lower=pars_lower, pars_upper=pars_upper )
 
 # some S3 methods
 summary(mod)
@@ -316,14 +316,14 @@ vcov(mod)
 logLik(mod)
 
 #--- compare Bayesian credibility intervals and HPD intervals
-ci <- cbind( confint(mod) , coda::HPDinterval(mod$mcmcobj)[-1, ] )
+ci <- cbind( confint(mod), coda::HPDinterval(mod$mcmcobj)[-1, ] )
 ci
 # interval lengths
-cbind( ci[,2]-ci[,1] , ci[,4] - ci[,3] )
+cbind( ci[,2]-ci[,1], ci[,4] - ci[,3] )
 
 #--- plot update history of proposal standard deviations
-graphics::matplot( x = rownames(mod$proposal_sd_history) ,
-          y = mod$proposal_sd_history , type="o" , pch=1:6)
+graphics::matplot( x=rownames(mod$proposal_sd_history),
+          y=mod$proposal_sd_history, type="o", pch=1:6)
 
 #**** compare results with lavaan package
 library(lavaan)
@@ -337,16 +337,16 @@ lavmodel <- "
     Y2 ~ mu2 * 1
     Y3 ~ mu2 * 1
     # total standard deviation
-    sig1 := sqrt( rho + v1 )
+    sig1 :=sqrt( rho + v1 )
     "
 # estimate model
-mod2 <- lavaan::sem( data = as.data.frame(dat) , lavmodel )
+mod2 <- lavaan::sem( data=as.data.frame(dat), lavmodel )
 summary(mod2)
 logLik(mod2)
 
 #*** compare results with penalized maximum likelihood estimation
-mod3 <- LAM::pmle( data=data , nobs= data$n , pars=pars , model = model ,  prior=prior ,
-            pars_lower = pars_lower , pars_upper = pars_upper, verbose=TRUE  )
+mod3 <- LAM::pmle( data=data, nobs=data$n, pars=pars, model=model,  prior=prior,
+            pars_lower=pars_lower, pars_upper=pars_upper, verbose=TRUE  )
 # model summaries
 summary(mod3)
 confint(mod3)
@@ -360,16 +360,16 @@ fct <- function(x){
 }
 # use numerical gradient (just for illustration)
 grad <- function(pars){
-    CDM::numerical_Hessian(par=pars, FUN=fct, gradient = TRUE, hessian = FALSE)
+    CDM::numerical_Hessian(par=pars, FUN=fct, gradient=TRUE, hessian=FALSE)
 }
 #- estimate model
-mod3b <- LAM::pmle( data=data, nobs= data$n, pars=pars, model=model,  prior=prior, model_grad=grad,
-            pars_lower = pars_lower , pars_upper = pars_upper, verbose = TRUE  )
+mod3b <- LAM::pmle( data=data, nobs=data$n, pars=pars, model=model,  prior=prior, model_grad=grad,
+            pars_lower=pars_lower, pars_upper=pars_upper, verbose=TRUE  )
 summary(mod3b)
 
 #--- lavaan with covariance and mean vector input
-mod2a <- lavaan::sem( sample.cov = data$S , sample.mean = data$M , sample.nobs = data$n ,
-                model = lavmodel )
+mod2a <- lavaan::sem( sample.cov=data$S, sample.mean=data$M, sample.nobs=data$n,
+                model=lavmodel )
 coef(mod2)
 coef(mod2a)
 
@@ -377,34 +377,34 @@ coef(mod2a)
 #    covariance structure
 #* create an expanded covariance matrix
 p <- ncol(S)
-S1 <- matrix( NA , nrow= p+1 , ncol=p+1 )
-S1[1:p,1:p] <- S + outer( M , M )
-S1[p+1,1:p] <- S1[1:p , p+1] <- M
+S1 <- matrix( NA, nrow=p+1, ncol=p+1 )
+S1[1:p,1:p] <- S + outer( M, M )
+S1[p+1,1:p] <- S1[1:p, p+1] <- M
 S1[p+1,p+1] <- 1
-vars <- c( colnames(S) , "MY" )
+vars <- c( colnames(S), "MY" )
 rownames(S1) <- colnames(S1) <- vars
 #* lavaan model
 lavmodel <- "
     # indicators
     F=~ 1*Y1 + 1*Y2 + 1*Y3
     # pseudo-indicator representing mean structure
-    FM =~ 1*MY
+    FM=~ 1*MY
     MY ~~ 0*MY
     FM ~~ 1*FM
     F ~~ 0*FM
     # mean structure
-    FM =~ mu1*Y1 + mu2*Y2 + mu2*Y3
+    FM=~ mu1*Y1 + mu2*Y2 + mu2*Y3
     # variance structure
     F ~~ rho*F
     Y1 ~~ v1*Y1
     Y2 ~~ v1*Y2
     Y3 ~~ v1*Y3
-    sig1 := sqrt( rho + v1 )
+    sig1 :=sqrt( rho + v1 )
     "
 
 # estimate model
-mod2b <- lavaan::sem( sample.cov = S1 ,sample.nobs = data$n ,
-                model = lavmodel )
+mod2b <- lavaan::sem( sample.cov=S1,sample.nobs=data$n,
+                model=lavmodel )
 summary(mod2b)
 summary(mod2)
 
@@ -420,13 +420,13 @@ b1 <- .3
 sigma <- .5
 lambda <- 0.3
 # apply inverse Box-Cox transformation
-  # yl = ( y^lambda - 1 ) / lambda
-  # -> y = ( lambda * yl + 1 )^(1/lambda)
-x <- stats::rnorm( N ,  mean=0 , sd = 1 )
-yl <- stats::rnorm( N , mean=b0 , sd = sigma ) + b1*x
+  # yl=( y^lambda - 1 ) / lambda
+  # -> y=( lambda * yl + 1 )^(1/lambda)
+x <- stats::rnorm( N,  mean=0, sd=1 )
+yl <- stats::rnorm( N, mean=b0, sd=sigma ) + b1*x
 # truncate at zero
 eps <- .01
-yl <- ifelse( yl < eps  , eps , yl )
+yl <- ifelse( yl < eps, eps, yl )
 y <- ( lambda * yl + 1 ) ^(1/lambda )
 
 #-- display distributions of transformed and untransformed data
@@ -436,12 +436,12 @@ graphics::hist(y, breaks=20)
    graphics::par(mfrow=c(1,1))
 
 #*** define vector of parameters
-pars <- c( 0  , 0 ,  1 , -.2 )
-names(pars) <- c("b0" , "b1" , "sigma" , "lambda" )
+pars <- c( 0, 0,  1, -.2 )
+names(pars) <- c("b0", "b1", "sigma", "lambda" )
 #*** input data
-data <- list( "y" = y , "x" = x)
+data <- list( "y"=y, "x"=x)
 #*** define model with log-likelihood function
-model <- function( pars , data ){
+model <- function( pars, data ){
     sigma <- pars["sigma"]
     b0 <- pars["b0"]
     b1 <- pars["b1"]
@@ -457,32 +457,32 @@ model <- function( pars , data ){
     return(ll)
 }
 #-- test model function
-model( pars , data )
+model( pars, data )
 
 #*** define prior distributions
 prior <- list()
-prior[["b0"]] <- list( "dnorm" , list( x=NA , mean=0 , sd=10 ) )
-prior[["b1"]] <- list( "dnorm" , list( x=NA , mean=0 , sd=10 ) )
-prior[["sigma"]] <- list( "dunif" , list( x=NA , 0 , 10  ) )
-prior[["lambda"]] <- list( "dunif" , list( x=NA , -2 , 2 ) )
+prior[["b0"]] <- list( "dnorm", list( x=NA, mean=0, sd=10 ) )
+prior[["b1"]] <- list( "dnorm", list( x=NA, mean=0, sd=10 ) )
+prior[["sigma"]] <- list( "dunif", list( x=NA, 0, 10  ) )
+prior[["lambda"]] <- list( "dunif", list( x=NA, -2, 2 ) )
 #*** define proposal SDs
-proposal_sd <- c( .1 , .1 , .1 , .1 )
+proposal_sd <- c( .1, .1, .1, .1 )
 names(proposal_sd) <- names(pars)
 #*** define bounds for parameters
-pars_lower <- c( -100 , -100 , .01 , -2 )
-pars_upper <- c( 100 , 100 , 100 , 2 )
+pars_lower <- c( -100, -100, .01, -2 )
+pars_upper <- c( 100, 100, 100, 2 )
 
 #*** sampling routine
-mod <- LAM::amh( data , nobs = N , pars , model ,  prior , proposal_sd ,
-        n.iter = 10000 , n.burnin = 2000 , n.sims = 5000 ,
-        pars_lower = pars_lower , pars_upper = pars_upper )
+mod <- LAM::amh( data, nobs=N, pars, model,  prior, proposal_sd,
+        n.iter=10000, n.burnin=2000, n.sims=5000,
+        pars_lower=pars_lower, pars_upper=pars_upper )
 #-- S3 methods
 summary(mod)
-plot(mod , ask=TRUE )
+plot(mod, ask=TRUE )
 
 #*** estimating Box-Cox transformation in MASS package
 library(MASS)
-mod2 <- MASS::boxcox( stats::lm( y ~ x ) , lambda = seq(-1,2,length=100) )
+mod2 <- MASS::boxcox( stats::lm( y ~ x ), lambda=seq(-1,2,length=100) )
 mod2$x[ which.max( mod2$y ) ]
 
 #*** estimate Box-Cox parameter lambda with car package
@@ -512,17 +512,17 @@ S <- matrix( c( 12.745, 7.046, 6.906, 6.070, 5.047, 6.110,
     6.906, 8.334, 13.323, 7.979, 8.418, 7.951,
     6.070, 6.714, 7.979, 12.041, 7.874, 8.099,
     5.047, 6.91, 8.418, 7.874, 13.838, 9.117,
-    6.110, 6.624, 7.951, 8.099, 9.117, 15.132 ) ,
-    nrow=6 , ncol=6 , byrow=TRUE )
+    6.110, 6.624, 7.951, 8.099, 9.117, 15.132 ),
+    nrow=6, ncol=6, byrow=TRUE )
 #* standardize S such that the average SD is 1 (for ease of interpretation)
 M_SD <- mean( sqrt( diag(S) ))
 S <- S / M_SD^2
 colnames(S) <- rownames(S) <- paste0("W",1:6)
 W <- 6   # number of measurement waves
-data <- list( "S" = S , "M" = rep(0,W) , "n" = 660 , "W" = W  )
+data <- list( "S"=S, "M"=rep(0,W), "n"=660, "W"=W  )
 
 #*** likelihood function for the STARTS model
-model <- function( pars , data ){
+model <- function( pars, data ){
     # mean vector
     mu <- data$M
     # covariance matrix
@@ -531,11 +531,11 @@ model <- function( pars , data ){
     var_ar <- pars["va"]
     var_state <- pars["vs"]
     a <- pars["b"]
-    Sigma <- STARTS::starts_uni_cov( W=W , var_trait=var_trait ,
-                var_ar=var_ar , var_state=var_state , a=a )
+    Sigma <- STARTS::starts_uni_cov( W=W, var_trait=var_trait,
+                var_ar=var_ar, var_state=var_state, a=a )
     # evaluate log-likelihood
-    ll <- LAM::loglike_mvnorm( S = data$S , Sigma = Sigma , M = data$M , mu = mu ,
-                n = data$n , lambda = 1E-5)
+    ll <- LAM::loglike_mvnorm( S=data$S, Sigma=Sigma, M=data$M, mu=mu,
+                n=data$n, lambda=1E-5)
     return(ll)
 }
 #** Note:
@@ -546,16 +546,16 @@ model <- function( pars , data ){
 #       and population covariance matrix S and Sigma.
 
 #*** starting values for parameters
-pars <- c( .33 , .33 , .33 , .75)
+pars <- c( .33, .33, .33, .75)
 names(pars) <- c("vt","va","vs","b")
 #*** bounds for acceptance rates
-acceptance_bounds <- c( .45 , .55 )
+acceptance_bounds <- c( .45, .55 )
 #*** starting values for proposal standard deviations
-proposal_sd <- c( .1 , .1 , .1 , .1 )
+proposal_sd <- c( .1, .1, .1, .1 )
 names(proposal_sd) <- names(pars)
 #*** lower and upper bounds for parameter estimates
-pars_lower <- c( .001 , .001 , .001 , .001 )
-pars_upper <- c( 10 , 10 , 10 , .999 )
+pars_lower <- c( .001, .001, .001, .001 )
+pars_upper <- c( 10, 10, 10, .999 )
 #*** define prior distributions | use prior sample size of 3
 prior_model <- "
     vt ~ dinvgamma2(NA, 3, .33 )
@@ -598,8 +598,8 @@ plot(mod, ask=TRUE)
 
 #---------------------------
 # fitting the STARTS model with penalized maximum likelihood estimation
-mod2 <- LAM::pmle( data=data , nobs= data$n , pars=pars , model = model ,  prior=prior_model ,
-            pars_lower = pars_lower , pars_upper = pars_upper , method = "L-BFGS-B" ,
+mod2 <- LAM::pmle( data=data, nobs=data$n, pars=pars, model=model,  prior=prior_model,
+            pars_lower=pars_lower, pars_upper=pars_upper, method="L-BFGS-B",
             control=list( trace=TRUE )  )
 # model summaries
 summary(mod2)
@@ -618,7 +618,7 @@ library(lavaan)
 ## define lavaan model
 lavmodel <- "
      #*** stable trait
-     T =~ 1*W1 + 1*W2 + 1*W3 + 1*W4 + 1*W5 + 1*W6
+     T=~ 1*W1 + 1*W2 + 1*W3 + 1*W4 + 1*W5 + 1*W6
      T ~~ vt * T
      W1 ~~ 0*W1
      W2 ~~ 0*W2
@@ -627,19 +627,19 @@ lavmodel <- "
      W5 ~~ 0*W5
      W6 ~~ 0*W6
      #*** autoregressive trait
-     AR1 =~ 1*W1
-     AR2 =~ 1*W2
-     AR3 =~ 1*W3
-     AR4 =~ 1*W4
-     AR5 =~ 1*W5
-     AR6 =~ 1*W6
+     AR1=~ 1*W1
+     AR2=~ 1*W2
+     AR3=~ 1*W3
+     AR4=~ 1*W4
+     AR5=~ 1*W5
+     AR6=~ 1*W6
      #*** state component
-     S1 =~ 1*W1
-     S2 =~ 1*W2
-     S3 =~ 1*W3
-     S4 =~ 1*W4
-     S5 =~ 1*W5
-     S6 =~ 1*W6
+     S1=~ 1*W1
+     S2=~ 1*W2
+     S3=~ 1*W3
+     S4=~ 1*W4
+     S5=~ 1*W5
+     S6=~ 1*W6
      S1 ~~ vs * S1
      S2 ~~ vs * S2
      S3 ~~ vs * S3
@@ -658,19 +658,19 @@ lavmodel <- "
      AR5 ~~ v1 * AR5
      AR6 ~~ v1 * AR6
      #*** nonlinear constraint
-     v1 == va * ( 1 - b^2 )
+     v1==va * ( 1 - b^2 )
      #*** force variances to be positive
      vt > 0.001
      va > 0.001
      vs > 0.001
      #*** variance proportions
-     var_total := vt + vs + va
-     propt := vt / var_total
-     propa := va / var_total
-     props := vs / var_total
+     var_total :=vt + vs + va
+     propt :=vt / var_total
+     propa :=va / var_total
+     props :=vs / var_total
     "
 # estimate lavaan model
-mod <- lavaan::lavaan(model = lavmodel, sample.cov = S, sample.nobs = 660)
+mod <- lavaan::lavaan(model=lavmodel, sample.cov=S, sample.nobs=660)
 # summary and fit measures
 summary(mod)
 lavaan::fitMeasures(mod)

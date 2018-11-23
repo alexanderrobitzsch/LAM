@@ -30,10 +30,10 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.4  |  2018-11-12  |  Last: LAM 0.4-4
+VERSIONS LAM 0.4  |  2018-11-23  |  Last: LAM 0.4-5
 ------------------------------------------------------------------------
 
-xxx   * ...
+NOTE  * change default optimizer in pmle() to "nlminb"
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---

@@ -1,5 +1,5 @@
 ## File Name: lam_moving_average.R
-## File Version: 0.01
+## File Version: 0.02
 
 
 
@@ -9,7 +9,7 @@ lam_moving_average <- function(x, B, fill=TRUE)
     x1 <- cumsum(x)
     N <- length(x)
     y <- rep(NA,N)
-    i <- seq(B+1 , N-B)
+    i <- seq(B+1, N-B)
     xdiff <- x1[ -seq(1,B) ] - x1[ -seq(N-B+1,N) ]
     xdiff <- xdiff[ - seq(1,B) ]
     y[i]  <- ( x1[i] + xdiff - c(0,x1[ -seq(N-2*B,N) ]) ) / (2*B+1)

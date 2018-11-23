@@ -1,11 +1,11 @@
 ## File Name: mlnormal_update_ml_derivative_V.R
-## File Version: 0.17
+## File Version: 0.21
 
 ##############################################
 # derivatives of V
-mlnormal_update_ml_derivative_V <- function( N , NT , G ,
-            Z_index , Z_list , theta , REML , V1_list ,
-            variance_shortcut , freq_id , do_compute ){
+mlnormal_update_ml_derivative_V <- function( N, NT, G,
+            Z_index, Z_list, theta, REML, V1_list,
+            variance_shortcut, freq_id, do_compute ){
 
     D1_V_list <- as.list(1:NT)
     D1_V_pp_list <- as.list(1:G)
@@ -18,8 +18,8 @@ mlnormal_update_ml_derivative_V <- function( N , NT , G ,
         for (gg in 1:G){
             # gg <- 1
             if ( do_compute[gg] ){
-                Z_index_gg <- Z_index[ gg ,,, drop=FALSE ]
-                index_pp <- which( Z_index_gg[,,pp] != 0 )
+                Z_index_gg <- Z_index[ gg,,, drop=FALSE ]
+                index_pp <- which( Z_index_gg[,,pp] !=0 )
                 H0 <- 0*Z_list[[gg]][[1]]
                 #**** correct these lines!!!
                 # derivatives are allowed for powers of parameters
@@ -27,9 +27,9 @@ mlnormal_update_ml_derivative_V <- function( N , NT , G ,
                     # ii <- index_pp[1]
                     i1 <- Z_index_gg[1,ii,pp]
                     # computing derivatives
-    #                if ( i1 == 1 ){ a1 <- 1 }
-    #                if ( i1 == 2 ){ a1 <- 2*theta[pp] }
-                    # a1 <- i1 * theta[pp]^(i1-1)   # d/dx x^p = p x^(p-1)
+    #                if ( i1==1 ){ a1 <- 1 }
+    #                if ( i1==2 ){ a1 <- 2*theta[pp] }
+                    # a1 <- i1 * theta[pp]^(i1-1)   # d/dx x^p=p x^(p-1)
                     a1 <- i1 * theta[pp]^( i1-1 )
                     #*******
                     # correction ARb 2016-07-15
@@ -52,6 +52,6 @@ mlnormal_update_ml_derivative_V <- function( N , NT , G ,
         V1_D1V_V1_list[[pp]] <- V1_D1V_V1_pp_list
     }  # end parameter pp
     #--- output
-    res <- list( "D1_V_list" = D1_V_list , V1_D1V_V1_list = V1_D1V_V1_list )
+    res <- list( "D1_V_list"=D1_V_list, V1_D1V_V1_list=V1_D1V_V1_list )
     return(res)
 }

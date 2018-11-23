@@ -1,8 +1,8 @@
 ## File Name: mlnormal_proc_variance_shortcut_XY_Rcpp.R
-## File Version: 0.14
+## File Version: 0.15
 
 
-mlnormal_proc_variance_shortcut_XY_Rcpp <- function(y , X , G , freq_id)
+mlnormal_proc_variance_shortcut_XY_Rcpp <- function(y, X, G, freq_id)
 {
     freq_id <- as.matrix( freq_id )
     X <- as.matrix(X)

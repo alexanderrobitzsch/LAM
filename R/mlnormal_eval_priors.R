@@ -1,7 +1,7 @@
 ## File Name: mlnormal_eval_priors.R
-## File Version: 0.14
+## File Version: 0.17
 
-mlnormal_eval_priors <- function( pars , prior, sum_all = FALSE ){
+mlnormal_eval_priors <- function( pars, prior, sum_all=FALSE ){
     NP <- length(pars)
     priorval0 <- rep(NA,NP)
     eps <- 1E-100

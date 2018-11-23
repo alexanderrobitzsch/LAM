@@ -1,7 +1,7 @@
 ## File Name: coef.pmle.R
-## File Version: 0.03
+## File Version: 0.04
 
-coef.pmle <- function( object , ...)
+coef.pmle <- function( object, ...)
 {
     return(object$coef)
 }

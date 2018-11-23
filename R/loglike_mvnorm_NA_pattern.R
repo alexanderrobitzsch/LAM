@@ -1,9 +1,9 @@
 ## File Name: loglike_mvnorm_NA_pattern.R
-## File Version: 0.22
+## File Version: 0.24
 
 
-loglike_mvnorm_NA_pattern <- function( suff_stat, mu, Sigma, log=TRUE, lambda = 0,
-    ginv = FALSE, eps = 1e-30, use_rcpp=FALSE )
+loglike_mvnorm_NA_pattern <- function( suff_stat, mu, Sigma, log=TRUE, lambda=0,
+    ginv=FALSE, eps=1e-30, use_rcpp=FALSE )
 {
     if (use_rcpp){
         ll <- lam_rcpp_loglike_mvnorm_na_pattern_rcpp( suff_stat=suff_stat, mu=mu, Sigma=Sigma,
