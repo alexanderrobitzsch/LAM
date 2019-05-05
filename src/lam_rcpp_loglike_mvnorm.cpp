@@ -1,5 +1,5 @@
 //// File Name: lam_rcpp_loglike_mvnorm.cpp
-//// File Version: 0.890
+//// File Version: 0.893
 
 
 // [[Rcpp__interfaces(r, cpp)]]  substitute "__" by "::"
@@ -14,6 +14,8 @@
 using namespace Rcpp;
 using namespace arma;
 
+
+double const pi1 = 3.14159265358979;
 
 ///********************************************************************
 //** quadratic form
@@ -30,6 +32,7 @@ double lam_rcpp_quadratic_form( arma::colvec w, arma::mat A)
     }
     return quadval;
 }
+///********************************************************************
 
 ///********************************************************************
 //** log-likelihood multivariate normal distribution
@@ -86,10 +89,11 @@ double lam_rcpp_loglike_mvnorm( arma::colvec M, arma::mat S, arma::colvec mu,
 
     // l1 <- - p * log( 2*pi) - t( M - mu ) %*% Sigma1 %*% ( M - mu ) -
     //             log( det_Sigma )  - sum( diag( Sigma1 %*% S ) )
-    double pi1 = 3.14159265358979;
     double l1 = - p * std::log(2*pi1) - quadval - std::log( det_Sigma ) - traceval;
     double ll = n/2 * l1;
-    if (! use_log){ ll = std::exp(ll); }
+    if (! use_log){
+        ll = std::exp(ll);
+    }
 
     //-- output
     return ll;
@@ -104,8 +108,7 @@ arma::mat lam_rcpp_loglike_mvnorm_na_pattern_extract_submatrix(
 {
     int NS = varindex.size();
     arma::mat S0(NS,NS);
-    int ii0=0;
-    int hh0=0;
+    int ii0, hh0;
     for (int ii=0; ii<NS; ii++){
         for (int hh=0; hh<NS; hh++){
             ii0 = varindex[ii]-1;
@@ -115,6 +118,7 @@ arma::mat lam_rcpp_loglike_mvnorm_na_pattern_extract_submatrix(
     }
     return S0;
 }
+///********************************************************************
 
 ///********************************************************************
 //** extract subvector
@@ -130,6 +134,7 @@ arma::colvec lam_rcpp_loglike_mvnorm_na_pattern_extract_subvector(
     }
     return S0;
 }
+///********************************************************************
 
 ///********************************************************************
 //** log-likelihood multivariate normal distribution
@@ -143,12 +148,10 @@ double lam_rcpp_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colv
     Rcpp::List S = suff_stat["S"];
     Rcpp::List M = suff_stat["M"];
     Rcpp::List nobs = suff_stat["nobs"];
-
     double nobs_pp;
     arma::mat Sigma_pp;
     arma::colvec mu_pp;
     double ll = 0;
-
     for (int pp=0; pp<NP; pp++){
         Rcpp::IntegerVector varindex_pp = varindex[pp];
         arma::mat S_pp = S[pp];
@@ -159,7 +162,6 @@ double lam_rcpp_loglike_mvnorm_na_pattern_rcpp( Rcpp::List suff_stat, arma::colv
         ll += lam_rcpp_loglike_mvnorm( M_pp, S_pp, mu_pp, Sigma_pp, nobs_pp,
                 use_log, lambda, ginv, eps );
     }
-
     //-- output
     return ll;
 }

@@ -1,5 +1,5 @@
 //// File Name: lam_rcpp_mlnormal.cpp
-//// File Version: 2.21
+//// File Version: 2.28
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -29,10 +29,12 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
     Rcpp::NumericMatrix update_dim2(G,1);
     update_dim2(_,0) = update_dim;
 
-    int orig_gg = 0;
-    int orig_gg1 = 0;
-    double Z1 = 0.0;
-    double Z2 = 0.0;
+    int orig_gg=1;
+    int orig_gg1=1;
+    int dim_gg=1;
+    double Z1=0.0;
+    double Z2=0.0;
+    double val=0.0;
 
     //----- compare Z_index
     for (int gg = 0; gg < G; gg++){
@@ -53,11 +55,8 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
         }  // end matrices mm
     }  // end groups gg
 
-    int dim_gg = 0;
     double eps = 1E-15;
-    double val = 0.0;
-    Rcpp::NumericMatrix Z_gg_mm;
-    Rcpp::NumericMatrix Z_gg1_mm;
+    Rcpp::NumericMatrix Z_gg_mm, Z_gg1_mm;
     //----- compare Z_list
     for (int gg=0; gg < G; gg++){
         orig_gg = orig_id[gg];
@@ -74,10 +73,7 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
                     Rcpp::NumericMatrix Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] );
                     for (int rr=0; rr < dim_gg; rr++){
                         for (int cc=rr; cc < dim_gg; cc++){
-                            val = Z_gg1_mm(rr,cc) - Z_gg_mm(rr,cc);
-                            if ( val < 0){
-                                val = - val;
-                            }
+                            val = std::abs( Z_gg1_mm(rr,cc) - Z_gg_mm(rr,cc) );
                             if ( val > eps ){
                                 update_dim2(gg,0) = 1;
                             }
@@ -88,8 +84,7 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_Z_restructure( Rcpp::List Z_
         }
     }  // end gg
 
-    //*************************************************
-    // OUTPUT
+    //----- OUTPUT
     return Rcpp::List::create(
                 Rcpp::Named("NM") = NM,
                 Rcpp::Named("NP") = NP,
@@ -125,8 +120,7 @@ Rcpp::List lam_rcpp_mlnormal_proc_variance_shortcut_XY_restructure(
         }
     }
 
-    //*************************************************
-    // OUTPUT
+    //***** OUTPUT
     return Rcpp::List::create(
             Rcpp::Named("N") = N,
             Rcpp::Named("V") = V,
@@ -159,16 +153,15 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
     Rcpp::List Z_gg;
     Rcpp::NumericMatrix Z_gg_mm;
     int dim_gg = 0;
-    double val=0;
+    double val, zval, pow_gg_mm_pp;
     double eps = 1E-15;
-    double zval = 0;
 
     for (int gg = 0; gg < G; gg++){
         if ( do_compute[gg] == 1 ){
             dim_gg = dim_id[gg];
             Z_gg = Rcpp::as<Rcpp::List>( Z_list[gg] );
             V_gg = arma::zeros<arma::mat>(dim_gg,dim_gg);
-            double pow_gg_mm_pp = 0;
+            pow_gg_mm_pp = 0;
             for (int mm = 0; mm <NM; mm++){
                 Z_gg_mm = Rcpp::as<Rcpp::NumericMatrix>( Z_gg[mm] );
                 val = 1;
@@ -210,8 +203,7 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
         V1_list[gg] = V1_gg;
     }
 
-    //*************************************************
-    // OUTPUT
+    //***** OUTPUT
     return Rcpp::List::create(
             Rcpp::Named("V") = V,
             Rcpp::Named("V1") = V1,
@@ -220,7 +212,6 @@ Rcpp::List lam_rcpp_mlnormal_update_V( Rcpp::List Z_list,
         );
 }
 ///********************************************************************
-
 
 ///********************************************************************
 ///** lam_rcpp_mlnormal_update_beta
@@ -234,8 +225,8 @@ Rcpp::List lam_rcpp_mlnormal_update_beta( Rcpp::NumericVector dim_id,
     Rcpp::NumericMatrix XVX(NB,NB);
     Rcpp::NumericMatrix XVY(NB,1);
     int dim_gg=0;
-    int rr1 = 0;
-    int cc1 = 0;
+    int rr1=0;
+    int cc1=0;
     for (int pp=0; pp < NB; pp++){
         for (int qq=pp; qq < NB; qq++){
             XVX(pp,qq) = 0;
@@ -261,11 +252,10 @@ Rcpp::List lam_rcpp_mlnormal_update_beta( Rcpp::NumericVector dim_id,
         }   // end qq
     }   // end pp
 
-    //*************************************************
-    // OUTPUT
+    //***** OUTPUT
     return Rcpp::List::create(
             Rcpp::Named("XVX") = XVX,
             Rcpp::Named("XVY") = XVY
         );
 }
-
+///********************************************************************

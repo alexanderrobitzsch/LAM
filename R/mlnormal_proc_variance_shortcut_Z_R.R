@@ -1,5 +1,5 @@
 ## File Name: mlnormal_proc_variance_shortcut_Z_R.R
-## File Version: 0.09
+## File Version: 0.10
 
 
 mlnormal_proc_variance_shortcut_Z_R <- function( Z_list, Z_index, G, freq_id){
@@ -15,7 +15,7 @@ mlnormal_proc_variance_shortcut_Z_R <- function( Z_list, Z_index, G, freq_id){
             Z_index_gg <- Z_index[gg1,,]
             if ( freq_id[ gg, "update_dim"]==0 ){
                 crit1 <- mlnormal_equal_matrix( mat1=Z_index_gg0, mat2=Z_index_gg )
-                crit2 <- mlnormal_equal_list_matrices( list_mat1=Z_list_gg0 ,
+                crit2 <- mlnormal_equal_list_matrices( list_mat1=Z_list_gg0,
                                 list_mat2=Z_list_gg, dim_list=NZ)
                 crit <- 1 * crit1 * crit2
                 if ( crit==0 ){

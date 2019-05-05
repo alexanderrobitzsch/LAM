@@ -1,5 +1,5 @@
 ## File Name: print.mlnormal.R
-## File Version: 0.13
+## File Version: 0.14
 
 
 # print for mlnormal object
@@ -29,7 +29,7 @@ print.mlnormal <- function( x, digits=4, ...)
                 "\n\n" )
 
     if ( ! object$REML ){
-        cat( "AIC =", round( object$ic$AIC, 1 ), " | penalty=",
+        cat( "AIC=", round( object$ic$AIC, 1 ), " | penalty=",
                 round( object$ic$AIC - object$ic$deviance,2 ),
                     "   | AIC=-2*LL + 2*p  \n" )
         cat("\n")

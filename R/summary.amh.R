@@ -1,5 +1,5 @@
 ## File Name: summary.amh.R
-## File Version: 0.28
+## File Version: 0.29
 
 #############################################################
 summary.amh <- function( object, digits=3, file=NULL,... )
@@ -36,13 +36,13 @@ summary.amh <- function( object, digits=3, file=NULL,... )
     cat( "Number of persons=", object$ic$n, "\n" )
     cat( "Number of estimated parameters=", object$ic$np, "\n\n" )
 
-    cat( "AIC =", round( object$ic$AIC, 0 ), " | penalty=", round( object$ic$AIC - object$ic$deviance,2 ),
+    cat( "AIC=", round( object$ic$AIC, 0 ), " | penalty=", round( object$ic$AIC - object$ic$deviance,2 ),
             "   | AIC=-2*LL + 2*p  \n" )
     cat( "AICc=", round( object$ic$AICc, 0 )," | penalty=", round( object$ic$AICc - object$ic$deviance,2 ) )
         cat("    | AICc=-2*LL + 2*p + 2*p*(p+1)/(n-p-1)  (bias corrected AIC)\n" )
-    cat( "BIC =", round( object$ic$BIC, 0 ), " | penalty=", round( object$ic$BIC - object$ic$deviance,2 ),
+    cat( "BIC=", round( object$ic$BIC, 0 ), " | penalty=", round( object$ic$BIC - object$ic$deviance,2 ),
             "   | BIC=-2*LL + log(n)*p  \n" )
-    cat( "DIC =", round( object$ic$DIC, 0 ), " | penalty=",
+    cat( "DIC=", round( object$ic$DIC, 0 ), " | penalty=",
                 round( 2*object$ic$pD,2 ),
             "   | DIC=-2*LL + 2*pD  \n" )
     cat( "CAIC=", round( object$ic$CAIC, 0 )," | penalty=", round( object$ic$CAIC - object$ic$deviance,2 ) )

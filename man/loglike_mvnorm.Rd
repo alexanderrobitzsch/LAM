@@ -1,5 +1,5 @@
 %% File Name: loglike_mvnorm.Rd
-%% File Version: 0.28
+%% File Version: 0.29
 
 \name{loglike_mvnorm}
 \alias{loglike_mvnorm}
@@ -70,9 +70,12 @@ Log-likelihood value
 %\references{
 %% ~put references to the literature/web site here ~
 %}
-\author{
-Alexander Robitzsch
-}
+
+%\author{
+%Alexander Robitzsch
+%}
+
+
 %\note{
 %%  ~~further notes~~
 %}

@@ -1,5 +1,5 @@
 %% File Name: data.HT.Rd
-%% File Version: 0.05
+%% File Version: 0.06
 
 \name{data.HT}
 \alias{data.HT}
@@ -61,4 +61,4 @@ techniques}. Routledge, New York.
 %data(data.HT12)
 %## maybe str(data.HT12) ; plot(data.HT12) ...
 %}
-\keyword{datasets}
+%% \keyword{datasets}

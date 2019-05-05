@@ -1,5 +1,5 @@
 %% File Name: amh.Rd
-%% File Version: 0.82
+%% File Version: 0.83
 
 \name{amh}
 \alias{amh}
@@ -195,9 +195,9 @@ Roberts, G. O., & Rosenthal, J. S. (2001). Optimal scaling for various Metropoli
 algorithms. \emph{Statistical Science, 16}(4), 351-367.
 }
 
-\author{
-Alexander Robitzsch
-}
+%\author{
+%Alexander Robitzsch
+%}
 
 %\note{
 %}

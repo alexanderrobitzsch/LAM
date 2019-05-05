@@ -1,10 +1,10 @@
 ## File Name: mlnormal_update_V_Rcpp.R
-## File Version: 0.17
+## File Version: 0.18
 
 ###################################################################
 # update matrix V and its inverse
 mlnormal_update_V_Rcpp <- function( Z_index, G, theta,
-        Z_list, use_ginverse, variance_shortcut, freq_id ,
+        Z_list, use_ginverse, variance_shortcut, freq_id,
         do_compute, rcpp_args )
 {
     res <- lam_rcpp_mlnormal_update_V( Z_list=Z_list,

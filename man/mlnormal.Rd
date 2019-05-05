@@ -1,5 +1,5 @@
 %% File Name: mlnormal.Rd
-%% File Version: 0.51
+%% File Version: 0.54
 
 \name{mlnormal}
 \alias{mlnormal}
@@ -167,7 +167,7 @@ The data consists of outcomes \eqn{\bold{y}_i} and covariates \eqn{\bold{X}_i}
 for unit \eqn{i}. The unit can be subjects, clusters (like schools)
 or the full outcome vector. It is assumed that \eqn{\bold{y}_i} is normally
 distributed as \eqn{N( \bold{\mu}_i, \bold{V}_i )} where the mean structure is
-modelled as \deqn{ \bold{\mu}_i =\bold{X}_i \bold{\beta} } and the covariance
+modelled as \deqn{ \bold{\mu}_i=\bold{X}_i \bold{\beta} } and the covariance
 structure \eqn{ \bold{V}_i} depends on a parameter vector \eqn{\bold{\theta}}.
 More specifically, the covariance matrix \eqn{ \bold{V}_i}  is modelled as
 a sum of functions of the parameter \eqn{\bold{\theta}} and known design matrices
@@ -224,9 +224,12 @@ estimation in unbalanced mixed models with nested random effects.
 \emph{Biometrika, 74}, 817-827.
 }
 
-\author{
-Alexander Robitzsch
-}
+
+%\author{
+%Alexander Robitzsch
+%}
+
+
 
 %\note{
 %%  ~~further notes~~
@@ -450,7 +453,7 @@ Hlist <- list(  matrix( c(1,0,0,0), 2, 2 ), # var(y)
                 matrix( c(0,1,1,0), 2, 2 ), # cov(x,y)
                 matrix( c(0,0,0,1), 2, 2 ) ) # var(x)
 
-U0 <- matrix( 0, nrow=2*n ,ncol=2*n )
+U0 <- matrix( 0, nrow=2*n,ncol=2*n )
 Ulist <- list( U0, U0, U0, U0 )
 M <- length(Hlist)
 for (mm in 1:M){    # mm <- 1
@@ -501,7 +504,7 @@ Hlist <- list(  matrix( c(1,0,0,0), 2, 2 ), # var(y)
                 matrix( c(1,0,0,0), 2, 2 ), # var(y) (two terms)
                 matrix( c(0,1,1,0), 2, 2 ), # cov(x,y)
                 matrix( c(0,0,0,1), 2, 2 ) ) # var(x)
-U0 <- matrix( 0, nrow=2*n ,ncol=2*n )
+U0 <- matrix( 0, nrow=2*n,ncol=2*n )
 Ulist <- list( U0, U0, U0, U0,  # within structure
                U0, U0, U0, U0  )  # between structure
 M <- length(Hlist)

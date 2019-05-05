@@ -1,23 +1,26 @@
 %% File Name: LAM-package.Rd
-%% File Version: 0.16
+%% File Version: 0.17
 
 \name{LAM-package}
 \alias{LAM-package}
 \alias{LAM}
 \docType{package}
+
 \title{
-Some Latent Variable Models
+\packageTitle{LAM}
 }
+
 \description{
-    Includes some procedures for latent variable modeling with a 
-    particular focus on multilevel data.
-    The 'LAM' package contains mean and covariance structure modelling
-    for multivariate normally distributed data (mlnormal(); Longford, 1987;
-    <doi:10.1093/biomet/74.4.817>), a general Metropolis-Hastings algorithm 
-    (amh(); Roberts & Rosenthal, 2001, <doi:10.1214/ss/1015346320>) and 
-    penalized maximum likelihood estimation (pmle(); Cole, Chu & Greenland, 
-    2014; <doi:10.1093/aje/kwt245>).
+\packageDescription{LAM}
 }
+
+\author{
+\packageAuthor{LAM}
+
+Maintainer: \packageMaintainer{LAM}
+}
+
+
 \details{
 
 The \pkg{LAM} package contains the following main functions:
@@ -46,12 +49,9 @@ conduction with the \code{\link{pmle}} function which is based on
 }
 
 }
-\author{
-Alexander Robitzsch \cr
-IPN - Leibniz Institute for Science and Mathematics Education
-at Kiel University \cr \cr
-Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de> \cr \cr
-}
+
+
+
 
 
 
