@@ -29,8 +29,21 @@ and (if necessary) a corresponding dataset.
 
 
 
+
 ------------------------------------------------------------------------
-VERSIONS LAM 0.4  |  2019-05-05  |  Last: LAM 0.4-13
+VERSIONS LAM 0.5  |  2019-05-06  |  Last: LAM 0.5-1
+------------------------------------------------------------------------
+
+xxx   * ...
+
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.4  |  2019-05-06  |  Last: LAM 0.4-17
 ------------------------------------------------------------------------
 
 NOTE  * changed default optimizer in pmle() to "nlminb"
@@ -38,13 +51,8 @@ ADDED * added function clpm_to_ctm() for transformation of path
         coefficients to different time intervals for cross-lagged
         panel model (due to a discussion with Steffani Sass)
 
-
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: clpm_to_ctm (1,2,3)
-
-
-
-
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.3  |  2018-06-06  |  Last: LAM 0.3-48

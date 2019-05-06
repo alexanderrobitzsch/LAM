@@ -52,25 +52,26 @@ importFrom(sirt, prior_model_parse)
 importFrom(sirt, sirt_summary_print_call)
 importFrom(sirt, sirt_summary_print_package_rsession)
 importFrom(sirt, soft_thresholding)
-importFrom(TAM, tam_NA_pattern)
+
 
 
 #***************************************************
 #************** Imports ****************************
 #***************************************************
 
-importFrom(coda, as.mcmc.list)
-importFrom(coda, effectiveSize)
-importFrom(coda, mcmc)
-importFrom(MASS, ginv)
-importFrom(numDeriv, hessian)
+
 
 
 #***************************************************
 #************** Suggests ***************************
 #***************************************************
 
-
+# importFrom(coda, as.mcmc.list)
+# importFrom(coda, effectiveSize)
+# importFrom(coda, mcmc)
+# importFrom(TAM, tam_NA_pattern)
+# importFrom(MASS, ginv)
+# importFrom(numDeriv, hessian)
 
 
 

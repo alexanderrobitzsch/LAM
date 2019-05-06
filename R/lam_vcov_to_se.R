@@ -1,7 +1,7 @@
-## File Name: vcov_to_se.R
-## File Version: 0.02
+## File Name: lam_vcov_to_se.R
+## File Version: 0.03
 
-vcov_to_se <- function(x, to_matrix=FALSE, byrow=TRUE)
+lam_vcov_to_se <- function(x, to_matrix=FALSE, byrow=TRUE)
 {
     N <- nrow(x)
     y <- sqrt(diag(x))

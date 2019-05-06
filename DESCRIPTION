@@ -1,8 +1,8 @@
 Package: LAM
 Type: Package
 Title: Some Latent Variable Models
-Version: 0.4-13
-Date: 2019-05-05 19:09:11
+Version: 0.5-1
+Date: 2019-05-06 14:13:19
 Author: Alexander Robitzsch [aut,cre]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
@@ -17,10 +17,9 @@ Description:
 Depends:
     R (>= 3.1)
 Imports:
-    CDM, coda, graphics, MASS, numDeriv, Rcpp, sirt (>= 2.0), stats, 
-    TAM (>= 2.8), utils
+    CDM, graphics, Rcpp, sirt, stats, utils
 Suggests:
-    expm, STARTS
+    coda, expm, MASS, numDeriv, STARTS, TAM
 Enhances:
     lavaan, lme4
 LinkingTo: 

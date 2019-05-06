@@ -1,5 +1,5 @@
 %% File Name: clpm_to_ctm.Rd
-%% File Version: 0.12
+%% File Version: 0.16
 
 \name{clpm_to_ctm}
 \alias{clpm_to_ctm}
@@ -10,12 +10,13 @@ Transformation of Path Coefficients of Cross-Lagged Panel Model
 }
 
 \description{
-Transforms path coefficients \eqn{\bold{Phi}(\delta t_1)} of a cross-lagged panel model
-(CLPM) based on time interval \eqn{\delta t_1} into a time interval \eqn{\delta t_2}.
+Transforms path coefficients \eqn{\bold{\Phi}(\Delta t_1)} of a cross-lagged panel model
+(CLPM) based on time interval \eqn{\Delta t_1} into a time interval \eqn{\Delta t_2}.
 The transformation is based on the assumption of a continuous time model (CTM;
-Voelkle, Oud, Davidov, & Schmidt, 2012) and a drift matrix \eqn{\bold{A}}.
+Voelkle, Oud, Davidov, & Schmidt, 2012) including a drift matrix \eqn{\bold{A}}.
 The transformation relies on the matrix exponential function
-(see Kuiper & Ryan, 2018).
+(see Kuiper & Ryan, 2018), 
+i.e. \eqn{\bold{\Phi}(\Delta t_1) = \exp( \bold{A} \Delta t_1 ) }.
 }
 
 \usage{
@@ -24,11 +25,11 @@ clpm_to_ctm(Phi1, delta1=1, delta2=2, Phi1_vcov=NULL)
 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-\item{Phi1}{Matrix of path coefficients \eqn{\bold{Phi}(\delta t_1)}}
-\item{delta1}{Numeric \eqn{\delta t_1}}
-\item{delta2}{Numeric \eqn{\delta t_2}}
+\item{Phi1}{Matrix of path coefficients \eqn{\bold{\Phi}(\Delta t_1)}}
+\item{delta1}{Numeric \eqn{\Delta t_1}}
+\item{delta2}{Numeric \eqn{\Delta t_2}}
 \item{Phi1_vcov}{Optional covariance matrix for parameter estimates of
-\eqn{\bold{Phi}(\delta t_1)}}
+\eqn{\bold{\Phi}(\Delta t_1)}}
 }
 
 
@@ -42,9 +43,9 @@ A list with following entries
 \item{A}{Drift matrix}
 \item{A_se}{Standard errors of drift matrix}
 \item{A_vcov}{Covariance matrix of drift matrix}
-\item{Phi2}{Path coefficients \eqn{\bold{Phi}(\delta t_2)}}
-\item{Phi2_se}{Standard errors for \eqn{\bold{Phi}(\delta t_2)}}
-\item{Phi2_vcov}{Covariance matrix for \eqn{\bold{Phi}(\delta t_2)}}
+\item{Phi2}{Path coefficients \eqn{\bold{\Phi}(\Delta t_2)}}
+\item{Phi2_se}{Standard errors for \eqn{\bold{\Phi}(\Delta t_2)}}
+\item{Phi2_vcov}{Covariance matrix for \eqn{\bold{\Phi}(\Delta t_2)}}
 }
 
 

@@ -1,9 +1,10 @@
 ## File Name: suff_stat_NA_pattern.R
-## File Version: 0.09
+## File Version: 0.11
 
 
 suff_stat_NA_pattern <- function(dat)
 {
+    requireNamespace("TAM")
     m1 <- rowSums( 1 - is.na(dat) )
     dat <- dat[ m1 > 0, ]
     N <- nrow(dat)

@@ -1,5 +1,5 @@
 ## File Name: amh.R
-## File Version: 0.74
+## File Version: 0.751
 
 #######################################################
 # adaptive Metropolis-Hastings sampler
@@ -9,7 +9,7 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
         acceptance_bounds=c(.45,.55), proposal_refresh=50,
         proposal_equal=4, print_iter=50 )
 {
-
+    requireNamespace("coda")
     time <- list( "start"=Sys.time() )
     CALL <- match.call()
 

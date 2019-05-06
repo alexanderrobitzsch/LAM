@@ -1,8 +1,8 @@
 ## File Name: pmle.R
-## File Version: 0.59
+## File Version: 0.602
 
-#######################################################
-# penalized maximum likelihood estimation
+
+#-- penalized maximum likelihood estimation
 pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
         pars_lower=NULL, pars_upper=NULL, method="L-BFGS-B",
         control=list(), verbose=TRUE, hessian=TRUE,
@@ -65,6 +65,7 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
                     control=control, hessian=hessian, ... )
     }
     if ( optim_fct=="nlminb"){
+        requireNamespace("numDeriv")
         res0 <- stats::nlminb( start=pars, objective=pmle_obj, gradient=pmle_grad,
                     lower=pars_lower, upper=pars_upper,
                     control=control, ... )
@@ -74,8 +75,9 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
     converged <- res0$convergence==0
     coef1 <- res0$par
     if ( hessian ){
+        requireNamespace("MASS")
         hess1 <- res0$hessian
-        vcov1 <- MASS::ginv(hess1)
+        vcov1 <- MASS::ginv(X=hess1)
     } else {
         vcov1 <- hess1 <- NULL
     }
@@ -115,4 +117,3 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
     class(res) <- "pmle"
     return(res)
 }
-#################################################################################

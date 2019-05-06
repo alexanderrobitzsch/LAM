@@ -1,11 +1,11 @@
 ## File Name: loglike_mvnorm_R.R
-## File Version: 0.36
+## File Version: 0.37
 
 
 
-##############################################################
-# returns the log-likelihood value of a multivariate
-# normal distribution fitted with sufficient statistics
+
+#* returns the log-likelihood value of a multivariate
+#* normal distribution fitted with sufficient statistics
 loglike_mvnorm_R <- function( M, S, mu, Sigma, n, log=TRUE, lambda=0,
         ginv=FALSE, eps=1e-30 )
 {
@@ -16,6 +16,7 @@ loglike_mvnorm_R <- function( M, S, mu, Sigma, n, log=TRUE, lambda=0,
         Sigma <- w * Sigma + (1-w)*Sigma0
     }
     if (ginv){
+        requireNamespace("MASS")
         Sigma1 <- MASS::ginv(Sigma)
     } else {
         Sigma1 <- solve(Sigma)
@@ -32,4 +33,3 @@ loglike_mvnorm_R <- function( M, S, mu, Sigma, n, log=TRUE, lambda=0,
     l1 <- l1[1,1]
     return(l1)
 }
-#################################################################
