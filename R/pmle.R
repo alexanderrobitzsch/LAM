@@ -1,5 +1,5 @@
 ## File Name: pmle.R
-## File Version: 0.602
+## File Version: 0.610
 
 
 #-- penalized maximum likelihood estimation
@@ -26,6 +26,14 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
     pmle_obj <- function(x){
         res <- - pmle_eval_posterior( data=data, model=model,
                        prior=prior, pars=x )$post
+        return(res)
+    }
+
+    #*** define likelihood function for computing standard errors
+    pmle_ll <- function(x){
+        prior0 <- list()
+        res <- - pmle_eval_posterior( data=data, model=model,
+                       prior=prior0, pars=x )$post
         return(res)
     }
 
@@ -69,13 +77,13 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
         res0 <- stats::nlminb( start=pars, objective=pmle_obj, gradient=pmle_grad,
                     lower=pars_lower, upper=pars_upper,
                     control=control, ... )
-        #-- compute Hessian matrix
-        res0$hessian <- numDeriv::hessian(func=pmle_obj, x=res0$par)
     }
     converged <- res0$convergence==0
     coef1 <- res0$par
-    if ( hessian ){
+    if (hessian){
         requireNamespace("MASS")
+        #-- compute Hessian matrix
+        res0$hessian <- numDeriv::hessian(func=pmle_ll, x=res0$par)
         hess1 <- res0$hessian
         vcov1 <- MASS::ginv(X=hess1)
     } else {

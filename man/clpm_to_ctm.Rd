@@ -1,5 +1,5 @@
 %% File Name: clpm_to_ctm.Rd
-%% File Version: 0.16
+%% File Version: 0.21
 
 \name{clpm_to_ctm}
 \alias{clpm_to_ctm}
@@ -15,8 +15,8 @@ Transforms path coefficients \eqn{\bold{\Phi}(\Delta t_1)} of a cross-lagged pan
 The transformation is based on the assumption of a continuous time model (CTM;
 Voelkle, Oud, Davidov, & Schmidt, 2012) including a drift matrix \eqn{\bold{A}}.
 The transformation relies on the matrix exponential function
-(see Kuiper & Ryan, 2018), 
-i.e. \eqn{\bold{\Phi}(\Delta t_1) = \exp( \bold{A} \Delta t_1 ) }.
+(see Kuiper & Ryan, 2018),
+i.e. \eqn{\bold{\Phi}(\Delta t_1)=\exp( \bold{A} \Delta t_1 ) }.
 }
 
 \usage{
@@ -50,15 +50,15 @@ A list with following entries
 
 
 \references{
-Kuiper, R. M., & Ryan, O. (2018). Drawing conclusions from cross-lagged relationships: 
-Re-considering the role of the time-interval. 
-\emph{Structural Equation Modeling, 25}(5), 809-823. \cr
-http://dx.doi.org/10.1080/10705511.2018.1431046
+Kuiper, R. M., & Ryan, O. (2018). Drawing conclusions from cross-lagged relationships:
+Re-considering the role of the time-interval.
+\emph{Structural Equation Modeling, 25}(5), 809-823.
+\doi{10.1080/10705511.2018.1431046}
 
-Voelkle, M. C., Oud, J. H., Davidov, E., & Schmidt, P. (2012). An SEM approach to 
-continuous time modeling of panel data: Relating authoritarianism and anomia. 
+Voelkle, M. C., Oud, J. H., Davidov, E., & Schmidt, P. (2012). An SEM approach to
+continuous time modeling of panel data: Relating authoritarianism and anomia.
 \emph{Psychological Methods, 17}(2), 176-192.
-http://dx.doi.org/10.1037/a0027543
+\doi{10.1037/a0027543}
 }
 %\author{
 %Alexander Robitzsch

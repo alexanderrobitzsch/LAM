@@ -1,5 +1,5 @@
 %% File Name: mlnormal.Rd
-%% File Version: 0.54
+%% File Version: 0.562
 
 \name{mlnormal}
 \alias{mlnormal}
@@ -204,6 +204,7 @@ List with entries
 Gill, P. S., & Swartz, T. B. (2001). Statistical analyses for round
 robin interaction data.
 \emph{Canadian Journal of Statistics, 29}, 321-331.
+\doi{10.2307/3316080}
 
 Jiang, J. (2007). \emph{Linear and generalized linear mixed models and their
 applications}. New York: Springer.
@@ -211,17 +212,21 @@ applications}. New York: Springer.
 Krishnapuram, B., Carin, L., Figueiredo, M. A., & Hartemink, A. J. (2005).
 Sparse multinomial logistic regression: Fast algorithms and generalization
 bounds. \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence, 27}, 957-968.
+\doi{10.1109/TPAMI.2005.127}
 
 Lee, S. Y. (1990). Multilevel analysis of structural equation models.
 \emph{Biometrika, 77}, 763-772.
+\doi{10.1093/biomet/77.4.763}
 
 Lin, B., Pang, Z., & Jiang, J. (2013). Fixed and random effects selection
 by REML and pathwise coordinate optimization.
 \emph{Journal of Computational and Graphical Statistics, 22}, 341-355.
+\doi{10.1080/10618600.2012.681219}
 
 Longford, N. T. (1987). A fast scoring algorithm for maximum likelihood
 estimation in unbalanced mixed models with nested random effects.
 \emph{Biometrika, 74}, 817-827.
+\doi{10.1093/biomet/74.4.817}
 }
 
 

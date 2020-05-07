@@ -1,5 +1,5 @@
 %% File Name: LAM-package.Rd
-%% File Version: 0.17
+%% File Version: 0.18
 
 \name{LAM-package}
 \alias{LAM-package}
@@ -58,12 +58,15 @@ conduction with the \code{\link{pmle}} function which is based on
 \references{
 Cole, S. R., Chu, H., & Greenland, S. (2013). Maximum likelihood, profile likelihood,
 and penalized likelihood: a primer. \emph{American Journal of Epidemiology, 179}(2), 252-260.
+\doi{10.1093/aje/kwt245}
 
 Longford, N. T. (1987). A fast scoring algorithm for maximum likelihood estimation in
 unbalanced mixed models with nested random effects. \emph{Biometrika, 74}(4), 817-827.
+\doi{10.1093/biomet/74.4.817}
 
 Roberts, G. O., & Rosenthal, J. S. (2001). Optimal scaling for various Metropolis-Hastings
 algorithms. \emph{Statistical Science, 16}(4), 351-367.
+\doi{10.1214/ss/1015346320}
 }
 
 %\seealso{

@@ -1,9 +1,9 @@
 ## File Name: amh_proposal_refresh.R
-## File Version: 0.21
+## File Version: 0.25
 
 
-#################################################################
-# refreshing the proposal SD
+
+#*** refreshing the proposal SD
 amh_proposal_refresh <- function( acceptance_parameters, proposal_sd,
         acceptance_bounds, acceptance_rates_history, proposal_equal )
 {
@@ -25,9 +25,7 @@ amh_proposal_refresh <- function( acceptance_parameters, proposal_sd,
     acceptance_parameters$no_change <- acceptance_parameters$no_change + proposal_retain
     acceptance_parameters$no_change[ proposal_retain==0 ] <- 1
     #-- output
-    res0 <- list( proposal_sd=SD.pp,
-                  acceptance_parameters=acceptance_parameters,
+    res0 <- list( proposal_sd=SD.pp, acceptance_parameters=acceptance_parameters,
                   acceptance_rates_history=acceptance_rates_history )
     return(res0)
 }
-#################################################################

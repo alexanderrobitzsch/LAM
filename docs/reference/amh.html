@@ -9,21 +9,25 @@
 <title>Bayesian Model Estimation with Adaptive Metropolis Hastings Sampling
 (<code>amh</code>) or Penalized Maximum Likelihood Estimation (<code>pmle</code>) — amh • LAM</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -31,9 +35,9 @@
 
 
 
+
 <meta property="og:title" content="Bayesian Model Estimation with Adaptive Metropolis Hastings Sampling
 (<code>amh</code>) or Penalized Maximum Likelihood Estimation (<code>pmle</code>) — amh" />
-
 <meta property="og:description" content="The function amh conducts a Bayesian statistical analysis using
 the adaptive Metropolis-Hastings
 as the estimation procedure (Hoff, 2009; Roberts &amp;amp; Rosenthal, 2001). Only univariate prior
@@ -50,6 +54,7 @@ stats::nlminb can be used." />
 
 
 
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,6 +63,7 @@ stats::nlminb can be used." />
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -84,7 +90,7 @@ stats::nlminb can be used." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,11 +98,10 @@ stats::nlminb can be used." />
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/alexanderrobitzsch/LAM">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -107,6 +112,7 @@ stats::nlminb can be used." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -119,7 +125,6 @@ stats::nlminb can be used." />
     </div>
 
     <div class="ref-description">
-    
     <p>The function <code>amh</code> conducts a Bayesian statistical analysis using
 the adaptive Metropolis-Hastings
 as the estimation procedure (Hoff, 2009; Roberts &amp; Rosenthal, 2001). Only univariate prior
@@ -130,55 +135,54 @@ replace general purpose packages like <span class="pkg">WinBUGS</span>, <span cl
 <p>The function <code>pmle</code> optimizes the penalized likelihood (Cole, Chu &amp; Greenland, 2014)
 which means that
 the posterior is maximized and the maximum a posterior estimate is
-obtained. The optimization functions <a href='https://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim</a> or
-<a href='https://www.rdocumentation.org/packages/stats/topics/nlminb'>stats::nlminb</a> can be used.</p>
-    
+obtained. The optimization functions <a href='https://rdrr.io/r/stats/optim.html'>stats::optim</a> or
+<a href='https://rdrr.io/r/stats/nlminb.html'>stats::nlminb</a> can be used.</p>
     </div>
 
     <pre class="usage"><span class='fu'>amh</span>(<span class='no'>data</span>, <span class='no'>nobs</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='no'>prior</span>, <span class='no'>proposal_sd</span>,  <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='kw'>NULL</span>,
       <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>derivedPars</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>n.iter</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>n.burnin</span><span class='kw'>=</span><span class='fl'>1000</span>,
-      <span class='kw'>n.sims</span><span class='kw'>=</span><span class='fl'>3000</span>, <span class='kw'>acceptance_bounds</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>.45</span>,<span class='fl'>.55</span>), <span class='kw'>proposal_refresh</span><span class='kw'>=</span><span class='fl'>50</span>,
-      <span class='kw'>proposal_equal</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>print_iter</span><span class='kw'>=</span><span class='fl'>50</span> )
+      <span class='kw'>n.sims</span><span class='kw'>=</span><span class='fl'>3000</span>, <span class='kw'>acceptance_bounds</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.45</span>,<span class='fl'>.55</span>), <span class='kw'>proposal_refresh</span><span class='kw'>=</span><span class='fl'>50</span>,
+      <span class='kw'>proposal_equal</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>print_iter</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>boundary_ignore</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
 
 <span class='fu'>pmle</span>( <span class='no'>data</span>, <span class='no'>nobs</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>model_grad</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='kw'>NULL</span>,
-      <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"L-BFGS-B"</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>hessian</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
+      <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"L-BFGS-B"</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>hessian</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
       <span class='kw'>optim_fct</span><span class='kw'>=</span><span class='st'>"nlminb"</span>, <span class='kw'>h</span><span class='kw'>=</span><span class='fl'>1e-4</span>, <span class='no'>...</span> )
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>conflevel</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>lag.max</span><span class='kw'>=</span><span class='fl'>.1</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>conflevel</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>lag.max</span><span class='kw'>=</span><span class='fl'>.1</span>,
     <span class='kw'>col.smooth</span><span class='kw'>=</span><span class='st'>"red"</span>, <span class='kw'>lwd.smooth</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>col.split</span><span class='kw'>=</span><span class='st'>"blue"</span>, <span class='kw'>lwd.split</span><span class='kw'>=</span><span class='fl'>2</span>,
     <span class='kw'>lty.split</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>col.ci</span><span class='kw'>=</span><span class='st'>"orange"</span>, <span class='kw'>cex.summ</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='no'>...</span> )
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/logLik'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/logLik.html'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for amh</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/confint'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )
+<span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )
 
 <span class='co'># S3 method for pmle</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for pmle</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for pmle</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/logLik'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/logLik.html'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for pmle</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for pmle</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/confint'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -201,7 +205,7 @@ obtained. The optimization functions <a href='https://www.rdocumentation.org/pac
     <tr>
       <th>prior</th>
       <td><p>List with prior distributions for the parameters to be sampled (see Examples).
-See <code><a href='https://www.rdocumentation.org/packages/sirt/topics/prior_model_parse'>sirt::prior_model_parse</a></code>
+See <code><a href='https://rdrr.io/pkg/sirt/man/prior_model_parse.html'>sirt::prior_model_parse</a></code>
 for more convenient specifications of the prior distributions. Setting the prior
 argument to <code>NULL</code> corresponds to improper (constant) prior distributions
 for all parameters.</p></td>
@@ -253,17 +257,22 @@ for fixing the SD</p></td>
       <td><p>Display progress every <code>print_iter</code>th iteration</p></td>
     </tr>
     <tr>
+      <th>boundary_ignore</th>
+      <td><p>Logical indicating whether sampled values outside the
+specified boundaries should be ignored.</p></td>
+    </tr>
+    <tr>
       <th>model_grad</th>
       <td><p>Optional function which evaluates the gradient of
 the log-likelihood function (must be a function of <code>pars</code>.</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>Optimization method in <code><a href='https://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim</a></code></p></td>
+      <td><p>Optimization method in <code><a href='https://rdrr.io/r/stats/optim.html'>stats::optim</a></code></p></td>
     </tr>
     <tr>
       <th>control</th>
-      <td><p>Control parameters <code><a href='https://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim</a></code></p></td>
+      <td><p>Control parameters <code><a href='https://rdrr.io/r/stats/optim.html'>stats::optim</a></code></p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -276,8 +285,8 @@ should be computed</p></td>
     </tr>
     <tr>
       <th>optim_fct</th>
-      <td><p>Type of optimization: <code>"optim"</code> (<a href='https://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim</a>)
-or the default <code>"nlminb"</code> (<a href='https://www.rdocumentation.org/packages/stats/topics/nlminb'>stats::nlminb</a>)</p></td>
+      <td><p>Type of optimization: <code>"optim"</code> (<a href='https://rdrr.io/r/stats/optim.html'>stats::optim</a>)
+or the default <code>"nlminb"</code> (<a href='https://rdrr.io/r/stats/nlminb.html'>stats::nlminb</a>)</p></td>
     </tr>
     <tr>
       <th>h</th>
@@ -297,7 +306,7 @@ or the default <code>"nlminb"</code> (<a href='https://www.rdocumentation.org/pa
       <td><p>File name</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Further arguments to be passed</p></td>
     </tr>
     <tr>
@@ -355,7 +364,7 @@ before a new figure is drawn.</p></td>
       <td><p>Confidence level.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>List of class <code>amh</code> including entries</p>
@@ -374,73 +383,72 @@ and mean estimator and corresponding posterior estimates.</p></dd>
 deviations during burn-in iterations</p></dd>
 <dt>acceptance_rates_history</dt><dd><p>History of acceptance rates for all parameters
 during burn-in phase</p></dd>
-<dt>&#8230;</dt><dd><p>More values</p></dd>  
+<dt>...</dt><dd><p>More values</p></dd>  
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Cole, S. R., Chu, H., &amp; Greenland, S. (2013). Maximum likelihood, profile likelihood,
-and penalized likelihood: a primer. <em>American Journal of Epidemiology, 179</em>(2), 252-260.</p>
+and penalized likelihood: a primer. <em>American Journal of Epidemiology, 179</em>(2), 252-260.
+doi: <a href='https://doi.org/10.1093/aje/kwt245'>10.1093/aje/kwt245</a></p>
 <p>Hoff, P. D. (2009). <em>A first course in Bayesian statistical methods</em>.
 New York: Springer.</p>
 <p>Roberts, G. O., &amp; Rosenthal, J. S. (2001). Optimal scaling for various Metropolis-Hastings
-algorithms. <em>Statistical Science, 16</em>(4), 351-367.</p>
-    
+algorithms. <em>Statistical Science, 16</em>(4), 351-367.
+doi: <a href='https://doi.org/10.1214/ss/1015346320'>10.1214/ss/1015346320</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>See the Bayesian CRAN Task View for lot of information about
 alternative <span style="R">R</span> packages.</p>
-<p><code><a href='https://www.rdocumentation.org/packages/sirt/topics/prior_model_parse'>sirt::prior_model_parse</a></code></p></div>
-    
+<p><code><a href='https://rdrr.io/pkg/sirt/man/prior_model_parse.html'>sirt::prior_model_parse</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 1: Constrained multivariate normal distribution</span>
 <span class='co'>#############################################################################</span>
 
 <span class='co'>#--- simulate data</span>
-<span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
+<span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
     <span class='fl'>1</span>, <span class='fl'>.55</span>, <span class='fl'>.5</span>,
     <span class='fl'>.55</span>, <span class='fl'>1</span>, <span class='fl'>.45</span>,
     <span class='fl'>.5</span>, <span class='fl'>.45</span>, <span class='fl'>1</span> ), <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>3</span>, <span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
-<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1.2</span>)
+<span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1.2</span>)
 <span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>400</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>9875</span>)
-<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/mvrnorm'>mvrnorm</a></span>( <span class='no'>N</span>, <span class='no'>mu</span>, <span class='no'>Sigma</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>dat</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"Y"</span>,<span class='fl'>1</span>:<span class='fl'>3</span>)
-<span class='no'>S</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/cor'>cov</a></span>(<span class='no'>dat</span>)
-<span class='no'>M</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colSums'>colMeans</a></span>(<span class='no'>dat</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>9875</span>)
+<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/mvrnorm.html'>mvrnorm</a></span>( <span class='no'>N</span>, <span class='no'>mu</span>, <span class='no'>Sigma</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>dat</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Y"</span>,<span class='fl'>1</span>:<span class='fl'>3</span>)
+<span class='no'>S</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cov</a></span>(<span class='no'>dat</span>)
+<span class='no'>M</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span>(<span class='no'>dat</span>)
 
 <span class='co'>#-- define maximum likelihood function for normal distribution</span>
 <span class='no'>fit_ml</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>( <span class='no'>S</span>, <span class='no'>Sigma</span>, <span class='no'>M</span>, <span class='no'>mu</span>, <span class='no'>n</span>, <span class='no'>log</span><span class='kw'>=</span><span class='fl'>TRUE</span>){
-    <span class='no'>Sigma1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/solve'>solve</a></span>(<span class='no'>Sigma</span>)
-    <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>ncol</a></span>(<span class='no'>Sigma</span>)
-    <span class='no'>det_Sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/det'>det</a></span>( <span class='no'>Sigma</span> )
+    <span class='no'>Sigma1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/solve.html'>solve</a></span>(<span class='no'>Sigma</span>)
+    <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='no'>Sigma</span>)
+    <span class='no'>det_Sigma</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/det.html'>det</a></span>( <span class='no'>Sigma</span> )
     <span class='no'>eps</span> <span class='kw'>&lt;-</span> <span class='fl'>1E-30</span>
     <span class='kw'>if</span> ( <span class='no'>det_Sigma</span> <span class='kw'>&lt;</span> <span class='no'>eps</span> ){
             <span class='no'>det_Sigma</span> <span class='kw'>&lt;-</span> <span class='no'>eps</span>
     }
-    <span class='no'>l1</span> <span class='kw'>&lt;-</span> - <span class='no'>p</span> * <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>( <span class='fl'>2</span>*<span class='no'>pi</span> ) - <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/t'>t</a></span>( <span class='no'>M</span> - <span class='no'>mu</span> ) <span class='kw'>%*%</span> <span class='no'>Sigma1</span> <span class='kw'>%*%</span> ( <span class='no'>M</span> - <span class='no'>mu</span> ) -
-                  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>( <span class='no'>det_Sigma</span> )  - <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sum'>sum</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/diag'>diag</a></span>( <span class='no'>Sigma1</span> <span class='kw'>%*%</span> <span class='no'>S</span> ) )
+    <span class='no'>l1</span> <span class='kw'>&lt;-</span> - <span class='no'>p</span> * <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>( <span class='fl'>2</span>*<span class='no'>pi</span> ) - <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>( <span class='no'>M</span> - <span class='no'>mu</span> ) <span class='kw'>%*%</span> <span class='no'>Sigma1</span> <span class='kw'>%*%</span> ( <span class='no'>M</span> - <span class='no'>mu</span> ) -
+                  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>( <span class='no'>det_Sigma</span> )  - <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>( <span class='no'>Sigma1</span> <span class='kw'>%*%</span> <span class='no'>S</span> ) )
     <span class='no'>l1</span> <span class='kw'>&lt;-</span> <span class='no'>n</span>/<span class='fl'>2</span> * <span class='no'>l1</span>
     <span class='kw'>if</span> (! <span class='no'>log</span>){
-        <span class='no'>l1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>exp</a></span>(<span class='no'>l1</span>)
+        <span class='no'>l1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='no'>l1</span>)
     }
     <span class='no'>l1</span> <span class='kw'>&lt;-</span> <span class='no'>l1</span>[<span class='fl'>1</span>,<span class='fl'>1</span>]
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>l1</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>l1</span>)
 }
 <span class='co'># This likelihood function can be directly accessed by the loglike_mvnorm function.</span>
 
 <span class='co'>#--- define data input</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"S"</span><span class='kw'>=</span><span class='no'>S</span>, <span class='st'>"M"</span><span class='kw'>=</span><span class='no'>M</span>, <span class='st'>"n"</span><span class='kw'>=</span><span class='no'>N</span> )
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"S"</span><span class='kw'>=</span><span class='no'>S</span>, <span class='st'>"M"</span><span class='kw'>=</span><span class='no'>M</span>, <span class='st'>"n"</span><span class='kw'>=</span><span class='no'>N</span> )
 
 <span class='co'>#--- define list of prior distributions</span>
-<span class='no'>prior</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>()
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"mu1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>1</span> ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"mu2"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>5</span> ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"sig1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='fl'>0</span>, <span class='fl'>10</span> ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"rho"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>,-<span class='fl'>1</span>, <span class='fl'>1</span>  ) )
+<span class='no'>prior</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>()
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"mu1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>1</span> ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"mu2"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>5</span> ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"sig1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='fl'>0</span>, <span class='fl'>10</span> ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"rho"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>,-<span class='fl'>1</span>, <span class='fl'>1</span>  ) )
 
 <span class='co'>#** alternatively, one can specify the prior as a string and uses</span>
 <span class='co'>#   the 'prior_model_parse' function</span>
@@ -451,60 +459,60 @@ alternative <span style="R">R</span> packages.</p>
    rho ~ dunif(x=NA,-1,1)
    "</span>
 <span class='co'># convert string</span>
-<span class='no'>prior2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>sirt</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/sirt/topics/prior_model_parse'>prior_model_parse</a></span>( <span class='no'>prior_model2</span> )
+<span class='no'>prior2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>sirt</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/sirt/man/prior_model_parse.html'>prior_model_parse</a></span>( <span class='no'>prior_model2</span> )
 <span class='no'>prior2</span>  <span class='co'># should be equal to prior</span>
 
 <span class='co'>#--- define log likelihood function for model to be fitted</span>
 <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>( <span class='no'>pars</span>, <span class='no'>data</span> ){
     <span class='co'># mean vector</span>
-    <span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"mu1"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>"mu2"</span>,<span class='fl'>2</span>) ) ]
+    <span class='no'>mu</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[ <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mu1"</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"mu2"</span>,<span class='fl'>2</span>) ) ]
     <span class='co'># covariance matrix</span>
-    <span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>( <span class='no'>pars</span>[<span class='st'>"rho"</span>] * <span class='no'>pars</span>[<span class='st'>"sig1"</span>]^<span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>3</span> )
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/diag'>diag</a></span>(<span class='no'>m1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>( <span class='no'>pars</span>[<span class='st'>"sig1"</span>]^<span class='fl'>2</span>, <span class='fl'>3</span> )
+    <span class='no'>m1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='no'>pars</span>[<span class='st'>"rho"</span>] * <span class='no'>pars</span>[<span class='st'>"sig1"</span>]^<span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>3</span> )
+    <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='no'>m1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='no'>pars</span>[<span class='st'>"sig1"</span>]^<span class='fl'>2</span>, <span class='fl'>3</span> )
     <span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='no'>m1</span>
     <span class='co'># evaluate log-likelihood</span>
     <span class='no'>ll</span> <span class='kw'>&lt;-</span> <span class='fu'>fit_ml</span>( <span class='kw'>S</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>S</span>, <span class='kw'>Sigma</span><span class='kw'>=</span><span class='no'>Sigma</span>, <span class='kw'>M</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>M</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='no'>mu</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>)
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>ll</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>ll</span>)
 }
 
 <span class='co'>#--- initial parameter values</span>
-<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"mu1"</span>, <span class='st'>"mu2"</span>, <span class='st'>"sig1"</span>, <span class='st'>"rho"</span>)
+<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mu1"</span>, <span class='st'>"mu2"</span>, <span class='st'>"sig1"</span>, <span class='st'>"rho"</span>)
 <span class='co'>#--- initial proposal distributions</span>
-<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.4</span>, <span class='fl'>.1</span>, <span class='fl'>.05</span>, <span class='fl'>.1</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>)
+<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.4</span>, <span class='fl'>.1</span>, <span class='fl'>.05</span>, <span class='fl'>.1</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>)
 <span class='co'>#--- lower and upper bound for parameters</span>
-<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( -<span class='fl'>10</span>, -<span class='fl'>10</span>, <span class='fl'>.001</span>, -<span class='fl'>.999</span> )
-<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>1E100</span>, <span class='fl'>.999</span> )
+<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( -<span class='fl'>10</span>, -<span class='fl'>10</span>, <span class='fl'>.001</span>, -<span class='fl'>.999</span> )
+<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>1E100</span>, <span class='fl'>.999</span> )
 
 <span class='co'>#--- define list with derived parameters</span>
-<span class='no'>derivedPars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"var1"</span><span class='kw'>=</span>~ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>( <span class='no'>sig1</span>^<span class='fl'>2</span> ), <span class='st'>"d1"</span><span class='kw'>=</span>~ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>( ( <span class='no'>mu2</span> - <span class='no'>mu1</span> ) / <span class='no'>sig1</span> ) )
+<span class='no'>derivedPars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"var1"</span><span class='kw'>=</span>~ <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span>( <span class='no'>sig1</span>^<span class='fl'>2</span> ), <span class='st'>"d1"</span><span class='kw'>=</span>~ <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span>( ( <span class='no'>mu2</span> - <span class='no'>mu1</span> ) / <span class='no'>sig1</span> ) )
 
 <span class='co'>#*** start Metropolis-Hastings sampling</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>amh</a></span>( <span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>amh</a></span>( <span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,
           <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>, <span class='kw'>proposal_sd</span><span class='kw'>=</span><span class='no'>proposal_sd</span>,
           <span class='kw'>n.iter</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>n.burnin</span><span class='kw'>=</span><span class='fl'>300</span>, <span class='kw'>derivedPars</span><span class='kw'>=</span><span class='no'>derivedPars</span>,
           <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span> )
 
 <span class='co'># some S3 methods</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/logLik'>logLik</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/logLik.html'>logLik</a></span>(<span class='no'>mod</span>)
 
 <span class='co'>#--- compare Bayesian credibility intervals and HPD intervals</span>
-<span class='no'>ci</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/confint'>confint</a></span>(<span class='no'>mod</span>), <span class='kw pkg'>coda</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/HPDinterval'>HPDinterval</a></span>(<span class='no'>mod</span>$<span class='no'>mcmcobj</span>)[-<span class='fl'>1</span>, ] )
+<span class='no'>ci</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span>(<span class='no'>mod</span>), <span class='kw pkg'>coda</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/HPDinterval.html'>HPDinterval</a></span>(<span class='no'>mod</span>$<span class='no'>mcmcobj</span>)[-<span class='fl'>1</span>, ] )
 <span class='no'>ci</span>
 <span class='co'># interval lengths</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>( <span class='no'>ci</span>[,<span class='fl'>2</span>]-<span class='no'>ci</span>[,<span class='fl'>1</span>], <span class='no'>ci</span>[,<span class='fl'>4</span>] - <span class='no'>ci</span>[,<span class='fl'>3</span>] )
+<span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='no'>ci</span>[,<span class='fl'>2</span>]-<span class='no'>ci</span>[,<span class='fl'>1</span>], <span class='no'>ci</span>[,<span class='fl'>4</span>] - <span class='no'>ci</span>[,<span class='fl'>3</span>] )
 
 <span class='co'>#--- plot update history of proposal standard deviations</span>
-<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/matplot'>matplot</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>mod</span>$<span class='no'>proposal_sd_history</span>),
+<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/matplot.html'>matplot</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>mod</span>$<span class='no'>proposal_sd_history</span>),
           <span class='kw'>y</span><span class='kw'>=</span><span class='no'>mod</span>$<span class='no'>proposal_sd_history</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"o"</span>, <span class='kw'>pch</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>6</span>)
 
 <span class='co'>#**** compare results with lavaan package</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>lavaan</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>lavaan</span>)
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>"
     F=~ 1*Y1 + 1*Y2 + 1*Y3
     F ~~ rho*F
@@ -518,49 +526,49 @@ alternative <span style="R">R</span> packages.</p>
     sig1 :=sqrt( rho + v1 )
     "</span>
 <span class='co'># estimate model</span>
-<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/sem'>sem</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='no'>dat</span>), <span class='no'>lavmodel</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/logLik'>logLik</a></span>(<span class='no'>mod2</span>)
+<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/sem.html'>sem</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>dat</span>), <span class='no'>lavmodel</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/logLik.html'>logLik</a></span>(<span class='no'>mod2</span>)
 
 <span class='co'>#*** compare results with penalized maximum likelihood estimation</span>
-<span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>,
+<span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>,
             <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>  )
 <span class='co'># model summaries</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/confint'>confint</a></span>(<span class='no'>mod3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>mod3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span>(<span class='no'>mod3</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>mod3</span>)
 
 <span class='co'>#*** penalized likelihood estimation with provided gradient of log-likelihood</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>CDM</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>CDM</span>)
 <span class='no'>fct</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>){
     <span class='fu'>model</span>(<span class='kw'>pars</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span> )
 }
 <span class='co'># use numerical gradient (just for illustration)</span>
 <span class='no'>grad</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>pars</span>){
-    <span class='kw pkg'>CDM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/CDM/topics/numerical_Hessian'>numerical_Hessian</a></span>(<span class='kw'>par</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>FUN</span><span class='kw'>=</span><span class='no'>fct</span>, <span class='kw'>gradient</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>hessian</span><span class='kw'>=</span><span class='fl'>FALSE</span>)
+    <span class='kw pkg'>CDM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/CDM/man/numerical_Hessian.html'>numerical_Hessian</a></span>(<span class='kw'>par</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>FUN</span><span class='kw'>=</span><span class='no'>fct</span>, <span class='kw'>gradient</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>hessian</span><span class='kw'>=</span><span class='fl'>FALSE</span>)
 }
 <span class='co'>#- estimate model</span>
-<span class='no'>mod3b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>, <span class='kw'>model_grad</span><span class='kw'>=</span><span class='no'>grad</span>,
+<span class='no'>mod3b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>, <span class='kw'>model_grad</span><span class='kw'>=</span><span class='no'>grad</span>,
             <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>  )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3b</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3b</span>)
 
 <span class='co'>#--- lavaan with covariance and mean vector input</span>
-<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/sem'>sem</a></span>( <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>S</span>, <span class='kw'>sample.mean</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>M</span>, <span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>,
+<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/sem.html'>sem</a></span>( <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>S</span>, <span class='kw'>sample.mean</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>M</span>, <span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>,
                 <span class='kw'>model</span><span class='kw'>=</span><span class='no'>lavmodel</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod2a</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod2</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod2a</span>)
 
 <span class='co'>#--- fit covariance and mean structure by fitting a transformed</span>
 <span class='co'>#    covariance structure</span>
 <span class='co'>#* create an expanded covariance matrix</span>
-<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>ncol</a></span>(<span class='no'>S</span>)
-<span class='no'>S1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>( <span class='fl'>NA</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='no'>p</span>+<span class='fl'>1</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='no'>p</span>+<span class='fl'>1</span> )
-<span class='no'>S1</span>[<span class='fl'>1</span>:<span class='no'>p</span>,<span class='fl'>1</span>:<span class='no'>p</span>] <span class='kw'>&lt;-</span> <span class='no'>S</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/outer'>outer</a></span>( <span class='no'>M</span>, <span class='no'>M</span> )
+<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='no'>S</span>)
+<span class='no'>S1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>NA</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='no'>p</span>+<span class='fl'>1</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='no'>p</span>+<span class='fl'>1</span> )
+<span class='no'>S1</span>[<span class='fl'>1</span>:<span class='no'>p</span>,<span class='fl'>1</span>:<span class='no'>p</span>] <span class='kw'>&lt;-</span> <span class='no'>S</span> + <span class='fu'><a href='https://rdrr.io/r/base/outer.html'>outer</a></span>( <span class='no'>M</span>, <span class='no'>M</span> )
 <span class='no'>S1</span>[<span class='no'>p</span>+<span class='fl'>1</span>,<span class='fl'>1</span>:<span class='no'>p</span>] <span class='kw'>&lt;-</span> <span class='no'>S1</span>[<span class='fl'>1</span>:<span class='no'>p</span>, <span class='no'>p</span>+<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='no'>M</span>
 <span class='no'>S1</span>[<span class='no'>p</span>+<span class='fl'>1</span>,<span class='no'>p</span>+<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
-<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>S</span>), <span class='st'>"MY"</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>S1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>S1</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
+<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>S</span>), <span class='st'>"MY"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>S1</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>S1</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
 <span class='co'>#* lavaan model</span>
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>"
     # indicators
@@ -581,17 +589,17 @@ alternative <span style="R">R</span> packages.</p>
     "</span>
 
 <span class='co'># estimate model</span>
-<span class='no'>mod2b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/sem'>sem</a></span>( <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>S1</span>,<span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>,
+<span class='no'>mod2b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/sem.html'>sem</a></span>( <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>S1</span>,<span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>,
                 <span class='kw'>model</span><span class='kw'>=</span><span class='no'>lavmodel</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2b</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2b</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2</span>)
 
 <span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 2: Estimation of a linear model with Box-Cox transformation of response</span>
 <span class='co'>#############################################################################</span>
 
 <span class='co'>#*** simulate data with Box-Cox transformation</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>875</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>875</span>)
 <span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>1000</span>
 <span class='no'>b0</span> <span class='kw'>&lt;-</span> <span class='fl'>1.5</span>
 <span class='no'>b1</span> <span class='kw'>&lt;-</span> <span class='fl'>.3</span>
@@ -600,76 +608,76 @@ alternative <span style="R">R</span> packages.</p>
 <span class='co'># apply inverse Box-Cox transformation</span>
   <span class='co'># yl=( y^lambda - 1 ) / lambda</span>
   <span class='co'># -&gt; y=( lambda * yl + 1 )^(1/lambda)</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>( <span class='no'>N</span>,  <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>1</span> )
-<span class='no'>yl</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>( <span class='no'>N</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='no'>b0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='no'>sigma</span> ) + <span class='no'>b1</span>*<span class='no'>x</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>N</span>,  <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>1</span> )
+<span class='no'>yl</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>N</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='no'>b0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='no'>sigma</span> ) + <span class='no'>b1</span>*<span class='no'>x</span>
 <span class='co'># truncate at zero</span>
 <span class='no'>eps</span> <span class='kw'>&lt;-</span> <span class='fl'>.01</span>
-<span class='no'>yl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/ifelse'>ifelse</a></span>( <span class='no'>yl</span> <span class='kw'>&lt;</span> <span class='no'>eps</span>, <span class='no'>eps</span>, <span class='no'>yl</span> )
+<span class='no'>yl</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>( <span class='no'>yl</span> <span class='kw'>&lt;</span> <span class='no'>eps</span>, <span class='no'>eps</span>, <span class='no'>yl</span> )
 <span class='no'>y</span> <span class='kw'>&lt;-</span> ( <span class='no'>lambda</span> * <span class='no'>yl</span> + <span class='fl'>1</span> ) ^(<span class='fl'>1</span>/<span class='no'>lambda</span> )
 
 <span class='co'>#-- display distributions of transformed and untransformed data</span>
-   <span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
-<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='no'>yl</span>, <span class='kw'>breaks</span><span class='kw'>=</span><span class='fl'>20</span>)
-<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='no'>y</span>, <span class='kw'>breaks</span><span class='kw'>=</span><span class='fl'>20</span>)
-   <span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
+   <span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>))
+<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='no'>yl</span>, <span class='kw'>breaks</span><span class='kw'>=</span><span class='fl'>20</span>)
+<span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='no'>y</span>, <span class='kw'>breaks</span><span class='kw'>=</span><span class='fl'>20</span>)
+   <span class='kw pkg'>graphics</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>))
 
 <span class='co'>#*** define vector of parameters</span>
-<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span>,  <span class='fl'>1</span>, -<span class='fl'>.2</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"b0"</span>, <span class='st'>"b1"</span>, <span class='st'>"sigma"</span>, <span class='st'>"lambda"</span> )
+<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span>,  <span class='fl'>1</span>, -<span class='fl'>.2</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"b0"</span>, <span class='st'>"b1"</span>, <span class='st'>"sigma"</span>, <span class='st'>"lambda"</span> )
 <span class='co'>#*** input data</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"y"</span><span class='kw'>=</span><span class='no'>y</span>, <span class='st'>"x"</span><span class='kw'>=</span><span class='no'>x</span>)
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"y"</span><span class='kw'>=</span><span class='no'>y</span>, <span class='st'>"x"</span><span class='kw'>=</span><span class='no'>x</span>)
 <span class='co'>#*** define model with log-likelihood function</span>
 <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>( <span class='no'>pars</span>, <span class='no'>data</span> ){
     <span class='no'>sigma</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"sigma"</span>]
     <span class='no'>b0</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"b0"</span>]
     <span class='no'>b1</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"b1"</span>]
     <span class='no'>lambda</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"lambda"</span>]
-    <span class='kw'>if</span> ( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/MathFun'>abs</a></span>(<span class='no'>lambda</span>) <span class='kw'>&lt;</span> <span class='fl'>.01</span>){ <span class='no'>lambda</span> <span class='kw'>&lt;-</span> <span class='fl'>.01</span> * <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sign'>sign</a></span>(<span class='no'>lambda</span>) }
+    <span class='kw'>if</span> ( <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='no'>lambda</span>) <span class='kw'>&lt;</span> <span class='fl'>.01</span>){ <span class='no'>lambda</span> <span class='kw'>&lt;-</span> <span class='fl'>.01</span> * <span class='fu'><a href='https://rdrr.io/r/base/sign.html'>sign</a></span>(<span class='no'>lambda</span>) }
     <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>data</span>$<span class='no'>y</span>
     <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>data</span>$<span class='no'>x</span>
-    <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>y</span>)
+    <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>y</span>)
     <span class='no'>y_lambda</span> <span class='kw'>&lt;-</span> ( <span class='no'>y</span>^<span class='no'>lambda</span> - <span class='fl'>1</span> ) / <span class='no'>lambda</span>
-    <span class='no'>ll</span> <span class='kw'>&lt;-</span> - <span class='no'>n</span>/<span class='fl'>2</span> * <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='fl'>2</span>*<span class='no'>pi</span>) - <span class='no'>n</span> * <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>( <span class='no'>sigma</span> ) -
-            <span class='fl'>1</span>/(<span class='fl'>2</span>*<span class='no'>sigma</span>^<span class='fl'>2</span>)* <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sum'>sum</a></span>( (<span class='no'>y_lambda</span> - <span class='no'>b0</span> - <span class='no'>b1</span>*<span class='no'>x</span>)^<span class='fl'>2</span> ) +
-            ( <span class='no'>lambda</span> - <span class='fl'>1</span> ) * <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sum'>sum</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>( <span class='no'>y</span> ) )
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>ll</span>)
+    <span class='no'>ll</span> <span class='kw'>&lt;-</span> - <span class='no'>n</span>/<span class='fl'>2</span> * <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='fl'>2</span>*<span class='no'>pi</span>) - <span class='no'>n</span> * <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>( <span class='no'>sigma</span> ) -
+            <span class='fl'>1</span>/(<span class='fl'>2</span>*<span class='no'>sigma</span>^<span class='fl'>2</span>)* <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>( (<span class='no'>y_lambda</span> - <span class='no'>b0</span> - <span class='no'>b1</span>*<span class='no'>x</span>)^<span class='fl'>2</span> ) +
+            ( <span class='no'>lambda</span> - <span class='fl'>1</span> ) * <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>( <span class='no'>y</span> ) )
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>ll</span>)
 }
 <span class='co'>#-- test model function</span>
 <span class='fu'>model</span>( <span class='no'>pars</span>, <span class='no'>data</span> )
 
 <span class='co'>#*** define prior distributions</span>
-<span class='no'>prior</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>()
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"b0"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>10</span> ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"b1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>10</span> ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"sigma"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='fl'>0</span>, <span class='fl'>10</span>  ) )
-<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"lambda"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, -<span class='fl'>2</span>, <span class='fl'>2</span> ) )
+<span class='no'>prior</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>()
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"b0"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>10</span> ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"b1"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dnorm"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>10</span> ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"sigma"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, <span class='fl'>0</span>, <span class='fl'>10</span>  ) )
+<span class='no'>prior</span><span class='kw'>[[</span><span class='st'>"lambda"</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"dunif"</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>x</span><span class='kw'>=</span><span class='fl'>NA</span>, -<span class='fl'>2</span>, <span class='fl'>2</span> ) )
 <span class='co'>#*** define proposal SDs</span>
-<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>)
+<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>)
 <span class='co'>#*** define bounds for parameters</span>
-<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( -<span class='fl'>100</span>, -<span class='fl'>100</span>, <span class='fl'>.01</span>, -<span class='fl'>2</span> )
-<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>100</span>, <span class='fl'>100</span>, <span class='fl'>100</span>, <span class='fl'>2</span> )
+<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( -<span class='fl'>100</span>, -<span class='fl'>100</span>, <span class='fl'>.01</span>, -<span class='fl'>2</span> )
+<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>100</span>, <span class='fl'>100</span>, <span class='fl'>100</span>, <span class='fl'>2</span> )
 
 <span class='co'>#*** sampling routine</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>amh</a></span>( <span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>N</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='no'>prior</span>, <span class='no'>proposal_sd</span>,
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>amh</a></span>( <span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>N</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='no'>prior</span>, <span class='no'>proposal_sd</span>,
         <span class='kw'>n.iter</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>n.burnin</span><span class='kw'>=</span><span class='fl'>2000</span>, <span class='kw'>n.sims</span><span class='kw'>=</span><span class='fl'>5000</span>,
         <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span> )
 <span class='co'>#-- S3 methods</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
 
 <span class='co'>#*** estimating Box-Cox transformation in MASS package</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>MASS</span>)
-<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/boxcox'>boxcox</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> ), <span class='kw'>lambda</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(-<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='kw'>length</span><span class='kw'>=</span><span class='fl'>100</span>) )
-<span class='no'>mod2</span>$<span class='no'>x</span>[ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/which.min'>which.max</a></span>( <span class='no'>mod2</span>$<span class='no'>y</span> ) ]
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>MASS</span>)
+<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> ), <span class='kw'>lambda</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(-<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='kw'>length</span><span class='kw'>=</span><span class='fl'>100</span>) )
+<span class='no'>mod2</span>$<span class='no'>x</span>[ <span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.max</a></span>( <span class='no'>mod2</span>$<span class='no'>y</span> ) ]
 
 <span class='co'>#*** estimate Box-Cox parameter lambda with car package</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>car</span>)
-<span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>car</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/car/topics/powerTransform'>powerTransform</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>car</span>)
+<span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>car</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/car/man/powerTransform.html'>powerTransform</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3</span>)
 <span class='co'># fit linear model with transformed response</span>
-<span class='no'>mod3a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>( <span class='kw pkg'>car</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/car/topics/bcPower'>bcPower</a></span>( <span class='no'>y</span>, <span class='no'>mod3</span>$<span class='no'>roundlam</span>) ~ <span class='no'>x</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3a</span>)
+<span class='no'>mod3a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='kw pkg'>car</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/car/man/bcPower.html'>bcPower</a></span>( <span class='no'>y</span>, <span class='no'>mod3</span>$<span class='no'>roundlam</span>) ~ <span class='no'>x</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3a</span>)
 
 <span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 3: STARTS model directly specified in LAM or lavaan</span>
@@ -677,15 +685,15 @@ alternative <span style="R">R</span> packages.</p>
 
 <span class='co'>## Data from Wu (2016)</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>LAM</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sirt</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>STARTS</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>LAM</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sirt</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>STARTS</span>)
 
 <span class='co'>## define list with input data</span>
 <span class='co'>## S ... covariance matrix, M ... mean vector</span>
 
 <span class='co'># read covariance matrix of data in Wu (older cohort, positive affect)</span>
-<span class='no'>S</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>12.745</span>, <span class='fl'>7.046</span>, <span class='fl'>6.906</span>, <span class='fl'>6.070</span>, <span class='fl'>5.047</span>, <span class='fl'>6.110</span>,
+<span class='no'>S</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>12.745</span>, <span class='fl'>7.046</span>, <span class='fl'>6.906</span>, <span class='fl'>6.070</span>, <span class='fl'>5.047</span>, <span class='fl'>6.110</span>,
     <span class='fl'>7.046</span>, <span class='fl'>14.977</span>, <span class='fl'>8.334</span>, <span class='fl'>6.714</span>, <span class='fl'>6.91</span>, <span class='fl'>6.624</span>,
     <span class='fl'>6.906</span>, <span class='fl'>8.334</span>, <span class='fl'>13.323</span>, <span class='fl'>7.979</span>, <span class='fl'>8.418</span>, <span class='fl'>7.951</span>,
     <span class='fl'>6.070</span>, <span class='fl'>6.714</span>, <span class='fl'>7.979</span>, <span class='fl'>12.041</span>, <span class='fl'>7.874</span>, <span class='fl'>8.099</span>,
@@ -693,11 +701,11 @@ alternative <span style="R">R</span> packages.</p>
     <span class='fl'>6.110</span>, <span class='fl'>6.624</span>, <span class='fl'>7.951</span>, <span class='fl'>8.099</span>, <span class='fl'>9.117</span>, <span class='fl'>15.132</span> ),
     <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>6</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>6</span>, <span class='kw'>byrow</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
 <span class='co'>#* standardize S such that the average SD is 1 (for ease of interpretation)</span>
-<span class='no'>M_SD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/MathFun'>sqrt</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/diag'>diag</a></span>(<span class='no'>S</span>) ))
+<span class='no'>M_SD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='no'>S</span>) ))
 <span class='no'>S</span> <span class='kw'>&lt;-</span> <span class='no'>S</span> / <span class='no'>M_SD</span>^<span class='fl'>2</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>S</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>S</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"W"</span>,<span class='fl'>1</span>:<span class='fl'>6</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>S</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>S</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"W"</span>,<span class='fl'>1</span>:<span class='fl'>6</span>)
 <span class='no'>W</span> <span class='kw'>&lt;-</span> <span class='fl'>6</span>   <span class='co'># number of measurement waves</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='st'>"S"</span><span class='kw'>=</span><span class='no'>S</span>, <span class='st'>"M"</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0</span>,<span class='no'>W</span>), <span class='st'>"n"</span><span class='kw'>=</span><span class='fl'>660</span>, <span class='st'>"W"</span><span class='kw'>=</span><span class='no'>W</span>  )
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>"S"</span><span class='kw'>=</span><span class='no'>S</span>, <span class='st'>"M"</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>,<span class='no'>W</span>), <span class='st'>"n"</span><span class='kw'>=</span><span class='fl'>660</span>, <span class='st'>"W"</span><span class='kw'>=</span><span class='no'>W</span>  )
 
 <span class='co'>#*** likelihood function for the STARTS model</span>
 <span class='no'>model</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>( <span class='no'>pars</span>, <span class='no'>data</span> ){
@@ -709,12 +717,12 @@ alternative <span style="R">R</span> packages.</p>
     <span class='no'>var_ar</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"va"</span>]
     <span class='no'>var_state</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"vs"</span>]
     <span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='no'>pars</span>[<span class='st'>"b"</span>]
-    <span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>STARTS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/STARTS/topics/starts_uni'>starts_uni_cov</a></span>( <span class='kw'>W</span><span class='kw'>=</span><span class='no'>W</span>, <span class='kw'>var_trait</span><span class='kw'>=</span><span class='no'>var_trait</span>,
+    <span class='no'>Sigma</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>STARTS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/STARTS/man/starts_uni.html'>starts_uni_cov</a></span>( <span class='kw'>W</span><span class='kw'>=</span><span class='no'>W</span>, <span class='kw'>var_trait</span><span class='kw'>=</span><span class='no'>var_trait</span>,
                 <span class='kw'>var_ar</span><span class='kw'>=</span><span class='no'>var_ar</span>, <span class='kw'>var_state</span><span class='kw'>=</span><span class='no'>var_state</span>, <span class='kw'>a</span><span class='kw'>=</span><span class='no'>a</span> )
     <span class='co'># evaluate log-likelihood</span>
-    <span class='no'>ll</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/loglike_mvnorm'>loglike_mvnorm</a></span>( <span class='kw'>S</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>S</span>, <span class='kw'>Sigma</span><span class='kw'>=</span><span class='no'>Sigma</span>, <span class='kw'>M</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>M</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='no'>mu</span>,
+    <span class='no'>ll</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/loglike_mvnorm.html'>loglike_mvnorm</a></span>( <span class='kw'>S</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>S</span>, <span class='kw'>Sigma</span><span class='kw'>=</span><span class='no'>Sigma</span>, <span class='kw'>M</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>M</span>, <span class='kw'>mu</span><span class='kw'>=</span><span class='no'>mu</span>,
                 <span class='kw'>n</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>lambda</span><span class='kw'>=</span><span class='fl'>1E-5</span>)
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>ll</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>ll</span>)
 }
 <span class='co'>#** Note:</span>
 <span class='co'>#   (1) The function starts_uni_cov calculates the model implied covariance matrix</span>
@@ -724,16 +732,16 @@ alternative <span style="R">R</span> packages.</p>
 <span class='co'>#       and population covariance matrix S and Sigma.</span>
 
 <span class='co'>#*** starting values for parameters</span>
-<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.33</span>, <span class='fl'>.33</span>, <span class='fl'>.33</span>, <span class='fl'>.75</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"vt"</span>,<span class='st'>"va"</span>,<span class='st'>"vs"</span>,<span class='st'>"b"</span>)
+<span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.33</span>, <span class='fl'>.33</span>, <span class='fl'>.33</span>, <span class='fl'>.75</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"vt"</span>,<span class='st'>"va"</span>,<span class='st'>"vs"</span>,<span class='st'>"b"</span>)
 <span class='co'>#*** bounds for acceptance rates</span>
-<span class='no'>acceptance_bounds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.45</span>, <span class='fl'>.55</span> )
+<span class='no'>acceptance_bounds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.45</span>, <span class='fl'>.55</span> )
 <span class='co'>#*** starting values for proposal standard deviations</span>
-<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>pars</span>)
+<span class='no'>proposal_sd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span>, <span class='fl'>.1</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>proposal_sd</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>pars</span>)
 <span class='co'>#*** lower and upper bounds for parameter estimates</span>
-<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>.001</span>, <span class='fl'>.001</span>, <span class='fl'>.001</span>, <span class='fl'>.001</span> )
-<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>.999</span> )
+<span class='no'>pars_lower</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.001</span>, <span class='fl'>.001</span>, <span class='fl'>.001</span>, <span class='fl'>.001</span> )
+<span class='no'>pars_upper</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>10</span>, <span class='fl'>.999</span> )
 <span class='co'>#*** define prior distributions | use prior sample size of 3</span>
 <span class='no'>prior_model</span> <span class='kw'>&lt;-</span> <span class='st'>"
     vt ~ dinvgamma2(NA, 3, .33 )
@@ -744,13 +752,13 @@ alternative <span style="R">R</span> packages.</p>
 <span class='co'>#*** define number of iterations</span>
 <span class='no'>n.burnin</span> <span class='kw'>&lt;-</span> <span class='fl'>5000</span>
 <span class='no'>n.iter</span> <span class='kw'>&lt;-</span> <span class='fl'>20000</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>987</span>)    <span class='co'># fix random seed</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>987</span>)    <span class='co'># fix random seed</span>
 <span class='co'>#*** estimate model with 'LAM::amh' function</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>amh</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>amh</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,
             <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior_model</span>, <span class='kw'>proposal_sd</span><span class='kw'>=</span><span class='no'>proposal_sd</span>, <span class='kw'>n.iter</span><span class='kw'>=</span><span class='no'>n.iter</span>,
             <span class='kw'>n.burnin</span><span class='kw'>=</span><span class='no'>n.burnin</span>, <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span>)
 <span class='co'>#*** model summary</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)
   <span class='co'>##  Parameter Summary (Marginal MAP estimation)</span>
   <span class='co'>##    parameter   MAP    SD  Q2.5 Q97.5  Rhat SERatio effSize accrate</span>
   <span class='co'>##  1        vt 0.352 0.088 0.122 0.449 1.014   0.088     128   0.557</span>
@@ -772,15 +780,15 @@ alternative <span style="R">R</span> packages.</p>
   <span class='co'>##  4    b 0.834 0.822 0.800</span>
 
 <span class='co'>#* inspect convergence</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>mod</span>, <span class='kw'>ask</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
 
 <span class='co'>#---------------------------</span>
 <span class='co'># fitting the STARTS model with penalized maximum likelihood estimation</span>
-<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/LAM/topics/amh'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior_model</span>,
+<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/amh.html'>pmle</a></span>( <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data</span>, <span class='kw'>nobs</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>n</span>, <span class='kw'>pars</span><span class='kw'>=</span><span class='no'>pars</span>, <span class='kw'>model</span><span class='kw'>=</span><span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior_model</span>,
             <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='no'>pars_lower</span>, <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='no'>pars_upper</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"L-BFGS-B"</span>,
-            <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>TRUE</span> )  )
+            <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>trace</span><span class='kw'>=</span><span class='fl'>TRUE</span> )  )
 <span class='co'># model summaries</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2</span>)
   <span class='co'>##  Parameter Summary</span>
   <span class='co'>##    parameter   est    se      t     p active</span>
   <span class='co'>##  1        vt 0.298 0.110  2.712 0.007      1</span>
@@ -791,36 +799,33 @@ alternative <span style="R">R</span> packages.</p>
 <span class='co'>#---------------------------</span>
 <span class='co'># fitting the STARTS model in lavaan</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>lavaan</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>lavaan</span>)
 
 <span class='co'>## define lavaan model</span>
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>[1059 chars quoted with '"']</span>
 <span class='co'># estimate lavaan model</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>(<span class='kw'>model</span><span class='kw'>=</span><span class='no'>lavmodel</span>, <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>S</span>, <span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='fl'>660</span>)
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>(<span class='kw'>model</span><span class='kw'>=</span><span class='no'>lavmodel</span>, <span class='kw'>sample.cov</span><span class='kw'>=</span><span class='no'>S</span>, <span class='kw'>sample.nobs</span><span class='kw'>=</span><span class='fl'>660</span>)
 <span class='co'># summary and fit measures</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod</span>)
-<span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/fitMeasures'>fitMeasures</a></span>(<span class='no'>mod</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>)[ ! <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/duplicated'>duplicated</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>))) ]
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod</span>)
+<span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/fitMeasures.html'>fitMeasures</a></span>(<span class='no'>mod</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>)[ ! <span class='fu'><a href='https://rdrr.io/r/base/duplicated.html'>duplicated</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>))) ]
   <span class='co'>##           vt          vs           b          va          v1</span>
   <span class='co'>##  0.001000023 0.349754630 0.916789054 0.651723144 0.103948711</span>
-<span class='co'># }</span></pre>
+}</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#references">References</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -828,13 +833,16 @@ alternative <span style="R">R</span> packages.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

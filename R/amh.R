@@ -1,13 +1,13 @@
 ## File Name: amh.R
-## File Version: 0.751
+## File Version: 0.756
 
-#######################################################
-# adaptive Metropolis-Hastings sampler
+
+#*** adaptive Metropolis-Hastings sampler
 amh <- function( data, nobs, pars, model,  prior, proposal_sd,
         pars_lower=NULL, pars_upper=NULL, derivedPars=NULL,
         n.iter=5000, n.burnin=1000, n.sims=3000,
         acceptance_bounds=c(.45,.55), proposal_refresh=50,
-        proposal_equal=4, print_iter=50 )
+        proposal_equal=4, print_iter=50, boundary_ignore=TRUE )
 {
     requireNamespace("coda")
     time <- list( "start"=Sys.time() )
@@ -63,7 +63,8 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
     while( it <=n.iter){
         res <- amh_sampling( pars=pars, data=data, model=model, prior=prior,
                         proposal_sd=proposal_sd, acceptance_parameters=acceptance_parameters,
-                        pars_lower=pars_lower, pars_upper=pars_upper, pmle_pars=pmle_pars )
+                        pars_lower=pars_lower, pars_upper=pars_upper, pmle_pars=pmle_pars,
+                        it=it, boundary_ignore=boundary_ignore)
         pars <- res$pars
         acceptance_parameters <- res$acceptance_parameters
         dev <- res$deviance
@@ -152,4 +153,4 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
     class(res) <- "amh"
     return(res)
 }
-#################################################################################
+

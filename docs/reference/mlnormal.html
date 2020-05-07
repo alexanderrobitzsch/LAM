@@ -9,21 +9,25 @@
 <title>(Restricted) Maximum Likelihood Estimation with Prior Distributions
 and Penalty Functions under Multivariate Normality — mlnormal • LAM</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -31,9 +35,9 @@ and Penalty Functions under Multivariate Normality — mlnormal • LAM</title>
 
 
 
+
 <meta property="og:title" content="(Restricted) Maximum Likelihood Estimation with Prior Distributions
 and Penalty Functions under Multivariate Normality — mlnormal" />
-
 <meta property="og:description" content="The mlnormal estimates statistical model for multivariate normally
 distributed outcomes with specified mean structure and
 covariance structure (see Details and Examples). Model classes include
@@ -48,6 +52,7 @@ Regularization (i.e. LASSO penalties) is also accomodated." />
 
 
 
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -56,6 +61,7 @@ Regularization (i.e. LASSO penalties) is also accomodated." />
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -82,7 +88,7 @@ Regularization (i.e. LASSO penalties) is also accomodated." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -90,11 +96,10 @@ Regularization (i.e. LASSO penalties) is also accomodated." />
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/alexanderrobitzsch/LAM">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -105,6 +110,7 @@ Regularization (i.e. LASSO penalties) is also accomodated." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -117,7 +123,6 @@ and Penalty Functions under Multivariate Normality</h1>
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>mlnormal</code> estimates statistical model for multivariate normally
 distributed outcomes with specified mean structure and
 covariance structure (see Details and Examples). Model classes include
@@ -128,7 +133,6 @@ perhaps more.</p>
 restricted maximum likelihood and
 maximum posterior estimation with prior distribution.
 Regularization (i.e. LASSO penalties) is also accomodated.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>mlnormal</span>(<span class='no'>y</span>, <span class='no'>X</span>, <span class='no'>id</span>, <span class='no'>Z_list</span>, <span class='no'>Z_index</span>, <span class='kw'>beta</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span>, <span class='kw'>prior</span><span class='kw'>=</span><span class='kw'>NULL</span>,
@@ -139,23 +143,23 @@ Regularization (i.e. LASSO penalties) is also accomodated.</p>
     <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>0.95</span>, <span class='kw'>numdiff.parm</span><span class='kw'>=</span><span class='fl'>1e-04</span>, <span class='kw'>control_beta</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>control_theta</span><span class='kw'>=</span><span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/logLik'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/logLik.html'>logLik</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mlnormal</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/confint'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span>(<span class='no'>object</span>, <span class='no'>parm</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>.95</span>, <span class='no'>...</span> )</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -287,12 +291,12 @@ covariance matrices should be used</p></td>
     <tr>
       <th>control_beta</th>
       <td><p>List with control arguments for \(\bold{\beta}\) estimation. The default
-is <br /> <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list( maxiter=10, conv=1E-4, ridge=1E-6)</a></code>.</p></td>
+is <br /> <code><a href='https://rdrr.io/r/base/list.html'>list( maxiter=10, conv=1E-4, ridge=1E-6)</a></code>.</p></td>
     </tr>
     <tr>
       <th>control_theta</th>
       <td><p>List with control arguments for \(\bold{\theta}\) estimation. The default
-is <br /> <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list( maxiter=10, conv=1E-4, ridge=1E-6)</a></code>.</p></td>
+is <br /> <code><a href='https://rdrr.io/r/base/list.html'>list( maxiter=10, conv=1E-4, ridge=1E-6)</a></code>.</p></td>
     </tr>
     <tr>
       <th>object</th>
@@ -311,7 +315,7 @@ is <br /> <code><a href='https://www.rdocumentation.org/packages/base/topics/lis
       <td><p>Parameter to be selected for <code>confint</code> method</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Further arguments to be passed</p></td>
     </tr>
     <tr>
@@ -319,7 +323,7 @@ is <br /> <code><a href='https://www.rdocumentation.org/packages/base/topics/lis
       <td><p>Object of class <code>mlnormal</code></p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The data consists of outcomes \(\bold{y}_i\) and covariates \(\bold{X}_i\)
@@ -340,7 +344,6 @@ in <code>Z_list</code>.</p>
 Longford, 1987; Lee, 1990; Gill &amp; Swartz, 2001) and the
 regularization approach is as described in Lin, Pang and Jiang (2013)
 (see also Krishnapuram, Carin, Figueiredo, &amp; Hartemink, 2005).</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>List with entries</p>
@@ -355,28 +358,31 @@ regularization approach is as described in Lin, Pang and Jiang (2013)
   <dt>V_list</dt><dd><p>List with fitted covariance matrices \(\bold{V}_i\)</p></dd>
   <dt>V1_list</dt><dd><p>List with inverses of fitted covariance matrices \(\bold{V}_i\)</p></dd>
   <dt>prior_args</dt><dd><p>Some arguments in case of prior distributions</p></dd>
-  <dt>&#8230;</dt><dd><p>More values</p></dd>
+  <dt>...</dt><dd><p>More values</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Gill, P. S., &amp; Swartz, T. B. (2001). Statistical analyses for round
 robin interaction data.
-<em>Canadian Journal of Statistics, 29</em>, 321-331.</p>
+<em>Canadian Journal of Statistics, 29</em>, 321-331.
+doi: <a href='https://doi.org/10.2307/3316080'>10.2307/3316080</a></p>
 <p>Jiang, J. (2007). <em>Linear and generalized linear mixed models and their
 applications</em>. New York: Springer.</p>
 <p>Krishnapuram, B., Carin, L., Figueiredo, M. A., &amp; Hartemink, A. J. (2005).
 Sparse multinomial logistic regression: Fast algorithms and generalization
-bounds. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence, 27</em>, 957-968.</p>
+bounds. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence, 27</em>, 957-968.
+doi: <a href='https://doi.org/10.1109/TPAMI.2005.127'>10.1109/TPAMI.2005.127</a></p>
 <p>Lee, S. Y. (1990). Multilevel analysis of structural equation models.
-<em>Biometrika, 77</em>, 763-772.</p>
+<em>Biometrika, 77</em>, 763-772.
+doi: <a href='https://doi.org/10.1093/biomet/77.4.763'>10.1093/biomet/77.4.763</a></p>
 <p>Lin, B., Pang, Z., &amp; Jiang, J. (2013). Fixed and random effects selection
 by REML and pathwise coordinate optimization.
-<em>Journal of Computational and Graphical Statistics, 22</em>, 341-355.</p>
+<em>Journal of Computational and Graphical Statistics, 22</em>, 341-355.
+doi: <a href='https://doi.org/10.1080/10618600.2012.681219'>10.1080/10618600.2012.681219</a></p>
 <p>Longford, N. T. (1987). A fast scoring algorithm for maximum likelihood
 estimation in unbalanced mixed models with nested random effects.
-<em>Biometrika, 74</em>, 817-827.</p>
-    
+<em>Biometrika, 74</em>, 817-827.
+doi: <a href='https://doi.org/10.1093/biomet/74.4.817'>10.1093/biomet/74.4.817</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>See <span class="pkg">lavaan</span>, <span class="pkg">sem</span>, <span class="pkg">lava</span>, <span class="pkg">OpenMx</span> or <span class="pkg">nlsem</span>
@@ -390,504 +396,498 @@ models.</p>
 mixed effects models.</p>
 <p>See <span class="pkg">OpenMx</span> and <span class="pkg">xxM</span> packages (<em>http://xxm.times.uh.edu/</em>) for
 estimation of multilevel structural equation models.</p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-#############################################################################
-# EXAMPLE 1: Two-level random intercept model
-#############################################################################
+    <pre class="examples"><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'>#############################################################################</span>
+<span class='co'># EXAMPLE 1: Two-level random intercept model</span>
+<span class='co'>#############################################################################</span>
 
-#--------------------------------------------------------------
-# Simulate data
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Simulate data</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-set.seed(976)
-G <- 150 ; rg <- c(10,20)   # 150 groups with group sizes ranging from 10 to 20
-#* simulate group sizes
-ng <- round( stats::runif( G, min=rg[1], max=rg[2] ) )
-idcluster <- rep(1:G, ng )
-#* simulate covariate
-iccx <- .3
-x <- rep( stats::rnorm( G, sd=sqrt( iccx) ), ng ) +
-            stats::rnorm( sum(ng), sd=sqrt( 1 - iccx) )
-#* simulate outcome
-b0 <- 1.5 ; b1 <- .4 ; iccy <- .2
-y <- b0 + b1*x + rep( stats::rnorm( G, sd=sqrt( iccy) ), ng ) +
-         stats::rnorm( sum(ng), sd=sqrt( 1 - iccy) )
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>976</span>)
+<span class='no'>G</span> <span class='kw'>&lt;-</span> <span class='fl'>150</span> ; <span class='no'>rg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>,<span class='fl'>20</span>)   <span class='co'># 150 groups with group sizes ranging from 10 to 20</span>
+<span class='co'>#* simulate group sizes</span>
+<span class='no'>ng</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>( <span class='no'>G</span>, <span class='kw'>min</span><span class='kw'>=</span><span class='no'>rg</span>[<span class='fl'>1</span>], <span class='kw'>max</span><span class='kw'>=</span><span class='no'>rg</span>[<span class='fl'>2</span>] ) )
+<span class='no'>idcluster</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>:<span class='no'>G</span>, <span class='no'>ng</span> )
+<span class='co'>#* simulate covariate</span>
+<span class='no'>iccx</span> <span class='kw'>&lt;-</span> <span class='fl'>.3</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>G</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>iccx</span>) ), <span class='no'>ng</span> ) +
+            <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>ng</span>), <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='fl'>1</span> - <span class='no'>iccx</span>) )
+<span class='co'>#* simulate outcome</span>
+<span class='no'>b0</span> <span class='kw'>&lt;-</span> <span class='fl'>1.5</span> ; <span class='no'>b1</span> <span class='kw'>&lt;-</span> <span class='fl'>.4</span> ; <span class='no'>iccy</span> <span class='kw'>&lt;-</span> <span class='fl'>.2</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>b0</span> + <span class='no'>b1</span>*<span class='no'>x</span> + <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>G</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>iccy</span>) ), <span class='no'>ng</span> ) +
+         <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>ng</span>), <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='fl'>1</span> - <span class='no'>iccy</span>) )
 
-#-----------------------
-#--- arrange input for mlnormal function
+<span class='co'>#-----------------------</span>
+<span class='co'>#--- arrange input for mlnormal function</span>
 
-id <- idcluster          # cluster is identifier
-X <- cbind( 1, x )      # matrix of covariates
-N <- length(id)          # number of units (clusters), which is G
+<span class='no'>id</span> <span class='kw'>&lt;-</span> <span class='no'>idcluster</span>          <span class='co'># cluster is identifier</span>
+<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='fl'>1</span>, <span class='no'>x</span> )      <span class='co'># matrix of covariates</span>
+<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>id</span>)          <span class='co'># number of units (clusters), which is G</span>
 
-MD <- max(ng)   # maximum number of persons in a group
-NP <- 2         # number of covariance parameters theta
+<span class='no'>MD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>ng</span>)   <span class='co'># maximum number of persons in a group</span>
+<span class='no'>NP</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>         <span class='co'># number of covariance parameters theta</span>
 
-#* list of design matrix for covariance matrix
-#  In the case of the random intercept model, the covariance structure is
-#  tau^2 * J + sigma^2 * I, where J is a matrix of ones and I is the
-#  identity matrix
-Z <- as.list(1:G)
-for (gg in 1:G){
-    Ngg <- ng[gg]
-    Z[[gg]] <- as.list( 1:2 )
-    Z[[gg]][[1]] <- matrix( 1, nrow=Ngg, ncol=Ngg )  # level 2 variance
-    Z[[gg]][[2]] <- diag(1,Ngg)            # level 1 variance
+<span class='co'>#* list of design matrix for covariance matrix</span>
+<span class='co'>#  In the case of the random intercept model, the covariance structure is</span>
+<span class='co'>#  tau^2 * J + sigma^2 * I, where J is a matrix of ones and I is the</span>
+<span class='co'>#  identity matrix</span>
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>G</span>)
+<span class='kw'>for</span> (<span class='no'>gg</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>G</span>){
+    <span class='no'>Ngg</span> <span class='kw'>&lt;-</span> <span class='no'>ng</span>[<span class='no'>gg</span>]
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>gg</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>( <span class='fl'>1</span>:<span class='fl'>2</span> )
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>gg</span>]]<span class='kw'>[[</span><span class='fl'>1</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>1</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='no'>Ngg</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='no'>Ngg</span> )  <span class='co'># level 2 variance</span>
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>gg</span>]]<span class='kw'>[[</span><span class='fl'>2</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='fl'>1</span>,<span class='no'>Ngg</span>)            <span class='co'># level 1 variance</span>
 }
-Z_list <- Z
-#* parameter list containing the powers of parameters
-Z_index <- array( 0, dim=c(G,2,2) )
-Z_index[ 1:G, 1, 1] <- Z_index[ 1:G, 2, 2] <- 1
+<span class='no'>Z_list</span> <span class='kw'>&lt;-</span> <span class='no'>Z</span>
+<span class='co'>#* parameter list containing the powers of parameters</span>
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>G</span>,<span class='fl'>2</span>,<span class='fl'>2</span>) )
+<span class='no'>Z_index</span>[ <span class='fl'>1</span>:<span class='no'>G</span>, <span class='fl'>1</span>, <span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='no'>Z_index</span>[ <span class='fl'>1</span>:<span class='no'>G</span>, <span class='fl'>2</span>, <span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
 
-#** starting values and parameter names
-beta <- c( 1, 0 )
-names(beta) <- c("int", "x")
-theta <- c( .05, 1 )
-names(theta) <- c("tau2", "sig2" )
+<span class='co'>#** starting values and parameter names</span>
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>0</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"int"</span>, <span class='st'>"x"</span>)
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>.05</span>, <span class='fl'>1</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tau2"</span>, <span class='st'>"sig2"</span> )
 
-#** create dataset for lme4 for comparison
-dat <- data.frame(y=y, x=x, id=id )
+<span class='co'>#** create dataset for lme4 for comparison</span>
+<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='no'>x</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span> )
 
-#--------------------------------------------------------------
-# Model 1: Maximum likelihood estimation
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 1: Maximum likelihood estimation</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-#** mlnormal function
-mod1a <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-summary(mod1a)
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod1a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1a</span>)
 
-# lme4::lmer function
-library(lme4)
-mod1b <- lme4::lmer( y ~ x + (1 | id ), data=dat, REML=FALSE )
-summary(mod1b)
+<span class='co'># lme4::lmer function</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>lme4</span>)
+<span class='no'>mod1b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lme4</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/lmer.html'>lmer</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> + (<span class='fl'>1</span> <span class='kw'>|</span> <span class='no'>id</span> ), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>dat</span>, <span class='kw'>REML</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1b</span>)
 
-#--------------------------------------------------------------
-# Model 2: Restricted maximum likelihood estimation
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 2: Restricted maximum likelihood estimation</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-#** mlnormal function
-mod2a <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="REML" )
-summary(mod2a)
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"REML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2a</span>)
 
-# lme4::lmer function
-mod2b <- lme4::lmer( y ~ x + (1 | id ), data=dat, REML=TRUE )
-summary(mod2b)
+<span class='co'># lme4::lmer function</span>
+<span class='no'>mod2b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lme4</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lme4/man/lmer.html'>lmer</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> + (<span class='fl'>1</span> <span class='kw'>|</span> <span class='no'>id</span> ), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>dat</span>, <span class='kw'>REML</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2b</span>)
 
-#--------------------------------------------------------------
-# Model 3: Estimation of standard deviation instead of variances
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 3: Estimation of standard deviation instead of variances</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-# The model is now parametrized in standard deviations
-# Variances are then modeled as tau^2 and sigma^2, respectively.
-Z_index2 <- 2*Z_index       # change loading matrix
+<span class='co'># The model is now parametrized in standard deviations</span>
+<span class='co'># Variances are then modeled as tau^2 and sigma^2, respectively.</span>
+<span class='no'>Z_index2</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>*<span class='no'>Z_index</span>       <span class='co'># change loading matrix</span>
 
-# estimate model
-mod3 <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z_list, Z_index=Z_index2,
-            beta=beta, theta=theta )
-summary(mod3)
+<span class='co'># estimate model</span>
+<span class='no'>mod3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index2</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3</span>)
 
-#--------------------------------------------------------------
-# Model 4: Maximum posterior estimation
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 4: Maximum posterior estimation</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-# specify prior distributions for parameters
-prior <- "
+<span class='co'># specify prior distributions for parameters</span>
+<span class='no'>prior</span> <span class='kw'>&lt;-</span> <span class='st'>"
     tau2 ~ dgamma(NA, 2, .5 )
     sig2 ~ dinvgamma(NA, .1, .1 )
     x ~ dnorm( NA, .2, 1000 )
-    "
+    "</span>
 
-# estimate model in mlnormal
-mod4 <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="REML", prior=prior, vcov=FALSE )
-summary(mod4)
+<span class='co'># estimate model in mlnormal</span>
+<span class='no'>mod4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"REML"</span>, <span class='kw'>prior</span><span class='kw'>=</span><span class='no'>prior</span>, <span class='kw'>vcov</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod4</span>)
 
-#--------------------------------------------------------------
-# Model 5: Estimation with regularization on beta and theta parameters
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 5: Estimation with regularization on beta and theta parameters</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-#*** penalty on theta parameter
-lambda_theta <- 10
-weights_theta <- 1 + 0 * theta
-#*** penalty on beta parameter
-lambda_beta <- 3
-weights_beta <- c( 0, 1.8 )
+<span class='co'>#*** penalty on theta parameter</span>
+<span class='no'>lambda_theta</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
+<span class='no'>weights_theta</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span> + <span class='fl'>0</span> * <span class='no'>theta</span>
+<span class='co'>#*** penalty on beta parameter</span>
+<span class='no'>lambda_beta</span> <span class='kw'>&lt;-</span> <span class='fl'>3</span>
+<span class='no'>weights_beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>1.8</span> )
 
-# estimate model
-mod5 <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML", maxit=maxit,
-            lambda_theta=lambda_theta, weights_theta=weights_theta,
-            lambda_beta=lambda_beta, weights_beta=weights_beta  )
-summary(mod5)
+<span class='co'># estimate model</span>
+<span class='no'>mod5</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span>, <span class='kw'>maxit</span><span class='kw'>=</span><span class='no'>maxit</span>,
+            <span class='kw'>lambda_theta</span><span class='kw'>=</span><span class='no'>lambda_theta</span>, <span class='kw'>weights_theta</span><span class='kw'>=</span><span class='no'>weights_theta</span>,
+            <span class='kw'>lambda_beta</span><span class='kw'>=</span><span class='no'>lambda_beta</span>, <span class='kw'>weights_beta</span><span class='kw'>=</span><span class='no'>weights_beta</span>  )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod5</span>)
 
-#############################################################################
-# EXAMPLE 2: Latent covariate model, two-level regression
-#############################################################################
+<span class='co'>#############################################################################</span>
+<span class='co'># EXAMPLE 2: Latent covariate model, two-level regression</span>
+<span class='co'>#############################################################################</span>
 
-# Yb=beta_0 + beta_b*Xb + eb (between level) and
-# Yw=beta_w*Xw + ew (within level)
+<span class='co'># Yb=beta_0 + beta_b*Xb + eb (between level) and</span>
+<span class='co'># Yw=beta_w*Xw + ew (within level)</span>
 
-#--------------------------------------------------------------
-# Simulate data from latent covariate model
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Simulate data from latent covariate model</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-set.seed(865)
-# regression parameters
-beta_0 <- 1 ; beta_b <- .7 ; beta_w <- .3
-G <- 200      # number of groups
-n <- 15      # group size
-iccx <- .2   # intra class correlation x
-iccy <- .35  # (conditional) intra class correlation y
-# simulate latent variables
-xb <- stats::rnorm(G, sd=sqrt( iccx ) )
-yb <- beta_0 + beta_b * xb + stats::rnorm(G, sd=sqrt( iccy ) )
-xw <- stats::rnorm(G*n, sd=sqrt( 1-iccx ) )
-yw <- beta_w * xw + stats::rnorm(G*n, sd=sqrt( 1-iccy ) )
-group <- rep( 1:G, each=n )
-x <- xw + xb[ group ]
-y <- yw + yb[ group ]
-# test results on true data
-lm( yb ~ xb )
-lm( yw ~ xw )
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>865</span>)
+<span class='co'># regression parameters</span>
+<span class='no'>beta_0</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span> ; <span class='no'>beta_b</span> <span class='kw'>&lt;-</span> <span class='fl'>.7</span> ; <span class='no'>beta_w</span> <span class='kw'>&lt;-</span> <span class='fl'>.3</span>
+<span class='no'>G</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>      <span class='co'># number of groups</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>15</span>      <span class='co'># group size</span>
+<span class='no'>iccx</span> <span class='kw'>&lt;-</span> <span class='fl'>.2</span>   <span class='co'># intra class correlation x</span>
+<span class='no'>iccy</span> <span class='kw'>&lt;-</span> <span class='fl'>.35</span>  <span class='co'># (conditional) intra class correlation y</span>
+<span class='co'># simulate latent variables</span>
+<span class='no'>xb</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>G</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>iccx</span> ) )
+<span class='no'>yb</span> <span class='kw'>&lt;-</span> <span class='no'>beta_0</span> + <span class='no'>beta_b</span> * <span class='no'>xb</span> + <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>G</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>iccy</span> ) )
+<span class='no'>xw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>G</span>*<span class='no'>n</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='fl'>1</span>-<span class='no'>iccx</span> ) )
+<span class='no'>yw</span> <span class='kw'>&lt;-</span> <span class='no'>beta_w</span> * <span class='no'>xw</span> + <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>G</span>*<span class='no'>n</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='fl'>1</span>-<span class='no'>iccy</span> ) )
+<span class='no'>group</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>1</span>:<span class='no'>G</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='no'>n</span> )
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>xw</span> + <span class='no'>xb</span>[ <span class='no'>group</span> ]
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>yw</span> + <span class='no'>yb</span>[ <span class='no'>group</span> ]
+<span class='co'># test results on true data</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='no'>yb</span> ~ <span class='no'>xb</span> )
+<span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='no'>yw</span> ~ <span class='no'>xw</span> )
 
-# create vector of outcomes in the form
-# ( y_11, x_11, y_21, x_21, ... )
-dat <- cbind( y, x )
-dat
-Y <- as.vector( t(dat) )    # outcome vector
-ny <- length(Y)
-X <- matrix( 0, nrow=ny, ncol=2 )
-X[ seq(1,ny,2), 1 ] <- 1   # design vector for mean y
-X[ seq(2,ny,2), 2 ] <- 1   # design vector for mean x
-id <- rep( group, each=2 )
+<span class='co'># create vector of outcomes in the form</span>
+<span class='co'># ( y_11, x_11, y_21, x_21, ... )</span>
+<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='no'>y</span>, <span class='no'>x</span> )
+<span class='no'>dat</span>
+<span class='no'>Y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>dat</span>) )    <span class='co'># outcome vector</span>
+<span class='no'>ny</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>Y</span>)
+<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='no'>ny</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span> )
+<span class='no'>X</span>[ <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>,<span class='no'>ny</span>,<span class='fl'>2</span>), <span class='fl'>1</span> ] <span class='kw'>&lt;-</span> <span class='fl'>1</span>   <span class='co'># design vector for mean y</span>
+<span class='no'>X</span>[ <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>,<span class='no'>ny</span>,<span class='fl'>2</span>), <span class='fl'>2</span> ] <span class='kw'>&lt;-</span> <span class='fl'>1</span>   <span class='co'># design vector for mean x</span>
+<span class='no'>id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='no'>group</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span> )
 
-#--------------------------------------------------------------
-# Model 1: Linear regression ignoring multilevel structure
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 1: Linear regression ignoring multilevel structure</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-# y=beta_0 + beta_t *x + e
-# Var(y)=beta_t^2 * var_x + var_e
-# Cov(y,x)=beta_t * var_x
-# Var(x)=var_x
+<span class='co'># y=beta_0 + beta_t *x + e</span>
+<span class='co'># Var(y)=beta_t^2 * var_x + var_e</span>
+<span class='co'># Cov(y,x)=beta_t * var_x</span>
+<span class='co'># Var(x)=var_x</span>
 
-#** initial parameter values
-theta <- c( 0, 1, .5 )
-names(theta) <- c( "beta_t", "var_x", "var_e")
-beta <- c(0,0)
-names(beta) <- c("mu_y","mu_x")
+<span class='co'>#** initial parameter values</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.5</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='st'>"beta_t"</span>, <span class='st'>"var_x"</span>, <span class='st'>"var_e"</span>)
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mu_y"</span>,<span class='st'>"mu_x"</span>)
 
-# The unit i is a cluster in this example.
+<span class='co'># The unit i is a cluster in this example.</span>
 
-#--- define design matrices | list Z_list
-Hlist <- list(  matrix( c(1,0,0,0), 2, 2 ), # var(y)
-                matrix( c(1,0,0,0), 2, 2 ), # var(y) (two terms)
-                matrix( c(0,1,1,0), 2, 2 ), # cov(x,y)
-                matrix( c(0,0,0,1), 2, 2 ) ) # var(x)
+<span class='co'>#--- define design matrices | list Z_list</span>
+<span class='no'>Hlist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># var(y)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># var(y) (two terms)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># cov(x,y)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ) ) <span class='co'># var(x)</span>
 
-U0 <- matrix( 0, nrow=2*n,ncol=2*n )
-Ulist <- list( U0, U0, U0, U0 )
-M <- length(Hlist)
-for (mm in 1:M){    # mm <- 1
-    for (nn in 1:n){     # nn <- 0
-        Ulist[[ mm ]][ 2*(nn-1) + 1:2, 2*(nn-1) + 1:2 ] <- Hlist[[ mm ]]
+<span class='no'>U0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>*<span class='no'>n</span>,<span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>*<span class='no'>n</span> )
+<span class='no'>Ulist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span> )
+<span class='no'>M</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>Hlist</span>)
+<span class='kw'>for</span> (<span class='no'>mm</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>M</span>){    <span class='co'># mm &lt;- 1</span>
+    <span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>n</span>){     <span class='co'># nn &lt;- 0</span>
+        <span class='no'>Ulist</span><span class='kw'>[[</span> <span class='no'>mm</span> ]][ <span class='fl'>2</span>*(<span class='no'>nn</span>-<span class='fl'>1</span>) + <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='fl'>2</span>*(<span class='no'>nn</span>-<span class='fl'>1</span>) + <span class='fl'>1</span>:<span class='fl'>2</span> ] <span class='kw'>&lt;-</span> <span class='no'>Hlist</span><span class='kw'>[[</span> <span class='no'>mm</span> ]]
     }
 }
-Z_list <- as.list(1:G)
-for (gg in 1:G){
-    Z_list[[gg]] <- Ulist
+<span class='no'>Z_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>G</span>)
+<span class='kw'>for</span> (<span class='no'>gg</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>G</span>){
+    <span class='no'>Z_list</span><span class='kw'>[[</span><span class='no'>gg</span>]] <span class='kw'>&lt;-</span> <span class='no'>Ulist</span>
 }
 
-#--- define index vectors
-Z_index <- array( 0, dim=c(G, 4, 3 ) )
-K0 <- matrix( 0, nrow=4, ncol=3 )
-colnames(K0) <- names(theta)
-# Var(y)=beta_t^2 * var_x + var_e  (matrices withn indices 1 and 2)
-K0[ 1, c("beta_t","var_x") ] <- c(2,1)  # beta_t^2 * var_x
-K0[ 2, c("var_e") ] <- c(1)  # var_e
-# Cov(y,x)=beta_t * var_x
-K0[ 3, c("beta_t","var_x")] <- c(1,1)
-# Var(x)=var_x
-K0[ 4, c("var_x") ] <- c(1)
-for (gg in 1:G){
-    Z_index[gg,,] <- K0
+<span class='co'>#--- define index vectors</span>
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>G</span>, <span class='fl'>4</span>, <span class='fl'>3</span> ) )
+<span class='no'>K0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>3</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>K0</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>)
+<span class='co'># Var(y)=beta_t^2 * var_x + var_e  (matrices withn indices 1 and 2)</span>
+<span class='no'>K0</span>[ <span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_t"</span>,<span class='st'>"var_x"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>)  <span class='co'># beta_t^2 * var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_e"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)  <span class='co'># var_e</span>
+<span class='co'># Cov(y,x)=beta_t * var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_t"</span>,<span class='st'>"var_x"</span>)] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>)
+<span class='co'># Var(x)=var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_x"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)
+<span class='kw'>for</span> (<span class='no'>gg</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>G</span>){
+    <span class='no'>Z_index</span>[<span class='no'>gg</span>,,] <span class='kw'>&lt;-</span> <span class='no'>K0</span>
 }
 
-#*** estimate model with mlnormal
-mod1a <- LAM::mlnormal( y=Y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="REML", vcov=FALSE )
-summary(mod1a)
+<span class='co'>#*** estimate model with mlnormal</span>
+<span class='no'>mod1a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>Y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"REML"</span>, <span class='kw'>vcov</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1a</span>)
 
-#*** estimate linear regression with stats::lm
-mod1b <- stats::lm( y ~ x )
-summary(mod1b)
+<span class='co'>#*** estimate linear regression with stats::lm</span>
+<span class='no'>mod1b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1b</span>)
 
-#--------------------------------------------------------------
-# Model 2: Latent covariate model
-#--------------------------------------------------------------
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 2: Latent covariate model</span>
+<span class='co'>#--------------------------------------------------------------</span>
 
-#** initial parameters
-theta <- c( 0.12, .6, .5, 0, .2, .2 )
-names(theta) <- c( "beta_w", "var_xw", "var_ew",
-                "beta_b", "var_xb", "var_eb")
+<span class='co'>#** initial parameters</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.12</span>, <span class='fl'>.6</span>, <span class='fl'>.5</span>, <span class='fl'>0</span>, <span class='fl'>.2</span>, <span class='fl'>.2</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='st'>"beta_w"</span>, <span class='st'>"var_xw"</span>, <span class='st'>"var_ew"</span>,
+                <span class='st'>"beta_b"</span>, <span class='st'>"var_xb"</span>, <span class='st'>"var_eb"</span>)
 
-#--- define design matrices | list Z_list
-Hlist <- list(  matrix( c(1,0,0,0), 2, 2 ), # var(y)
-                matrix( c(1,0,0,0), 2, 2 ), # var(y) (two terms)
-                matrix( c(0,1,1,0), 2, 2 ), # cov(x,y)
-                matrix( c(0,0,0,1), 2, 2 ) ) # var(x)
-U0 <- matrix( 0, nrow=2*n,ncol=2*n )
-Ulist <- list( U0, U0, U0, U0,  # within structure
-               U0, U0, U0, U0  )  # between structure
-M <- length(Hlist)
-#*** within structure
-design_within <- diag(n)  # design matrix within structure
-for (mm in 1:M){    # mm <- 1
-    Ulist[[ mm ]] <- base::kronecker( design_within, Hlist[[mm]] )
+<span class='co'>#--- define design matrices | list Z_list</span>
+<span class='no'>Hlist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># var(y)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># var(y) (two terms)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ), <span class='co'># cov(x,y)</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>), <span class='fl'>2</span>, <span class='fl'>2</span> ) ) <span class='co'># var(x)</span>
+<span class='no'>U0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>*<span class='no'>n</span>,<span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>*<span class='no'>n</span> )
+<span class='no'>Ulist</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span>,  <span class='co'># within structure</span>
+               <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span>, <span class='no'>U0</span>  )  <span class='co'># between structure</span>
+<span class='no'>M</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>Hlist</span>)
+<span class='co'>#*** within structure</span>
+<span class='no'>design_within</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='no'>n</span>)  <span class='co'># design matrix within structure</span>
+<span class='kw'>for</span> (<span class='no'>mm</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>M</span>){    <span class='co'># mm &lt;- 1</span>
+    <span class='no'>Ulist</span><span class='kw'>[[</span> <span class='no'>mm</span> ]] <span class='kw'>&lt;-</span> <span class='kw pkg'>base</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/base/kronecker.html'>kronecker</a></span>( <span class='no'>design_within</span>, <span class='no'>Hlist</span><span class='kw'>[[</span><span class='no'>mm</span>]] )
 }
-#*** between structure
-design_between <- matrix(1, nrow=n, ncol=n)
-      # matrix of ones corresponding to group size
-for (mm in 1:M){    # mm <- 1
-    Ulist[[ mm + M ]] <-  base::kronecker( design_between, Hlist[[ mm ]] )
+<span class='co'>#*** between structure</span>
+<span class='no'>design_between</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='no'>n</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='no'>n</span>)
+      <span class='co'># matrix of ones corresponding to group size</span>
+<span class='kw'>for</span> (<span class='no'>mm</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>M</span>){    <span class='co'># mm &lt;- 1</span>
+    <span class='no'>Ulist</span><span class='kw'>[[</span> <span class='no'>mm</span> + <span class='no'>M</span> ]] <span class='kw'>&lt;-</span>  <span class='kw pkg'>base</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/base/kronecker.html'>kronecker</a></span>( <span class='no'>design_between</span>, <span class='no'>Hlist</span><span class='kw'>[[</span> <span class='no'>mm</span> ]] )
 }
-Z_list <- as.list(1:G)
-for (gg in 1:G){
-    Z_list[[gg]] <- Ulist
-}
-
-#--- define index vectors Z_index
-Z_index <- array( 0, dim=c(G, 8, 6 ) )
-K0 <- matrix( 0, nrow=8, ncol=6 )
-colnames(K0) <- names(theta)
-# Var(y)=beta^2 * var_x + var_e  (matrices withn indices 1 and 2)
-K0[ 1, c("beta_w","var_xw") ] <- c(2,1)  # beta_t^2 * var_x
-K0[ 2, c("var_ew") ] <- c(1)  # var_e
-K0[ 5, c("beta_b","var_xb") ] <- c(2,1)  # beta_t^2 * var_x
-K0[ 6, c("var_eb") ] <- c(1)  # var_e
-# Cov(y,x)=beta * var_x
-K0[ 3, c("beta_w","var_xw")] <- c(1,1)
-K0[ 7, c("beta_b","var_xb")] <- c(1,1)
-# Var(x)=var_x
-K0[ 4, c("var_xw") ] <- c(1)
-K0[ 8, c("var_xb") ] <- c(1)
-for (gg in 1:G){
-    Z_index[gg,,] <- K0
+<span class='no'>Z_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>G</span>)
+<span class='kw'>for</span> (<span class='no'>gg</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>G</span>){
+    <span class='no'>Z_list</span><span class='kw'>[[</span><span class='no'>gg</span>]] <span class='kw'>&lt;-</span> <span class='no'>Ulist</span>
 }
 
-#--- estimate model with mlnormal
-mod2a <- LAM::mlnormal( y=Y, X=X, id=id, Z_list=Z_list, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-summary(mod2a)
-
-#############################################################################
-# EXAMPLE 3: Simple linear regression, single level
-#############################################################################
-
-#--------------------------------------------------------------
-# Simulate data
-#--------------------------------------------------------------
-
-set.seed(875)
-N <- 300
-x <- stats::rnorm( N, sd=1.3 )
-y <- .4 + .7 * x + stats::rnorm( N, sd=.5 )
-dat <- data.frame( x, y )
-
-#--------------------------------------------------------------
-# Model 1: Linear regression modelled with residual covariance structure
-#--------------------------------------------------------------
-
-# matrix of predictros
-X <- cbind( 1, x )
-# list with design matrices
-Z <- as.list(1:N)
-for (nn in 1:N){
-    Z[[nn]] <- as.list( 1 )
-    Z[[nn]][[1]] <- matrix( 1, nrow=1, ncol=1 )  # residual variance
-}
-#* loading matrix
-Z_index <- array( 0, dim=c(N,1,1) )
-Z_index[ 1:N, 1, 1] <- 2  # parametrize residual standard deviation
-#** starting values and parameter names
-beta <- c( 0, 0 )
-names(beta) <- c("int", "x")
-theta <- c(1)
-names(theta) <- c("sig2" )
-# id vector
-id <- 1:N
-
-#** mlnormal function
-mod1a <- LAM::mlnormal( y=y, X=X, id=id, Z_list=Z, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-summary(mod1a)
-
-# estimate linear regression with stats::lm
-mod1b <- stats::lm( y ~ x )
-summary(mod1b)
-
-#--------------------------------------------------------------
-# Model 2: Linear regression modelled with bivariate covariance structure
-#--------------------------------------------------------------
-
-#** define design matrix referring to mean structure
-X <- matrix( 0, nrow=2*N, ncol=2 )
-X[ seq(1,2*N,2), 1 ] <- X[ seq(2,2*N,2), 2 ] <- 1
-
-#** create outcome vector
-y1 <- dat[ cbind( rep(1:N, each=2), rep(1:2, N ) ) ]
-#** list with design matrices
-Z <- as.list(1:N)
-Z0 <- 0*matrix( 0, nrow=2,ncol=2)
-ZXY <- ZY <- ZX <- Z0
-# design matrix Var(X)
-ZX[1,1] <- 1
-# design matrix Var(Y)
-ZY[2,2] <- 1
-# design matrix covariance
-ZXY[1,2] <- ZXY[2,1] <- 1
-# Var(X)=sigx^2
-# Cov(X,Y)=beta * sigx^2
-# Var(Y)=beta^2 * sigx^2 + sige^2
-Z_list0 <- list( ZY, ZY, ZXY, ZX )
-for (nn in 1:N){
-    Z[[nn]] <- Z_list0
-}
-#* parameter list containing the powers of parameters
-theta <- c(1,0.3,1)
-names(theta) <- c("sigx", "beta", "sige" )
-Z_index <- array( 0, dim=c(N,4,3) )
-for (nn in 1:N){
-    # Var(X)
-    Z_index[nn, 4, ] <- c(2,0,0)
-    # Cov(X,Y)
-    Z_index[nn, 3, ] <- c(2,1,0)
-    # Var(Y)
-    Z_index[nn,1,] <- c(2,2,0)
-    Z_index[nn,2,] <- c(0,0,2)
-}
-#** starting values and parameter names
-beta <- c( 0, 0 )
-names(beta) <- c("Mx", "My")
-# id vector
-id <- rep( 1:N, each=2 )
-
-#** mlnormal function
-mod2a <- LAM::mlnormal( y=y1, X=X, id=id, Z_list=Z, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-summary(mod2a)
-
-#--------------------------------------------------------------
-# Model 3: Bivariate normal distribution in (sigma_X, sigma_Y, sigma_XY) parameters
-#--------------------------------------------------------------
-
-# list with design matrices
-Z <- as.list(1:N)
-Z0 <- 0*matrix( 0, nrow=2,ncol=2)
-ZXY <- ZY <- ZX <- Z0
-# design matrix Var(X)
-ZX[1,1] <- 1
-# design matrix Var(Y)
-ZY[2,2] <- 1
-# design matrix covariance
-ZXY[1,2] <- ZXY[2,1] <- 1
-Z_list0 <- list( ZX, ZY, ZXY  )
-for (nn in 1:N){
-    Z[[nn]] <- Z_list0
+<span class='co'>#--- define index vectors Z_index</span>
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>G</span>, <span class='fl'>8</span>, <span class='fl'>6</span> ) )
+<span class='no'>K0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>6</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>K0</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>)
+<span class='co'># Var(y)=beta^2 * var_x + var_e  (matrices withn indices 1 and 2)</span>
+<span class='no'>K0</span>[ <span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_w"</span>,<span class='st'>"var_xw"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>)  <span class='co'># beta_t^2 * var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_ew"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)  <span class='co'># var_e</span>
+<span class='no'>K0</span>[ <span class='fl'>5</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_b"</span>,<span class='st'>"var_xb"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>)  <span class='co'># beta_t^2 * var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>6</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_eb"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)  <span class='co'># var_e</span>
+<span class='co'># Cov(y,x)=beta * var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_w"</span>,<span class='st'>"var_xw"</span>)] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>)
+<span class='no'>K0</span>[ <span class='fl'>7</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"beta_b"</span>,<span class='st'>"var_xb"</span>)] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>)
+<span class='co'># Var(x)=var_x</span>
+<span class='no'>K0</span>[ <span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_xw"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)
+<span class='no'>K0</span>[ <span class='fl'>8</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"var_xb"</span>) ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)
+<span class='kw'>for</span> (<span class='no'>gg</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>G</span>){
+    <span class='no'>Z_index</span>[<span class='no'>gg</span>,,] <span class='kw'>&lt;-</span> <span class='no'>K0</span>
 }
 
-#* parameter list
-theta <- c(1,1,.3)
-names(theta) <- c("sigx", "sigy", "sigxy" )
-Z_index <- array( 0, dim=c(N,3,3) )
-for (nn in 1:N){
-    # Var(X)
-    Z_index[nn, 1, ] <- c(2,0,0)
-    # Var(Y)
-    Z_index[nn, 2, ] <- c(0,2,0)
-    # Cov(X,Y)
-    Z_index[nn, 3, ] <- c(0,0,1)
+<span class='co'>#--- estimate model with mlnormal</span>
+<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>Y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z_list</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2a</span>)
+
+<span class='co'>#############################################################################</span>
+<span class='co'># EXAMPLE 3: Simple linear regression, single level</span>
+<span class='co'>#############################################################################</span>
+
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Simulate data</span>
+<span class='co'>#--------------------------------------------------------------</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>875</span>)
+<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>300</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>N</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>1.3</span> )
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fl'>.4</span> + <span class='fl'>.7</span> * <span class='no'>x</span> + <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>( <span class='no'>N</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>.5</span> )
+<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>( <span class='no'>x</span>, <span class='no'>y</span> )
+
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 1: Linear regression modelled with residual covariance structure</span>
+<span class='co'>#--------------------------------------------------------------</span>
+
+<span class='co'># matrix of predictros</span>
+<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='fl'>1</span>, <span class='no'>x</span> )
+<span class='co'># list with design matrices</span>
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>)
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>nn</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>( <span class='fl'>1</span> )
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>nn</span>]]<span class='kw'>[[</span><span class='fl'>1</span>]] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>1</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>1</span> )  <span class='co'># residual variance</span>
+}
+<span class='co'>#* loading matrix</span>
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>N</span>,<span class='fl'>1</span>,<span class='fl'>1</span>) )
+<span class='no'>Z_index</span>[ <span class='fl'>1</span>:<span class='no'>N</span>, <span class='fl'>1</span>, <span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>2</span>  <span class='co'># parametrize residual standard deviation</span>
+<span class='co'>#** starting values and parameter names</span>
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"int"</span>, <span class='st'>"x"</span>)
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sig2"</span> )
+<span class='co'># id vector</span>
+<span class='no'>id</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='no'>N</span>
+
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod1a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1a</span>)
+
+<span class='co'># estimate linear regression with stats::lm</span>
+<span class='no'>mod1b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span>( <span class='no'>y</span> ~ <span class='no'>x</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1b</span>)
+
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 2: Linear regression modelled with bivariate covariance structure</span>
+<span class='co'>#--------------------------------------------------------------</span>
+
+<span class='co'>#** define design matrix referring to mean structure</span>
+<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>*<span class='no'>N</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span> )
+<span class='no'>X</span>[ <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>*<span class='no'>N</span>,<span class='fl'>2</span>), <span class='fl'>1</span> ] <span class='kw'>&lt;-</span> <span class='no'>X</span>[ <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>*<span class='no'>N</span>,<span class='fl'>2</span>), <span class='fl'>2</span> ] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+
+<span class='co'>#** create outcome vector</span>
+<span class='no'>y1</span> <span class='kw'>&lt;-</span> <span class='no'>dat</span>[ <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='no'>N</span> ) ) ]
+<span class='co'>#** list with design matrices</span>
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>)
+<span class='no'>Z0</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>*<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>,<span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>)
+<span class='no'>ZXY</span> <span class='kw'>&lt;-</span> <span class='no'>ZY</span> <span class='kw'>&lt;-</span> <span class='no'>ZX</span> <span class='kw'>&lt;-</span> <span class='no'>Z0</span>
+<span class='co'># design matrix Var(X)</span>
+<span class='no'>ZX</span>[<span class='fl'>1</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix Var(Y)</span>
+<span class='no'>ZY</span>[<span class='fl'>2</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix covariance</span>
+<span class='no'>ZXY</span>[<span class='fl'>1</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='no'>ZXY</span>[<span class='fl'>2</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># Var(X)=sigx^2</span>
+<span class='co'># Cov(X,Y)=beta * sigx^2</span>
+<span class='co'># Var(Y)=beta^2 * sigx^2 + sige^2</span>
+<span class='no'>Z_list0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>ZY</span>, <span class='no'>ZY</span>, <span class='no'>ZXY</span>, <span class='no'>ZX</span> )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>nn</span>]] <span class='kw'>&lt;-</span> <span class='no'>Z_list0</span>
+}
+<span class='co'>#* parameter list containing the powers of parameters</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0.3</span>,<span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sigx"</span>, <span class='st'>"beta"</span>, <span class='st'>"sige"</span> )
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>N</span>,<span class='fl'>4</span>,<span class='fl'>3</span>) )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='co'># Var(X)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>, <span class='fl'>4</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)
+    <span class='co'># Cov(X,Y)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>, <span class='fl'>3</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>0</span>)
+    <span class='co'># Var(Y)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>1</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>0</span>)
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>2</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>2</span>)
+}
+<span class='co'>#** starting values and parameter names</span>
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Mx"</span>, <span class='st'>"My"</span>)
+<span class='co'># id vector</span>
+<span class='no'>id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span> )
+
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y1</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2a</span>)
+
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 3: Bivariate normal distribution in (sigma_X, sigma_Y, sigma_XY) parameters</span>
+<span class='co'>#--------------------------------------------------------------</span>
+
+<span class='co'># list with design matrices</span>
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>)
+<span class='no'>Z0</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>*<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>,<span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>)
+<span class='no'>ZXY</span> <span class='kw'>&lt;-</span> <span class='no'>ZY</span> <span class='kw'>&lt;-</span> <span class='no'>ZX</span> <span class='kw'>&lt;-</span> <span class='no'>Z0</span>
+<span class='co'># design matrix Var(X)</span>
+<span class='no'>ZX</span>[<span class='fl'>1</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix Var(Y)</span>
+<span class='no'>ZY</span>[<span class='fl'>2</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix covariance</span>
+<span class='no'>ZXY</span>[<span class='fl'>1</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='no'>ZXY</span>[<span class='fl'>2</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='no'>Z_list0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>ZX</span>, <span class='no'>ZY</span>, <span class='no'>ZXY</span>  )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>nn</span>]] <span class='kw'>&lt;-</span> <span class='no'>Z_list0</span>
 }
 
-#** starting values and parameter names
-beta <- c( 0, 0 )
-names(beta) <- c("Mx", "My")
-
-#** mlnormal function
-mod3a <- LAM::mlnormal( y=y1, X=X, id=id, Z_list=Z, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-summary(mod3a)
-
-#--------------------------------------------------------------
-# Model 4: Bivariate normal distribution in parameters of Cholesky decomposition
-#--------------------------------------------------------------
-
-# list with design matrices
-Z <- as.list(1:N)
-Z0 <- 0*matrix( 0, nrow=2,ncol=2)
-ZXY <- ZY <- ZX <- Z0
-# design matrix Var(X)
-ZX[1,1] <- 1
-# design matrix Var(Y)
-ZY[2,2] <- 1
-# design matrix covariance
-ZXY[1,2] <- ZXY[2,1] <- 1
-Z_list0 <- list( ZX, ZXY, ZY, ZY  )
-for (nn in 1:N){
-    Z[[nn]] <- Z_list0
+<span class='co'>#* parameter list</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>.3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sigx"</span>, <span class='st'>"sigy"</span>, <span class='st'>"sigxy"</span> )
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>N</span>,<span class='fl'>3</span>,<span class='fl'>3</span>) )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='co'># Var(X)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>, <span class='fl'>1</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)
+    <span class='co'># Var(Y)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>, <span class='fl'>2</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>2</span>,<span class='fl'>0</span>)
+    <span class='co'># Cov(X,Y)</span>
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>, <span class='fl'>3</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>)
 }
 
-#* parameter list containing the powers of parameters
-theta <- c(1,0.3,1)
-names(theta) <- c("L11", "L21", "L22" )
-Z_index <- array( 0, dim=c(N,4,3) )
-for (nn in 1:N){
-    Z_index[nn,1,] <- c(2,0,0)
-    Z_index[nn,2,] <- c(1,1,0)
-    Z_index[nn,3,] <- c(0,2,0)
-    Z_index[nn,4,] <- c(0,0,2)
+<span class='co'>#** starting values and parameter names</span>
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Mx"</span>, <span class='st'>"My"</span>)
+
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod3a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y1</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3a</span>)
+
+<span class='co'>#--------------------------------------------------------------</span>
+<span class='co'># Model 4: Bivariate normal distribution in parameters of Cholesky decomposition</span>
+<span class='co'>#--------------------------------------------------------------</span>
+
+<span class='co'># list with design matrices</span>
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>as.list</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>)
+<span class='no'>Z0</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>*<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fl'>0</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>2</span>,<span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>)
+<span class='no'>ZXY</span> <span class='kw'>&lt;-</span> <span class='no'>ZY</span> <span class='kw'>&lt;-</span> <span class='no'>ZX</span> <span class='kw'>&lt;-</span> <span class='no'>Z0</span>
+<span class='co'># design matrix Var(X)</span>
+<span class='no'>ZX</span>[<span class='fl'>1</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix Var(Y)</span>
+<span class='no'>ZY</span>[<span class='fl'>2</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='co'># design matrix covariance</span>
+<span class='no'>ZXY</span>[<span class='fl'>1</span>,<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='no'>ZXY</span>[<span class='fl'>2</span>,<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='no'>Z_list0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>ZX</span>, <span class='no'>ZXY</span>, <span class='no'>ZY</span>, <span class='no'>ZY</span>  )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='no'>Z</span><span class='kw'>[[</span><span class='no'>nn</span>]] <span class='kw'>&lt;-</span> <span class='no'>Z_list0</span>
 }
-#** starting values and parameter names
-beta <- c( 0, 0 )
-names(beta) <- c("Mx", "My")
-# id vector
-id <- rep( 1:N, each=2 )
-#** mlnormal function
-mod4a <- LAM::mlnormal( y=y1, X=X, id=id, Z_list=Z, Z_index=Z_index,
-            beta=beta, theta=theta, method="ML" )
-# parameter with lower diagonal entries of Cholesky matrix
-mod4a$theta
-# fill-in parameters for Cholesky matrix
-L <- matrix(0,2,2)
-L[ ! upper.tri(L) ] <- mod4a$theta
-#** reconstruct covariance matrix
-L <!-- %*% t(L)   #=base::tcrossprod(L)) -->
-stats::cov.wt(dat, method="ML")$cov
-# }
-</pre>
+
+<span class='co'>#* parameter list containing the powers of parameters</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>0.3</span>,<span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>theta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L11"</span>, <span class='st'>"L21"</span>, <span class='st'>"L22"</span> )
+<span class='no'>Z_index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>N</span>,<span class='fl'>4</span>,<span class='fl'>3</span>) )
+<span class='kw'>for</span> (<span class='no'>nn</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>N</span>){
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>1</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>0</span>,<span class='fl'>0</span>)
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>2</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>)
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>3</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>2</span>,<span class='fl'>0</span>)
+    <span class='no'>Z_index</span>[<span class='no'>nn</span>,<span class='fl'>4</span>,] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>2</span>)
+}
+<span class='co'>#** starting values and parameter names</span>
+<span class='no'>beta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>0</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>beta</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Mx"</span>, <span class='st'>"My"</span>)
+<span class='co'># id vector</span>
+<span class='no'>id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span> )
+<span class='co'>#** mlnormal function</span>
+<span class='no'>mod4a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>LAM</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/LAM/man/mlnormal.html'>mlnormal</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='no'>y1</span>, <span class='kw'>X</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>id</span><span class='kw'>=</span><span class='no'>id</span>, <span class='kw'>Z_list</span><span class='kw'>=</span><span class='no'>Z</span>, <span class='kw'>Z_index</span><span class='kw'>=</span><span class='no'>Z_index</span>,
+            <span class='kw'>beta</span><span class='kw'>=</span><span class='no'>beta</span>, <span class='kw'>theta</span><span class='kw'>=</span><span class='no'>theta</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span> )
+<span class='co'># parameter with lower diagonal entries of Cholesky matrix</span>
+<span class='no'>mod4a</span>$<span class='no'>theta</span>
+<span class='co'># fill-in parameters for Cholesky matrix</span>
+<span class='no'>L</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0</span>,<span class='fl'>2</span>,<span class='fl'>2</span>)
+<span class='no'>L</span>[ ! <span class='fu'><a href='https://rdrr.io/r/base/lower.tri.html'>upper.tri</a></span>(<span class='no'>L</span>) ] <span class='kw'>&lt;-</span> <span class='no'>mod4a</span>$<span class='no'>theta</span>
+<span class='co'>#** reconstruct covariance matrix</span>
+<span class='no'>L</span>
+<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/cov.wt.html'>cov.wt</a></span>(<span class='no'>dat</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"ML"</span>)$<span class='no'>cov</span>
+}</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#details">Details</a></li>
-
       <li><a href="#value">Value</a></li>
-
       <li><a href="#references">References</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -895,13 +895,16 @@ stats::cov.wt(dat, method="ML")$cov
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

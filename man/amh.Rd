@@ -1,5 +1,5 @@
 %% File Name: amh.Rd
-%% File Version: 0.83
+%% File Version: 0.854
 
 \name{amh}
 \alias{amh}
@@ -45,7 +45,7 @@ obtained. The optimization functions \link[stats:optim]{stats::optim} or
 amh(data, nobs, pars, model,  prior, proposal_sd,  pars_lower=NULL,
       pars_upper=NULL, derivedPars=NULL, n.iter=5000, n.burnin=1000,
       n.sims=3000, acceptance_bounds=c(.45,.55), proposal_refresh=50,
-      proposal_equal=4, print_iter=50 )
+      proposal_equal=4, print_iter=50, boundary_ignore=TRUE )
 
 pmle( data, nobs, pars, model,  prior=NULL, model_grad=NULL, pars_lower=NULL,
       pars_upper=NULL, method="L-BFGS-B", control=list(), verbose=TRUE, hessian=TRUE,
@@ -124,6 +124,8 @@ for fixing the SD}
   \item{print_iter}{
 Display progress every \code{print_iter}th iteration
 }
+\item{boundary_ignore}{Logical indicating whether sampled values outside the
+specified boundaries should be ignored.}
 \item{model_grad}{Optional function which evaluates the gradient of
 the log-likelihood function (must be a function of \code{pars}.}
 \item{method}{Optimization method in \code{\link[stats:optim]{stats::optim}}}
@@ -187,12 +189,14 @@ during burn-in phase}
 \references{
 Cole, S. R., Chu, H., & Greenland, S. (2013). Maximum likelihood, profile likelihood,
 and penalized likelihood: a primer. \emph{American Journal of Epidemiology, 179}(2), 252-260.
+\doi{10.1093/aje/kwt245}
 
 Hoff, P. D. (2009). \emph{A first course in Bayesian statistical methods}.
 New York: Springer.
 
 Roberts, G. O., & Rosenthal, J. S. (2001). Optimal scaling for various Metropolis-Hastings
 algorithms. \emph{Statistical Science, 16}(4), 351-367.
+\doi{10.1214/ss/1015346320}
 }
 
 %\author{

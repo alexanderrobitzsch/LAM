@@ -1,7 +1,8 @@
 ## File Name: summary.amh.R
-## File Version: 0.29
+## File Version: 0.356
 
-#############################################################
+
+##*** summary amh
 summary.amh <- function( object, digits=3, file=NULL,... )
 {
     # open sink
@@ -21,31 +22,35 @@ summary.amh <- function( object, digits=3, file=NULL,... )
     cat( "   End  :", paste( object$time$end ), "\n" )
     cat("Computation time:", print(object$time$end - object$time$start), "\n\n")
 
-    cat( "Number of iterations=", object$n.iter, "\n" )
-    cat( "Number of burnin iterations=", object$n.burnin, "\n" )
-    cat( "Number of saved iterations=", object$n.saved, "\n\n" )
+    cat( "Number of iterations", "=", object$n.iter, "\n" )
+    cat( "Number of burnin iterations", "=", object$n.burnin, "\n" )
+    cat( "Number of saved iterations", "=", object$n.saved, "\n\n" )
 
     cat("-----------------------------------------------------------------\n")
     cat("Marginal MAP Estimation\n")
 
-    cat( "Deviance=", round( object$deviance, 2 ), "\n" )
-    cat( "Log Likelihood=", round( -object$deviance/2, 2 ), "\n" )
-    cat( "Log Prior=", round( object$ic$logprior, 2 ), "\n" )
-    cat( "Log Posterior=", round( object$ic$logpost, 2 ), "\n\n" )
+    cat( "Deviance", "=", round( object$deviance, 2 ), "\n" )
+    cat( "Log Likelihood", "=", round( -object$deviance/2, 2 ), "\n" )
+    cat( "Log Prior", "=", round( object$ic$logprior, 2 ), "\n" )
+    cat( "Log Posterior", "=", round( object$ic$logpost, 2 ), "\n\n" )
 
-    cat( "Number of persons=", object$ic$n, "\n" )
-    cat( "Number of estimated parameters=", object$ic$np, "\n\n" )
+    cat( "Number of persons", "=", object$ic$n, "\n" )
+    cat( "Number of estimated parameters", "=", object$ic$np, "\n\n" )
 
-    cat( "AIC=", round( object$ic$AIC, 0 ), " | penalty=", round( object$ic$AIC - object$ic$deviance,2 ),
+    cat( "AIC", "=", round( object$ic$AIC, 0 ), " | penalty", "=",
+            lam_print_summary_ic_penalty(ic=object$ic, crit="AIC", digits=2),
             "   | AIC=-2*LL + 2*p  \n" )
-    cat( "AICc=", round( object$ic$AICc, 0 )," | penalty=", round( object$ic$AICc - object$ic$deviance,2 ) )
+    cat( "AICc", "=", round( object$ic$AICc, 0 )," | penalty", "=",
+            lam_print_summary_ic_penalty(ic=object$ic, crit="AICc", digits=2))
         cat("    | AICc=-2*LL + 2*p + 2*p*(p+1)/(n-p-1)  (bias corrected AIC)\n" )
-    cat( "BIC=", round( object$ic$BIC, 0 ), " | penalty=", round( object$ic$BIC - object$ic$deviance,2 ),
+    cat( "BIC", "=", round( object$ic$BIC, 0 ), " | penalty", "=",
+            lam_print_summary_ic_penalty(ic=object$ic, crit="BIC", digits=2),
             "   | BIC=-2*LL + log(n)*p  \n" )
-    cat( "DIC=", round( object$ic$DIC, 0 ), " | penalty=",
+    cat( "DIC", "=", round( object$ic$DIC, 0 ), " | penalty", "=",
                 round( 2*object$ic$pD,2 ),
             "   | DIC=-2*LL + 2*pD  \n" )
-    cat( "CAIC=", round( object$ic$CAIC, 0 )," | penalty=", round( object$ic$CAIC - object$ic$deviance,2 ) )
+    cat( "CAIC", "=", round( object$ic$CAIC, 0 )," | penalty", "=",
+        lam_print_summary_ic_penalty(ic=object$ic, crit="CAIC", digits=2) )
         cat("   | CAIC=-2*LL + [log(n)+1]*p  (consistent AIC)\n\n" )
 
     cat("-----------------------------------------------------------------\n")

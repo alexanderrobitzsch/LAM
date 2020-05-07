@@ -1,8 +1,8 @@
 Package: LAM
 Type: Package
 Title: Some Latent Variable Models
-Version: 0.5-3
-Date: 2019-05-09 15:53:22
+Version: 0.5-10
+Date: 2020-05-07 15:42:56
 Author: Alexander Robitzsch [aut,cre]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
@@ -28,4 +28,3 @@ URL:
     https://github.com/alexanderrobitzsch/LAM,
     https://sites.google.com/site/alexanderrobitzsch2/software
 License: GPL (>= 2)
-RoxygenNote: 6.1.1
