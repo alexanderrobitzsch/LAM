@@ -82,7 +82,7 @@ stats::nlminb can be used." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">LAM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Versions">0.5-vv</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Versions">0.6-vv</span>
       </span>
     </div>
 
@@ -142,7 +142,7 @@ obtained. The optimization functions <a href='https://rdrr.io/r/stats/optim.html
     <pre class="usage"><span class='fu'>amh</span>(<span class='no'>data</span>, <span class='no'>nobs</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='no'>prior</span>, <span class='no'>proposal_sd</span>,  <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='kw'>NULL</span>,
       <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>derivedPars</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>n.iter</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>n.burnin</span><span class='kw'>=</span><span class='fl'>1000</span>,
       <span class='kw'>n.sims</span><span class='kw'>=</span><span class='fl'>3000</span>, <span class='kw'>acceptance_bounds</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.45</span>,<span class='fl'>.55</span>), <span class='kw'>proposal_refresh</span><span class='kw'>=</span><span class='fl'>50</span>,
-      <span class='kw'>proposal_equal</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>print_iter</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>boundary_ignore</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
+      <span class='kw'>proposal_equal</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>print_iter</span><span class='kw'>=</span><span class='fl'>50</span>, <span class='kw'>boundary_ignore</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
 
 <span class='fu'>pmle</span>( <span class='no'>data</span>, <span class='no'>nobs</span>, <span class='no'>pars</span>, <span class='no'>model</span>,  <span class='kw'>prior</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>model_grad</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>pars_lower</span><span class='kw'>=</span><span class='kw'>NULL</span>,
       <span class='kw'>pars_upper</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"L-BFGS-B"</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>hessian</span><span class='kw'>=</span><span class='fl'>TRUE</span>,

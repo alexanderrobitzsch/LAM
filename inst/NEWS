@@ -31,21 +31,28 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.5  |  2020-05-07  |  Last: LAM 0.5-10
+VERSIONS LAM 0.6  |  2020-05-09  |  Last: LAM 0.6-1
 ------------------------------------------------------------------------
 
-NOTE  * changed computation of standard errors in pmle(). Now included
-        just the likelihood part.
-NOTE  * changed Metropolis-Hastings algorithm in amh() for handling boundary
-        constraints by including the argument 'boundary_ignore' argument.
-        Previous behavior of the function can be accessed by using
-        'boundary_ignore=FALSE'.
+xxx   * ...
 
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
 
 
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.5  |  2020-05-09  |  Last: LAM 0.5-15
+------------------------------------------------------------------------
+
+NOTE  * changed computation of standard errors in pmle(). Now included
+        just the likelihood part.
+NOTE  * changed Metropolis-Hastings algorithm in amh() for handling boundary
+        constraints
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.4  |  2019-05-06  |  Last: LAM 0.4-17

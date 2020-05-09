@@ -1,5 +1,5 @@
 ## File Name: amh.R
-## File Version: 0.756
+## File Version: 0.757
 
 
 #*** adaptive Metropolis-Hastings sampler
@@ -7,7 +7,7 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
         pars_lower=NULL, pars_upper=NULL, derivedPars=NULL,
         n.iter=5000, n.burnin=1000, n.sims=3000,
         acceptance_bounds=c(.45,.55), proposal_refresh=50,
-        proposal_equal=4, print_iter=50, boundary_ignore=TRUE )
+        proposal_equal=4, print_iter=50, boundary_ignore=FALSE )
 {
     requireNamespace("coda")
     time <- list( "start"=Sys.time() )
