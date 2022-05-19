@@ -1,5 +1,5 @@
 %% File Name: loglike_mvnorm.Rd
-%% File Version: 0.29
+%% File Version: 0.31
 
 \name{loglike_mvnorm}
 \alias{loglike_mvnorm}
@@ -112,12 +112,13 @@ res2 <- LAM::loglike_mvnorm( M=M, S=S, mu=mu, Sigma=Sigma, n=N, lambda=1 )
 print(res1)
 print(res2)
 
+\dontrun{
+
 #############################################################################
 # EXAMPLE 2: Multivariate normal distribution with missing data patterns
 #############################################################################
 
 library(STARTS)
-
 data(data.starts01b, package="STARTS")
 dat <- data.starts01b
 dat1 <- dat[, paste0("E",1:3)]
@@ -130,6 +131,7 @@ Sigma <- stats::cov(dat1, use="pairwise.complete.obs")
 
 #-- compute log-likelihood
 LAM::loglike_mvnorm_NA_pattern( suff_stat=suff_stat, mu=mu, Sigma=Sigma)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

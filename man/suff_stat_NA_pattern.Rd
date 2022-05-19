@@ -1,5 +1,5 @@
 %% File Name: suff_stat_NA_pattern.Rd
-%% File Version: 0.07
+%% File Version: 0.081
 
 \name{suff_stat_NA_pattern}
 \alias{suff_stat_NA_pattern}
@@ -59,6 +59,8 @@ A list with following entries
 
 
 \examples{
+\dontrun{
+
 #############################################################################
 # EXAMPLE 1: Toy example for computation of sufficient statistics
 #############################################################################
@@ -72,6 +74,7 @@ dat1 <- dat[, paste0("E",1:3)]
 #-- compute sufficient statistics
 res <- LAM::suff_stat_NA_pattern(dat1)
 str(res)
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

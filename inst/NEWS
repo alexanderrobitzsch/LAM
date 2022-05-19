@@ -31,7 +31,7 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS LAM 0.6  |  2020-05-09  |  Last: LAM 0.6-1
+VERSIONS LAM 0.7  |  2022-05-19  |  Last: LAM 0.7-1
 ------------------------------------------------------------------------
 
 xxx   * ...
@@ -41,6 +41,18 @@ DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
 
 
+
+
+
+------------------------------------------------------------------------
+VERSIONS LAM 0.6  |  2022-05-17  |  Last: LAM 0.6-19
+------------------------------------------------------------------------
+
+NOTE  * new release on CRAN because LAM was removed due to
+        the removal of the dependent CDM package from CRAN
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
 
 ------------------------------------------------------------------------
 VERSIONS LAM 0.5  |  2020-05-09  |  Last: LAM 0.5-15
