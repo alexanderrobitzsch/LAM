@@ -1,5 +1,6 @@
 ## File Name: mlnormal_update_control_list.R
 ## File Version: 0.03
+## File Last Change: 2018-05-18
 
 mlnormal_update_control_list <- function(control, control0)
 {

@@ -1,5 +1,6 @@
 ## File Name: mlnormal_update_V_R.R
 ## File Version: 0.28
+## File Last Change: 2019-05-05
 
 ##############################################
 # update matrix V and its inverse

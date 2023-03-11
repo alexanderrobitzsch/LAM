@@ -1,5 +1,6 @@
 ## File Name: lam_vcov_to_se.R
 ## File Version: 0.03
+## File Last Change: 2019-05-06
 
 lam_vcov_to_se <- function(x, to_matrix=FALSE, byrow=TRUE)
 {

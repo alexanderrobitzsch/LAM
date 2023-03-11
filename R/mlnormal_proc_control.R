@@ -1,5 +1,6 @@
 ## File Name: mlnormal_proc_control.R
 ## File Version: 0.10
+## File Last Change: 2018-11-23
 
 mlnormal_proc_control <- function( control_beta, control_theta,
         beta_lower, beta_upper, theta_lower, theta_upper)

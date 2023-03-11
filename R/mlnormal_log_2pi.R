@@ -1,5 +1,6 @@
 ## File Name: mlnormal_log_2pi.R
 ## File Version: 0.02
+## File Last Change: 2017-01-18
 
 mlnormal_log_2pi <- function()
 {

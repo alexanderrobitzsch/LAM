@@ -1,5 +1,6 @@
 ## File Name: amh_sampling.R
 ## File Version: 0.393
+## File Last Change: 2020-05-07
 
 
 #--- sampling step in amh routine

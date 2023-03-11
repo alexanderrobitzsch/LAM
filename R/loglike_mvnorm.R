@@ -1,5 +1,6 @@
 ## File Name: loglike_mvnorm.R
 ## File Version: 0.30
+## File Last Change: 2018-11-23
 
 ##############################################################
 # returns the log-likelihood value of a multivariate

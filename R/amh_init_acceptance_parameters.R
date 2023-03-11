@@ -1,5 +1,6 @@
 ## File Name: amh_init_acceptance_parameters.R
 ## File Version: 0.03
+## File Last Change: 2018-11-23
 
 amh_init_acceptance_parameters <- function(pars)
 {

@@ -1,5 +1,6 @@
 ## File Name: logLik_lam.R
 ## File Version: 0.01
+## File Last Change: 2018-05-18
 
 
 logLik_lam <- function (object, ...)

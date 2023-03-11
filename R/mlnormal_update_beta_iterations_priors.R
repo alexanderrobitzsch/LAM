@@ -1,5 +1,6 @@
 ## File Name: mlnormal_update_beta_iterations_priors.R
 ## File Version: 0.08
+## File Last Change: 2018-11-23
 
 
 mlnormal_update_beta_iterations_priors <- function(beta, prior_args, XVX, XVY,

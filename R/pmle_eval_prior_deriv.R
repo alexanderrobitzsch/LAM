@@ -1,5 +1,6 @@
 ## File Name: pmle_eval_prior_deriv.R
 ## File Version: 0.05
+## File Last Change: 2018-05-18
 
 pmle_eval_prior_deriv <- function(prior, pars, h=1e-4, eps=1e-100)
 {
