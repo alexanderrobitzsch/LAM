@@ -1,6 +1,5 @@
 ## File Name: mlnormal_proc_variance_shortcut_Z_R.R
 ## File Version: 0.10
-## File Last Change: 2019-05-05
 
 
 mlnormal_proc_variance_shortcut_Z_R <- function( Z_list, Z_index, G, freq_id){

@@ -1,6 +1,5 @@
 ## File Name: mlnormal_eval_penalty_update_theta.R
 ## File Version: 0.19
-## File Last Change: 2018-11-23
 
 mlnormal_eval_penalty_update_theta <- function( theta, prior_args, iter,
     der, theta_infomat1, control_theta )

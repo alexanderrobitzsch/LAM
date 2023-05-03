@@ -1,6 +1,5 @@
 ## File Name: amh_proc_methods.R
 ## File Version: 0.05
-## File Last Change: 2018-11-23
 
 
 amh_proc_methods <- function(amh_summary, mcmcobj)

@@ -1,6 +1,5 @@
 ## File Name: mlnormal_equal_list_matrices.R
 ## File Version: 0.12
-## File Last Change: 2018-11-23
 
 
 mlnormal_equal_list_matrices <- function( list_mat1, list_mat2, dim_list,

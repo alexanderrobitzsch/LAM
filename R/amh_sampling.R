@@ -1,6 +1,5 @@
 ## File Name: amh_sampling.R
-## File Version: 0.393
-## File Last Change: 2020-05-07
+## File Version: 0.412
 
 
 #--- sampling step in amh routine
@@ -11,11 +10,15 @@ amh_sampling <- function(pars, data, model, prior,
 {
     NP <- length(pars)
     priorval0 <- 0
-    for (pp in 1:NP){
+    for (pp in 1L:NP){
         pars_old <- pars
         #*** evaluate posterior for old parameters
         pars_pp <- names(pars)[pp]
-        ll_old <- do.call( model, list( pars=pars_old, data=data ) )
+        if (pp==1){
+            ll_old <- do.call( what=model, args=list( pars=pars_old, data=data ) )
+        } else {
+            ll_old <- ll
+        }
         prior_arg_pp <- prior[[pp]][[2]]
         prior_arg_pp[[1]] <- pars_old[pp]
         priorval_pp_old <- log( do.call( prior[[pp]][[1]], prior_arg_pp ) + eps )
@@ -24,14 +27,14 @@ amh_sampling <- function(pars, data, model, prior,
 
         #* handle sampled values at boundaries
         res <- amh_sampling_boundary_values(pars_pp_new=pars_pp_new, pp=pp,
-                pars_lower=pars_lower,    pars_upper=pars_upper, pars_old=pars_old,
+                pars_lower=pars_lower, pars_upper=pars_upper, pars_old=pars_old,
                 boundary_ignore=boundary_ignore)
         reject <- res$reject
         pars_pp_new <- res$pars_pp_new
 
         pars_new <- pars
         pars_new[pp] <- pars_pp_new
-        ll_new <- do.call( model, list( pars=pars_new, data=data ) )
+        ll_new <- do.call( what=model, args=list( pars=pars_new, data=data ) )
         prior_arg_pp <- prior[[pp]][[2]]
         prior_arg_pp[[1]] <- pars_new[pp]
         priorval_pp_new <- log( do.call( prior[[pp]][[1]], prior_arg_pp )  + eps )
@@ -55,8 +58,11 @@ amh_sampling <- function(pars, data, model, prior,
             ll <- ll_old
             priorval0 <- priorval0 + priorval_pp_old
         }
-        acceptance_parameters[ pp, 1:2] <- acceptance_parameters[ pp, 1:2] + c( accept, 1 )
+        acceptance_parameters[ pp, 1:2] <- acceptance_parameters[ pp, 1:2] + c( accept, 1)
+        
     }  # end pp
+    
+    
     #---- posterior update
     posteriorval <- ll + priorval0
     if ( pmle_pars$posteriorval < posteriorval ){

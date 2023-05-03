@@ -1,6 +1,5 @@
 ## File Name: lam_moving_average.R
 ## File Version: 0.02
-## File Last Change: 2018-11-23
 
 
 

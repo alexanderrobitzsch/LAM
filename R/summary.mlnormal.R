@@ -1,6 +1,5 @@
 ## File Name: summary.mlnormal.R
 ## File Version: 0.30
-## File Last Change: 2019-05-05
 
 #*******************************************************
 # Summary for mlnormal object

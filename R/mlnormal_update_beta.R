@@ -1,6 +1,5 @@
 ## File Name: mlnormal_update_beta.R
 ## File Version: 0.50
-## File Last Change: 2018-11-23
 
 ################################################################
 # update beta

@@ -1,6 +1,5 @@
 ## File Name: amh_compare_estimators.R
 ## File Version: 0.08
-## File Last Change: 2018-11-23
 
 amh_compare_estimators <- function(res_MAP, res_Mean, res_pmle ){
     pars0 <- res_MAP$pars

@@ -1,6 +1,5 @@
 ## File Name: pmle_eval_prior.R
 ## File Version: 0.03
-## File Last Change: 2018-11-23
 
 pmle_eval_prior <- function(prior, pars, eps=1e-100)
 {

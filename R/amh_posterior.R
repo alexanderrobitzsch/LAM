@@ -1,6 +1,5 @@
 ## File Name: amh_posterior.R
 ## File Version: 0.07
-## File Last Change: 2018-11-23
 amh_posterior <- function( pars, model, prior, data)
 {
     #*** evaluate likelihood

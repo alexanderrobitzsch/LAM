@@ -1,6 +1,5 @@
 ## File Name: amh_loglike.R
 ## File Version: 0.07
-## File Last Change: 2018-11-23
 
 
 #########################################################

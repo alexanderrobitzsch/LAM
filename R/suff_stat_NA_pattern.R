@@ -1,6 +1,5 @@
 ## File Name: suff_stat_NA_pattern.R
 ## File Version: 0.11
-## File Last Change: 2019-05-06
 
 
 suff_stat_NA_pattern <- function(dat)

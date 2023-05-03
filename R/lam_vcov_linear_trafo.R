@@ -1,6 +1,5 @@
 ## File Name: lam_vcov_linear_trafo.R
 ## File Version: 0.02
-## File Last Change: 2019-05-06
 
 lam_vcov_linear_trafo <- function(V, A)
 {

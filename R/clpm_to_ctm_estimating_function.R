@@ -1,6 +1,5 @@
 ## File Name: clpm_to_ctm_estimating_function.R
 ## File Version: 0.03
-## File Last Change: 2019-05-05
 
 
 clpm_to_ctm_estimating_function <- function(x, delta1, delta2)

@@ -1,6 +1,5 @@
 ## File Name: mlnormal_update_beta_XVX_Rcpp.R
 ## File Version: 0.16
-## File Last Change: 2018-11-23
 
 ################################################################
 # update beta

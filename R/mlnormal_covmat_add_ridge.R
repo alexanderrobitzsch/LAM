@@ -1,6 +1,5 @@
 ## File Name: mlnormal_covmat_add_ridge.R
 ## File Version: 0.07
-## File Last Change: 2018-11-23
 
 mlnormal_covmat_add_ridge <- function( covmat, eps=1E-10)
 {

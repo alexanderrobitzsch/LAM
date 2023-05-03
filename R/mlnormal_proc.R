@@ -1,6 +1,5 @@
 ## File Name: mlnormal_proc.R
 ## File Version: 0.36
-## File Last Change: 2018-11-23
 
 ###############################################################
 # preprocessing for mlnormal function

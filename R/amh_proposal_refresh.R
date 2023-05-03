@@ -1,6 +1,5 @@
 ## File Name: amh_proposal_refresh.R
 ## File Version: 0.25
-## File Last Change: 2020-05-07
 
 
 

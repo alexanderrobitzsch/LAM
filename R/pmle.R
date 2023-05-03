@@ -1,6 +1,5 @@
 ## File Name: pmle.R
 ## File Version: 0.610
-## File Last Change: 2020-05-07
 
 
 #-- penalized maximum likelihood estimation

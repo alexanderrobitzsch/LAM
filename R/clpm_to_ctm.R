@@ -1,6 +1,5 @@
 ## File Name: clpm_to_ctm.R
 ## File Version: 0.14
-## File Last Change: 2019-05-06
 
 clpm_to_ctm <- function(Phi1, delta1=1, delta2=2, Phi1_vcov=NULL)
 {

@@ -1,6 +1,5 @@
 ## File Name: pmle_eval_posterior.R
 ## File Version: 0.24
-## File Last Change: 2020-05-07
 
 
 #*** evaluate posterior

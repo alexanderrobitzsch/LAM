@@ -1,6 +1,5 @@
 ## File Name: print.mlnormal.R
 ## File Version: 0.14
-## File Last Change: 2019-05-05
 
 
 # print for mlnormal object
