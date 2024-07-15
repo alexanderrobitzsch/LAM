@@ -1,7 +1,7 @@
 ## File Name: mlnormal_process_prior.R
-## File Version: 0.18
+## File Version: 0.192
 
-#############################################################
+
 # processing prior distributions
 mlnormal_process_prior <- function( prior, beta, theta,
     numdiff.parm, descriptions, lambda_beta, weights_beta,
@@ -23,7 +23,7 @@ mlnormal_process_prior <- function( prior, beta, theta,
         res <- list( use_prior=FALSE, prior=NULL, dens=NULL,
                     use_GLS=TRUE )
     }
-    descriptions["log_like_verbose2"] <- descriptions["log_like_verbose"]
+    descriptions['log_like_verbose2'] <- descriptions['log_like_verbose']
 
     #*** prior distributions
     if (use_prior){
@@ -31,9 +31,9 @@ mlnormal_process_prior <- function( prior, beta, theta,
         res$use_prior <- TRUE
         prior <- res$prior
         res$use_GLS <- FALSE
-        descriptions["des_method"] <- paste0( descriptions["des_method"],
-                                        " with Prior Distributions")
-        descriptions["log_like_verbose2"] <- "Log posterior"
+        descriptions['des_method'] <- paste0( descriptions['des_method'],
+                                        ' with Prior Distributions')
+        descriptions['log_like_verbose2'] <- 'Log posterior'
     }
     #*** penalty functions
     if (use_penalty){
@@ -52,9 +52,9 @@ mlnormal_process_prior <- function( prior, beta, theta,
             weights_theta <- 1 + 0*theta
         }
         res$use_GLS <- FALSE
-        descriptions["des_method"] <- paste0( descriptions["des_method"],
-                                        " with Penalty Function")
-        descriptions["log_like_verbose2"] <- "Log posterior"
+        descriptions['des_method'] <- paste0( descriptions['des_method'],
+                                        ' with Penalty Function')
+        descriptions['log_like_verbose2'] <- 'Log posterior'
     }
 
     res$use_penalty <- use_penalty
@@ -70,4 +70,4 @@ mlnormal_process_prior <- function( prior, beta, theta,
     res$descriptions <- descriptions
     return(res)
 }
-###################################################################
+

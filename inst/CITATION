@@ -27,6 +27,7 @@ bibentry(bibtype="Manual",
          textVersion =
          paste0( person_list2 , " (",   year, "). " , 
                pkg , ": " , pkg_title , ". ",
-               vers, paste0( ". https://CRAN.R-project.org/package=", pkg) )
+               vers, paste0( ". https://CRAN.R-project.org/package=", pkg) ),
+   doi = paste0( "10.32614/CRAN.package.", pkg )
     )
 

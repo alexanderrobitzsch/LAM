@@ -1,5 +1,5 @@
 %% File Name: mlnormal.Rd
-%% File Version: 0.562
+%% File Version: 0.564
 
 \name{mlnormal}
 \alias{mlnormal}
@@ -80,7 +80,7 @@ Estimation method. Can be either \code{"ML"} or \code{"REML"}.
 }
   \item{prior}{
 Prior distributions. Can be conveniently specified in a string
-which is processed by \code{\link{prior_model_parse}}. Only
+which is processed by the function \code{prior_model_parse}. Only
 univariate prior distributions can be specified.
 }
   \item{lambda_beta}{

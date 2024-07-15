@@ -1,5 +1,5 @@
 ## File Name: mlnormal_update_beta.R
-## File Version: 0.50
+## File Version: 0.502
 
 ################################################################
 # update beta
@@ -67,9 +67,8 @@ mlnormal_update_beta <- function( NB, Z_index, G, beta,
 
     #----------------------------------
     #--- output
-    res <- list("beta"=beta, "beta_change"=beta_change,
-                            XVX=XVX, XVY=XVY, P=P,
-                            beta_increment=beta - beta0 )
+    res <- list(beta=beta, beta_change=beta_change, XVX=XVX, XVY=XVY, P=P,
+                    beta_increment=beta-beta0 )
     return(res)
 }
 ################################################################

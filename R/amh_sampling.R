@@ -1,5 +1,5 @@
 ## File Name: amh_sampling.R
-## File Version: 0.412
+## File Version: 0.414
 
 
 #--- sampling step in amh routine
@@ -58,11 +58,12 @@ amh_sampling <- function(pars, data, model, prior,
             ll <- ll_old
             priorval0 <- priorval0 + priorval_pp_old
         }
-        acceptance_parameters[ pp, 1:2] <- acceptance_parameters[ pp, 1:2] + c( accept, 1)
-        
+        acceptance_parameters[ pp, 1L:2] <- acceptance_parameters[ pp, 1L:2] +
+                                                        c( accept, 1)
+
     }  # end pp
-    
-    
+
+
     #---- posterior update
     posteriorval <- ll + priorval0
     if ( pmle_pars$posteriorval < posteriorval ){

@@ -1,5 +1,5 @@
 ## File Name: clpm_to_ctm.R
-## File Version: 0.14
+## File Version: 0.151
 
 clpm_to_ctm <- function(Phi1, delta1=1, delta2=2, Phi1_vcov=NULL)
 {
@@ -19,15 +19,15 @@ clpm_to_ctm <- function(Phi1, delta1=1, delta2=2, Phi1_vcov=NULL)
         Phi1_se <- lam_vcov_to_se(x=Phi1_vcov, to_matrix=TRUE, byrow=TRUE)
         h <- 1e-4
         grad <- matrix(NA, nrow=2*NP, ncol=NP)
-        for (pp in 1:NP){
+        for (pp in 1L:NP){
             x1 <- lam_add_increment(vec=par, pos=pp, val=h)
             y1 <- clpm_to_ctm_estimating_function(x=x1, delta1=delta1, delta2=delta2)
             x2 <- lam_add_increment(vec=par, pos=pp, val=-h)
             y2 <- clpm_to_ctm_estimating_function(x=x2, delta1=delta1, delta2=delta2)
             grad[,pp] <- (y1- y2) / (2*h)
         }
-        A_trafo <- grad[1:NP, ]
-        Phi2_trafo <- grad[NP + 1:NP, ]
+        A_trafo <- grad[1L:NP, ]
+        Phi2_trafo <- grad[NP + 1L:NP, ]
         A_vcov <- lam_vcov_linear_trafo(V=Phi1_vcov, A=A_trafo)
         A_se <- lam_vcov_to_se(x=A_vcov, to_matrix=TRUE, byrow=TRUE)
         Phi2_vcov <- lam_vcov_linear_trafo(V=Phi1_vcov, A=Phi2_trafo)

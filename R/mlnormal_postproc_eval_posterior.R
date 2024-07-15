@@ -1,5 +1,5 @@
 ## File Name: mlnormal_postproc_eval_posterior.R
-## File Version: 0.08
+## File Version: 0.091
 
 mlnormal_postproc_eval_posterior <- function(ll, beta, theta,
     prior_args, REML )
@@ -38,7 +38,7 @@ mlnormal_postproc_eval_posterior <- function(ll, beta, theta,
         display_posterior <- TRUE
     }
 
-    res <- list( "loglike"=ll, log_prior=log_prior,
+    res <- list( loglike=ll, log_prior=log_prior,
             log_posterior=log_posterior, use_prior=use_prior,
             no_priors=no_priors, use_penalty=use_penalty,
             REML=REML, display_posterior=display_posterior )

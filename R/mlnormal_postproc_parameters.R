@@ -1,9 +1,7 @@
 ## File Name: mlnormal_postproc_parameters.R
-## File Version: 0.20
+## File Version: 0.214
 
-
-#############################################################
-# postprocessing of parameters
+#*** postprocessing of parameters
 mlnormal_postproc_parameters <- function( theta, theta_init,
         beta, beta_init, theta_infomat, XVX, level, prior_args )
 {
@@ -20,26 +18,26 @@ mlnormal_postproc_parameters <- function( theta, theta_init,
     rownames(theta_vcov) <- colnames(theta_vcov) <- theta_names
 
     theta_summary <- data.frame(
-                        "parm"=theta_names,
-                        "prior"=NA,
-                        "penalty"=NA,
-                        "est"=theta,
-                        "se"=mlnormal_sqrt_diag(matr=theta_vcov) )
+                        parm=theta_names,
+                        prior=NA,
+                        penalty=NA,
+                        est=theta,
+                        se=mlnormal_sqrt_diag(matr=theta_vcov) )
     theta_summary <- sirt::parmsummary_extend( dfr=theta_summary, level=level )
 
     beta_vcov <- solve(XVX)
     beta_summary <- data.frame(
-                        "parm"=beta_names,
-                        "prior"=NA,
-                        "penalty"=NA,
-                        "est"=beta,
-                        "se"=mlnormal_sqrt_diag(matr=beta_vcov) )
+                        parm=beta_names,
+                        prior=NA,
+                        penalty=NA,
+                        est=beta,
+                        se=mlnormal_sqrt_diag(matr=beta_vcov) )
     beta_summary <- sirt::parmsummary_extend( dfr=beta_summary, level=level )
 
     if ( prior_args$use_prior ){
         dens <- paste0(prior_args$dens$prior)
-        beta_summary$prior <- dens[ 1:NB ]
-        theta_summary$prior <- dens[ NB + 1:NT ]
+        beta_summary$prior <- dens[ 1L:NB ]
+        theta_summary$prior <- dens[ NB + 1L:NT ]
     } else {
         beta_summary$prior <- NULL
         theta_summary$prior <- NULL
@@ -62,8 +60,8 @@ mlnormal_postproc_parameters <- function( theta, theta_init,
     names(coefs) <- parnames
     vcovs <- matrix( 0, nrow=NP, ncol=NP)
     rownames(vcovs) <- colnames(vcovs) <- parnames
-    vcovs[ 1:NB, 1:NB ] <- beta_vcov
-    vcovs[ NB + 1:NT, NB + 1:NT ] <- theta_vcov
+    vcovs[ 1L:NB, 1L:NB ] <- beta_vcov
+    vcovs[ NB + 1L:NT, NB + 1L:NT ] <- theta_vcov
 
     #---------------------------------
     # OUTPUT
@@ -72,4 +70,3 @@ mlnormal_postproc_parameters <- function( theta, theta_init,
                 theta_vcov=theta_vcov, coefs=coefs, vcovs=vcovs)
     return(res)
 }
-####################################################################

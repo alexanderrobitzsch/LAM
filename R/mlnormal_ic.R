@@ -1,12 +1,12 @@
 ## File Name: mlnormal_ic.R
-## File Version: 0.15
+## File Version: 0.161
 
 
-###################################################################
+#*** IC mlnormal
 mlnormal_ic <- function( dev, beta, theta, N, G,  posterior_obj  )
 {
     # Information criteria
-    ic <- list( "deviance"=as.vector(dev), N=N, G=G)
+    ic <- list( deviance=as.vector(dev), N=N, G=G)
 
     ic$loglike <- - dev / 2
     ic$np.beta <- length(beta)
@@ -26,4 +26,3 @@ mlnormal_ic <- function( dev, beta, theta, N, G,  posterior_obj  )
 
     return(ic)
 }
-###################################################################

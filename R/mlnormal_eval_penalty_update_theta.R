@@ -1,5 +1,5 @@
 ## File Name: mlnormal_eval_penalty_update_theta.R
-## File Version: 0.19
+## File Version: 0.193
 
 mlnormal_eval_penalty_update_theta <- function( theta, prior_args, iter,
     der, theta_infomat1, control_theta )
@@ -22,12 +22,9 @@ mlnormal_eval_penalty_update_theta <- function( theta, prior_args, iter,
     do_iterate <- TRUE
     it <- 1
 
-# Revalpr("theta")
-
     while(do_iterate){
         theta00 <- theta
-        for (tt in 1:NT){
-            # tt <- 1    # parameter tt
+        for (tt in 1L:NT){
             eta_tt <- der[tt]
             xsi_tt <- theta_infomat1[ tt, tt ]
             # elim_tt <- c(tt)

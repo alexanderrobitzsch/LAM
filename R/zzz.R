@@ -1,5 +1,5 @@
 ## File Name: zzz.R
-## File Version: 0.07
+## File Version: 0.085
 #  zzz.R
 #
 # This function is simply copied from the mice package.
@@ -8,14 +8,14 @@
 # on attach sirt
 .onAttach <- function(libname,pkgname)
 {
-    d <- utils::packageDescription("LAM")
+    d <- utils::packageDescription('LAM')
     d1 <- d$Version
     packageStartupMessage(
-        paste("## ", d$Package," ", d1," (",d$Date,")",sep="")  )
+        paste('## ', d$Package,' ', d1,' (',d$Date,')',sep='')  )
 }
 
 
-version <- function(pkg="LAM")
+version <- function(pkg='LAM')
 {
     lib <- dirname( system.file(package=pkg))
     d <- utils::packageDescription(pkg)

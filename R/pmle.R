@@ -1,5 +1,5 @@
 ## File Name: pmle.R
-## File Version: 0.610
+## File Version: 0.612
 
 
 #-- penalized maximum likelihood estimation
@@ -9,7 +9,7 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
         optim_fct="nlminb", h=1e-4, ...)
 {
 
-    time <- list( "start"=Sys.time() )
+    time <- list( 'start'=Sys.time() )
     CALL <- match.call()
 
     #*** convert prior if needed
@@ -52,14 +52,14 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
 
     #**** start optimization function
     if (verbose){
-        cat("***************************\n")
-        cat("Starting Optimization\n\n")
+        cat('***************************\n')
+        cat('Starting Optimization\n\n')
         #- adapt trace
         if ( is.null(control$trace) ){
-            if (optim_fct=="optim"){
+            if (optim_fct=='optim'){
                 control$trace <- 3
             }
-            if (optim_fct=="nlminb"){
+            if (optim_fct=='nlminb'){
                 control$trace <- 1
             }
         }
@@ -67,13 +67,13 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
     }
 
     #--- optimization
-    if ( optim_fct=="optim"){
+    if ( optim_fct=='optim'){
         res0 <- stats::optim( par=pars, fn=pmle_obj, gr=pmle_grad, method=method,
                     lower=pars_lower, upper=pars_upper,
                     control=control, hessian=hessian, ... )
     }
-    if ( optim_fct=="nlminb"){
-        requireNamespace("numDeriv")
+    if ( optim_fct=='nlminb'){
+        requireNamespace('numDeriv')
         res0 <- stats::nlminb( start=pars, objective=pmle_obj, gradient=pmle_grad,
                     lower=pars_lower, upper=pars_upper,
                     control=control, ... )
@@ -81,7 +81,7 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
     converged <- res0$convergence==0
     coef1 <- res0$par
     if (hessian){
-        requireNamespace("MASS")
+        requireNamespace('MASS')
         #-- compute Hessian matrix
         res0$hessian <- numDeriv::hessian(func=pmle_ll, x=res0$par)
         hess1 <- res0$hessian
@@ -90,12 +90,12 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
         vcov1 <- hess1 <- NULL
     }
     if (verbose){
-        cat("\n***************************\n")
+        cat('\n***************************\n')
         utils::flush.console()
     }
 
     # summary
-    pmle_summary <- data.frame( "parameter"=names(pars), "est"=coef1 )
+    pmle_summary <- data.frame( 'parameter'=names(pars), 'est'=coef1 )
     rownames(pmle_summary) <- NULL
     if ( hessian ){
         pmle_summary$se <- sqrt( diag(vcov1))
@@ -119,9 +119,9 @@ pmle <- function( data, nobs, pars, model, prior=NULL, model_grad=NULL,
         loglik=ll, ic=ic, deviance=-2*ll, model=model, prior=prior, prior_summary=dens,
         data=data, nobs=nobs, results_optim=res0, converged=converged,
         time=time, CALL=CALL, optim_fct=optim_fct, use_grad=use_grad )
-    v1 <- paste0( "Penalized Maximum Likelihood Estimation \n "    ,
-                "   (Maximum Posterior Estimation, MAP)" )
+    v1 <- paste0( 'Penalized Maximum Likelihood Estimation \n '    ,
+                '   (Maximum Posterior Estimation, MAP)' )
     res$description <- v1
-    class(res) <- "pmle"
+    class(res) <- 'pmle'
     return(res)
 }

@@ -1,5 +1,5 @@
 ## File Name: mlnormal_update_beta_iterations_penalty.R
-## File Version: 0.12
+## File Version: 0.131
 
 
 mlnormal_update_beta_iterations_penalty <- function(beta, prior_args, XVX, XVY,
@@ -22,9 +22,8 @@ mlnormal_update_beta_iterations_penalty <- function(beta, prior_args, XVX, XVY,
 
     while( do_iterations ){
         beta00 <- as.vector(beta)
-
         # parameter bb
-        for (bb in 1:NB){
+        for (bb in 1L:NB){
             T0 <- M1[bb,,drop=FALSE] - M2[bb, - bb, drop=FALSE ] %*% beta[-bb]
             T0_adj <- sirt::soft_thresholding( x=as.vector(T0), lambda=lambda[bb] )
             beta[bb] <- T0_adj / ( M2[bb,bb] + eps )

@@ -1,8 +1,8 @@
 ## File Name: mlnormal.R
-## File Version: 0.972
+## File Version: 0.975
 
-############################################################################
-# general estimation function for normally distributed data
+
+#*** general estimation function for normally distributed data
 mlnormal <- function( y, X, id, Z_list, Z_index, beta=NULL, theta,
             method="ML", prior=NULL,
             lambda_beta=NULL, weights_beta=NULL,
@@ -18,7 +18,7 @@ mlnormal <- function( y, X, id, Z_list, Z_index, beta=NULL, theta,
     #*** preliminaries
     CALL <- match.call()
     s1 <- Sys.time()
-    disp <- mlnormal_create_disp( symbol=".", length=60, line_break=TRUE )
+    disp <- mlnormal_create_disp( symbol='.', length=60, line_break=TRUE )
 
 zz0 <- Sys.time()
     # process input and print
@@ -28,7 +28,7 @@ zz0 <- Sys.time()
                 REML_shortcut=REML_shortcut, method=method,
                 Z_list=Z_list, Z_index=Z_index,
                 variance_shortcut=variance_shortcut, use_Rcpp=use_Rcpp )
-# cat("* proc mlnormal ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+# cat('* proc mlnormal ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
     id_list <- res$id_list
     G <- res$G
@@ -105,7 +105,7 @@ zz0 <- Sys.time()
         V_list <- res$V_list
         V1_list <- res$V1_list
         rcpp_args <- res$rcpp_args
-# cat("* update V ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+# cat('* update V ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # derivatives of V with respect to theta
         res <- mlnormal_update_ml_derivative_V( N=N, NT=NT, G=G,
@@ -117,7 +117,7 @@ zz0 <- Sys.time()
         D1_V_list <- res$D1_V_list
         V1_D1V_V1_list <- res$V1_D1V_V1_list
 
-# cat("* derivative V ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+# cat('* derivative V ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # update beta
         res <- mlnormal_update_beta( NB=NB, Z_index=Z_index, G=G, beta=beta,
@@ -131,7 +131,7 @@ zz0 <- Sys.time()
         XVX <- res$XVX
         XVY <- res$XVY
         P <- res$P
-#        cat("* update beta ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+#        cat('* update beta ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # update theta
         res <- mlnormal_update_theta_ml( y=y, X=X, beta=beta,
@@ -148,7 +148,7 @@ zz0 <- Sys.time()
         yresid <- res$yresid
         theta_infomat <- res$theta_infomat
         theta_increment <- res$theta_increment
-#  cat("* update theta ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+#  cat('* update theta ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         # compute maximum likelihood fitting function
         res <- mlnormal_fit_function_ml( id_list=id_list, V1_list=V1_list,
@@ -161,7 +161,7 @@ zz0 <- Sys.time()
         objfun <- res$objfun
         theta <- res$theta
         theta_change <- res$theta_change
-#  cat("* compute likelihood value ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+#  cat('* compute likelihood value ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
 
         #** convergence criteria
         conv_temp <- max( beta_change, theta_change )
@@ -187,7 +187,7 @@ zz0 <- Sys.time()
     if (REML_shortcut & REML & vcov ){
         if (verbose){
             cat(disp)
-            cat("Compute standard errors   ", paste( Sys.time() ), "\n" )
+            cat('Compute standard errors   ', paste( Sys.time() ), '\n' )
             utils::flush.console()
         }
         res <- mlnormal_update_beta( NB=NB, Z_index=Z_index, G=G, beta=beta,
@@ -197,7 +197,7 @@ zz0 <- Sys.time()
                     rcpp_args=rcpp_args, X=X, y=y, use_Rcpp=use_Rcpp,
                     prior_args=prior_args, control_beta=control_beta )
         P <- res$P
-# cat("-- infomat update beta ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+# cat('-- infomat update beta ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
         res <- mlnormal_update_theta_ml( y=y, X=X, beta=beta,
                     Z_index=Z_index, NT=NT, G=G, id_list=id_list, V1_list=V1_list,
                     D1_V_list=D1_V_list, theta=theta, P=P, REML=REML,
@@ -208,7 +208,7 @@ zz0 <- Sys.time()
                     control_theta=control_theta
                         )
         theta_infomat <- res$theta_infomat
-# cat("-- infomat computation ") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+# cat('-- infomat computation ') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
     }
 
     #*** arrange output of parameter vectors
@@ -240,7 +240,7 @@ zz0 <- Sys.time()
                 theta_summary=theta_summary,
                 beta_summary=beta_summary,
                 coef=coefs, vcov=vcovs,
-                deviance=- 2* ll, ic=ic,
+                deviance=-2*ll, ic=ic,
                 V_list=V_list, V1_list=V1_list,
                 D1_V_list=D1_V_list,
                 descriptions=descriptions, REML=REML,
@@ -250,7 +250,6 @@ zz0 <- Sys.time()
                 converged=converged, iter=iter-1,
                 CALL=CALL, s1=s1, s2=s2    , diff_time=s2-s1
                     )
-    class(res) <- "mlnormal"
+    class(res) <- 'mlnormal'
     return(res)
 }
-#########################################################################

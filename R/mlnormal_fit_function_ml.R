@@ -1,5 +1,5 @@
 ## File Name: mlnormal_fit_function_ml.R
-## File Version: 0.26
+## File Version: 0.273
 
 
 mlnormal_fit_function_ml <- function( id_list, V1_list, G, N, yresid,
@@ -13,8 +13,7 @@ mlnormal_fit_function_ml <- function( id_list, V1_list, G, N, yresid,
 
     while (do_iterate){
         ll <- - mlnormal_log_2pi() * N/2
-        for (gg in 1:G){
-            # gg <- 1
+        for (gg in 1L:G){
             if ( do_compute[gg] ){
                 adet <- 0.5 * mlnormal_log_det( V_list[[gg]] )
             }
@@ -68,7 +67,7 @@ mlnormal_fit_function_ml <- function( id_list, V1_list, G, N, yresid,
     }
 
     #--- output
-    res <- list("loglike"=ll, log_posterior=log_posterior,
+    res <- list(loglike=ll, log_posterior=log_posterior,
                     objfun=crit, log_prior=log_prior,
                     theta=theta, theta_change=theta_change )
     return(res)

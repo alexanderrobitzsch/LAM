@@ -1,5 +1,5 @@
 ## File Name: mlnormal_proc_variance_shortcut.R
-## File Version: 0.43
+## File Version: 0.444
 
 ##########################################################################
 # process data for shortcuts in variance estimation
@@ -10,16 +10,16 @@ zz0 <- Sys.time()
     #*** group sizes
     freq_id <- rowsum( 1+0*id, id )
     freq_id <- data.frame( as.numeric( rownames(freq_id ) ), freq_id[,1] )
-    colnames(freq_id) <- c("orig_id","dim_id")
-    freq_id$start_orig <-  1 + c(0, cumsum( freq_id[1:(G-1), "dim_id"] ) )
-    freq_id$end_orig <-  cumsum( freq_id[1:G, "dim_id"] )
+    colnames(freq_id) <- c('orig_id','dim_id')
+    freq_id$start_orig <-  1 + c(0, cumsum( freq_id[1L:(G-1), 'dim_id'] ) )
+    freq_id$end_orig <-  cumsum( freq_id[1L:G, 'dim_id'] )
     freq_id <- freq_id[ order( freq_id[,2] ), ]
 
     G <- nrow(freq_id)
-    freq_id$id <- 1:G
+    freq_id$id <- 1L:G
     freq_id$update_dim <- c( 1,1 * ( diff(freq_id$dim_id) > 0 ) )
-    freq_id$start <-  1 + c(0, cumsum( freq_id[1:(G-1), "dim_id"] ) )
-    freq_id$end <-  cumsum( freq_id[1:G, "dim_id"] )
+    freq_id$start <-  1 + c(0, cumsum( freq_id[1L:(G-1), 'dim_id'] ) )
+    freq_id$end <-  cumsum( freq_id[1L:G, 'dim_id'] )
 
     #--------------------------------------
     #---- check equality of Z_index and Z_list
@@ -44,7 +44,7 @@ zz0 <- Sys.time()
     #---- rearrange Z_index and Z_list
     Z_index <- Z_index[ freq_id[,1],,, drop=FALSE]
     Z_list0 <- Z_list
-    for (gg in 1:G){
+    for (gg in 1L:G){
         Z_list[[gg]] <- Z_list0[[  freq_id[gg,1] ]]
     }
 
@@ -59,7 +59,7 @@ zz0 <- Sys.time()
     y <- res$y
     X <- res$X
 
-    id <- rep( 1:G, freq_id$dim_id )
+    id <- rep( 1L:G, freq_id$dim_id )
 
     #---------------------------------------
     #---------- output
@@ -70,4 +70,4 @@ zz0 <- Sys.time()
 }
 #############################################################################
 
-#  cat("##### rearrange Z_list and Z_index") ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1
+#  cat('##### rearrange Z_list and Z_index') ; zz1 <- Sys.time(); print(zz1-zz0) ; zz0 <- zz1

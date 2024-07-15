@@ -1,5 +1,5 @@
 ## File Name: loglike_mvnorm_NA_pattern_R.R
-## File Version: 0.24
+## File Version: 0.251
 
 
 loglike_mvnorm_NA_pattern_R <- function( suff_stat, mu, Sigma, log=TRUE, lambda=0,
@@ -11,7 +11,7 @@ loglike_mvnorm_NA_pattern_R <- function( suff_stat, mu, Sigma, log=TRUE, lambda=
     M <- suff_stat$M
     S <- suff_stat$S
     varindex <- suff_stat$varindex
-    for (pp in 1:NP){
+    for (pp in 1L:NP){
         varindex_pp <- varindex[[pp]]
         mu_pp <- mu[ varindex_pp ]
         Sigma_pp <- Sigma[ varindex_pp, varindex_pp, drop=FALSE ]

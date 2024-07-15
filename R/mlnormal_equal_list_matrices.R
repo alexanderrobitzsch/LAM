@@ -1,5 +1,5 @@
 ## File Name: mlnormal_equal_list_matrices.R
-## File Version: 0.12
+## File Version: 0.131
 
 
 mlnormal_equal_list_matrices <- function( list_mat1, list_mat2, dim_list,
@@ -9,7 +9,7 @@ mlnormal_equal_list_matrices <- function( list_mat1, list_mat2, dim_list,
         dim_list <- length(list_mat1)
     }
     v1 <- 1
-    for ( dd in 1:dim_list ){
+    for ( dd in 1L:dim_list ){
         v1 <- v1 * mlnormal_equal_matrix( mat1=list_mat1[[dd]],
                     mat2=list_mat2[[dd]], eps=eps )
     }

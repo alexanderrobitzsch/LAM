@@ -1,12 +1,12 @@
 ## File Name: pmle_ic.R
-## File Version: 0.17
+## File Version: 0.181
 
 
-###################################################################
+
 pmle_ic <- function( dev, N, pars, model, data, post_values )
 {
     # Information criteria
-    ic <- list( "deviance"=dev, "n"=N )
+    ic <- list( deviance=dev, n=N )
 
     ic$loglike <- post_values$ll
     ic$prior <- post_values$prior
@@ -23,4 +23,4 @@ pmle_ic <- function( dev, N, pars, model, data, post_values )
     ic$AICc <- ic$AIC + 2*ic$np * ( ic$np + 1 ) / ( ic$n - ic$np - 1 )
     return(ic)
 }
-###################################################################
+

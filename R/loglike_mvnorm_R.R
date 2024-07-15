@@ -1,7 +1,5 @@
 ## File Name: loglike_mvnorm_R.R
-## File Version: 0.37
-
-
+## File Version: 0.381
 
 
 #* returns the log-likelihood value of a multivariate
@@ -16,7 +14,7 @@ loglike_mvnorm_R <- function( M, S, mu, Sigma, n, log=TRUE, lambda=0,
         Sigma <- w * Sigma + (1-w)*Sigma0
     }
     if (ginv){
-        requireNamespace("MASS")
+        requireNamespace('MASS')
         Sigma1 <- MASS::ginv(Sigma)
     } else {
         Sigma1 <- solve(Sigma)

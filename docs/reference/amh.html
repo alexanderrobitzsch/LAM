@@ -30,7 +30,7 @@ stats::nlminb can be used."><!-- mathjax --><script src="https://cdnjs.cloudflar
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">LAM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.7</span
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.8</span
       </span>
     </div>
 
@@ -432,7 +432,7 @@ alternative <span style="R">R</span> packages.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/logLik.html" class="external-link">logLik</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#--- compare Bayesian credibility intervals and HPD intervals</span></span>
-<span><span class="va">ci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>, <span class="fu">coda</span><span class="fu">::</span><span class="fu">HPDinterval</span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">mcmcobj</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">)</span></span>
+<span><span class="va">ci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span>, <span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/HPDinterval.html" class="external-link">HPDinterval</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">mcmcobj</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">)</span></span>
 <span><span class="va">ci</span></span>
 <span><span class="co"># interval lengths</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span> <span class="va">ci</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">-</span><span class="va">ci</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, <span class="va">ci</span><span class="op">[</span>,<span class="fl">4</span><span class="op">]</span> <span class="op">-</span> <span class="va">ci</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span> <span class="op">)</span></span>
@@ -647,7 +647,7 @@ alternative <span style="R">R</span> packages.</p>
 <span>    <span class="va">var_ar</span> <span class="op">&lt;-</span> <span class="va">pars</span><span class="op">[</span><span class="st">"va"</span><span class="op">]</span></span>
 <span>    <span class="va">var_state</span> <span class="op">&lt;-</span> <span class="va">pars</span><span class="op">[</span><span class="st">"vs"</span><span class="op">]</span></span>
 <span>    <span class="va">a</span> <span class="op">&lt;-</span> <span class="va">pars</span><span class="op">[</span><span class="st">"b"</span><span class="op">]</span></span>
-<span>    <span class="va">Sigma</span> <span class="op">&lt;-</span> <span class="fu">STARTS</span><span class="fu">::</span><span class="fu">starts_uni_cov</span><span class="op">(</span> W<span class="op">=</span><span class="va">W</span>, var_trait<span class="op">=</span><span class="va">var_trait</span>,</span>
+<span>    <span class="va">Sigma</span> <span class="op">&lt;-</span> <span class="fu">STARTS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/STARTS/man/starts_uni.html" class="external-link">starts_uni_cov</a></span><span class="op">(</span> W<span class="op">=</span><span class="va">W</span>, var_trait<span class="op">=</span><span class="va">var_trait</span>,</span>
 <span>                var_ar<span class="op">=</span><span class="va">var_ar</span>, var_state<span class="op">=</span><span class="va">var_state</span>, a<span class="op">=</span><span class="va">a</span> <span class="op">)</span></span>
 <span>    <span class="co"># evaluate log-likelihood</span></span>
 <span>    <span class="va">ll</span> <span class="op">&lt;-</span> <span class="fu">LAM</span><span class="fu">::</span><span class="fu"><a href="loglike_mvnorm.html">loglike_mvnorm</a></span><span class="op">(</span> S<span class="op">=</span><span class="va">data</span><span class="op">$</span><span class="va">S</span>, Sigma<span class="op">=</span><span class="va">Sigma</span>, M<span class="op">=</span><span class="va">data</span><span class="op">$</span><span class="va">M</span>, mu<span class="op">=</span><span class="va">mu</span>,</span>

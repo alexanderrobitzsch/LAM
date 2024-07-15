@@ -1,5 +1,5 @@
 ## File Name: amh.R
-## File Version: 0.757
+## File Version: 0.763
 
 
 #*** adaptive Metropolis-Hastings sampler
@@ -9,8 +9,8 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
         acceptance_bounds=c(.45,.55), proposal_refresh=50,
         proposal_equal=4, print_iter=50, boundary_ignore=FALSE )
 {
-    requireNamespace("coda")
-    time <- list( "start"=Sys.time() )
+    requireNamespace('coda')
+    time <- list( start=Sys.time() )
     CALL <- match.call()
 
     #*** convert prior if needed
@@ -41,9 +41,9 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
     proposal_sd_history[1,] <- proposal_sd
     colnames(proposal_sd_history) <- names(pars)
     rownames(proposal_sd_history) <- iter_refresh
-    attr(proposal_sd_history,"include") <- 2
+    attr(proposal_sd_history,'include') <- 2
     acceptance_rates_history <- proposal_sd_history[-1,,drop=FALSE]
-    attr(acceptance_rates_history,"include") <- 1
+    attr(acceptance_rates_history,'include') <- 1
 
     #*** create object for saving chains
     n.sims1 <- n.iter - n.burnin
@@ -54,7 +54,7 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
     iter_thinned <- iter_thinned[ iter_thinned > n.burnin ]
     NS <- length(iter_thinned)
     pars_chain <- matrix( NA, nrow=NS, ncol=NP+1)
-    colnames(pars_chain) <- c("deviance",names(pars))
+    colnames(pars_chain) <- c('deviance',names(pars))
     # iter_save <- seq( n.burnin+1, n.iter )
     iter_save <- iter_thinned
     it <- 1
@@ -62,9 +62,11 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
 
     while( it <=n.iter){
         res <- amh_sampling( pars=pars, data=data, model=model, prior=prior,
-                        proposal_sd=proposal_sd, acceptance_parameters=acceptance_parameters,
-                        pars_lower=pars_lower, pars_upper=pars_upper, pmle_pars=pmle_pars,
-                        it=it, boundary_ignore=boundary_ignore)
+                        proposal_sd=proposal_sd,
+                        acceptance_parameters=acceptance_parameters,
+                        pars_lower=pars_lower, pars_upper=pars_upper,
+                        pmle_pars=pmle_pars, it=it,
+                        boundary_ignore=boundary_ignore)
         pars <- res$pars
         acceptance_parameters <- res$acceptance_parameters
         dev <- res$deviance
@@ -85,15 +87,15 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
                         proposal_equal=proposal_equal)
             acceptance_parameters <- res0$acceptance_parameters
             proposal_sd <- res0$proposal_sd
-            hh <- attr(proposal_sd_history,"include")
+            hh <- attr(proposal_sd_history,'include')
             proposal_sd_history[ hh, ] <- proposal_sd
-            attr(proposal_sd_history,"include") <- hh + 1
+            attr(proposal_sd_history,'include') <- hh + 1
             acceptance_rates_history <- res0$acceptance_rates_history
         }
 
         #*** print progress
         if ( it %% print_iter==0 ){
-            cat( paste0(" ** Iteration ", it, "\n")  )
+            cat( paste0(' ** Iteration ', it, '\n')  )
             utils::flush.console()
         }
         it <- it + 1
@@ -116,13 +118,13 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
 
     #*** evaluate log-likelihood for MAP estimator
     parnames <-    names(pars)
-    pars_MAP <- amh_summary[ 2:(NP+1), "MAP"]
+    pars_MAP <- amh_summary[ 2L:(NP+1), 'MAP']
     names(pars_MAP) <- parnames
     res_MAP <- amh_posterior( pars=pars_MAP, model=model, prior=prior, data=data )
     ll <- res_MAP$ll
 
     #*** evaluate log-likelihood for mean
-    pars_Mean <- amh_summary[ 2:(NP+1), "Mean"]
+    pars_Mean <- amh_summary[ 2L:(NP+1), 'Mean']
     names(pars_Mean) <- parnames
     res_Mean <- amh_posterior( pars=pars_Mean, model=model, prior=prior, data=data )
 
@@ -142,15 +144,17 @@ amh <- function( data, nobs, pars, model,  prior, proposal_sd,
 
     #**** output list
     res <- list( pars_chain=pars_chain,
-                    acceptance_parameters=acceptance_parameters, amh_summary=amh_summary,
-                    coef=coef1, vcov=vcov1, pmle_pars=pmle_pars, comp_estimators=dfr_estimators,
-                    mcmcobj=mcmcobj, loglik=ll, ic=ic, deviance=-2*ll, model=model, prior=prior,
-                    data=data, nobs=nobs, prior_summary=dens, n.iter=n.iter, n.burnin=n.burnin,
-                    thin=thin1, n.saved=NS, proposal_sd=proposal_sd,
-                    proposal_sd_history=proposal_sd_history,
-                    acceptance_rates_history=acceptance_rates_history, time=time, CALL=CALL )
-    res$description <- "Adaptive Metropolis Hastings Sampling"
-    class(res) <- "amh"
+                    acceptance_parameters=acceptance_parameters,
+                    amh_summary=amh_summary, coef=coef1, vcov=vcov1,
+                    pmle_pars=pmle_pars, comp_estimators=dfr_estimators,
+                    mcmcobj=mcmcobj, loglik=ll, ic=ic, deviance=-2*ll, model=model,
+                    prior=prior, data=data, nobs=nobs, prior_summary=dens,
+                    n.iter=n.iter, n.burnin=n.burnin, thin=thin1, n.saved=NS,
+                    proposal_sd=proposal_sd, proposal_sd_history=proposal_sd_history,
+                    acceptance_rates_history=acceptance_rates_history,
+                    time=time, CALL=CALL )
+    res$description <- 'Adaptive Metropolis Hastings Sampling'
+    class(res) <- 'amh'
     return(res)
 }
 

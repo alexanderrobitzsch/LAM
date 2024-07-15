@@ -1,11 +1,11 @@
 ## File Name: mlnormal_eval_priors.R
-## File Version: 0.17
+## File Version: 0.181
 
 mlnormal_eval_priors <- function( pars, prior, sum_all=FALSE ){
     NP <- length(pars)
     priorval0 <- rep(NA,NP)
     eps <- 1E-100
-    for (pp in 1:NP){
+    for (pp in 1L:NP){
         #*** evaluate
         pars_pp <- names(pars)[pp]
         prior_pp <- prior[[ pars_pp ]]
